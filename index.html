@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --spotify-black: #121212;
+            --spotify-dark-gray: #181818;
+            --spotify-gray: #282828;
+            --spotify-light-gray: #b3b3b3;
+            --spotify-green: #1DB954;
+            --spotify-white: #FFFFFF;
+            --content-spacing: 24px;
+            --font-family: 'Gotham', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--spotify-black);
+            color: var(--spotify-white);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 240px;
+            background-color: var(--spotify-black);
+            padding: 24px 12px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #282828;
+        }
+
+        .logo {
+            padding: 0 12px;
+            margin-bottom: 18px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--spotify-white);
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0 12px;
+        }
+
+        .nav-item {
+            margin-bottom: 16px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            color: var(--spotify-light-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 0;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--spotify-white);
+        }
+
+        .nav-link i {
+            margin-right: 16px;
+            font-size: 18px;
+        }
+
+        .skills-section {
+            margin-top: 24px;
+            padding: 0 12px;
+        }
+
+        .skills-section h3 {
+            color: var(--spotify-light-gray);
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background-color: var(--spotify-gray);
+            border-radius: 4px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .skill-item:hover {
+            background-color: #333;
+        }
+
+        .skill-item i {
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        /* Main content area styling */
+        .main-content {
+            flex: 1;
+            background: linear-gradient(to bottom, #1a1a1a, var(--spotify-black) 20%);
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 24px;
+            box-shadow: 0 4px 60px rgba(0,0,0,.5);
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-tag {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .profile-name {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .profile-bio {
+            font-size: 16px;
+            color: var(--spotify-light-gray);
+            max-width: 800px;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 500px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--spotify-green);
+            color: var(--spotify-black);
+            border: none;
+            margin-right: 16px;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background-color: #1ed760;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--spotify-white);
+            border: 1px solid var(--spotify-light-gray);
+        }
+
+        .btn-outline:hover {
+            transform: scale(1.05);
+            border-color: var(--spotify-white);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 32px 0 16px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background-color: var(--spotify-dark-gray);
+            border-radius: 8px;
+            padding: 16px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            background-color: var(--spotify-gray);
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.5);
+        }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--spotify-light-gray);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .experience-card {
+            background-color: var(--spotify-dark-gray);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .experience-card:hover {
+            background-color: var(--spotify-gray);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .experience-company {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .experience-duration {
+            font-size: 14px;
+            color: var(--spotify-light-gray);
+        }
+
+        .experience-title {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .experience-description {
+            font-size: 14px;
+            color: var(--spotify-light-gray);
+        }
+
+        .contact-info {
+            background-color: var(--spotify-dark-gray);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .contact-item i {
+            font-size: 20px;
+            margin-right: 12px;
+            color: var(--spotify-light-gray);
+        }
+
+        .contact-text {
+            font-size: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--spotify-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--spotify-white);
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+            background-color: var(--spotify-green);
+        }
+
+        .footer {
+            margin-top: 48px;
+            padding: 24px 0;
+            border-top: 1px solid var(--spotify-gray);
+            text-align: center;
+            color: var(--spotify-light-gray);
+            font-size: 14px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 16px;
+            }
+
+            .main-content {
+                padding: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 24px;
+            }
+
+            .profile-name {
+                font-size: 48px;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h1>Portfolio</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">
+                        <i class="fas fa-folder"></i>
+                        Projects
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">
+                        <i class="fas fa-briefcase"></i>
+                        Experience
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+            <div class="skills-section">
+                <h3>Skills</h3>
+                <ul class="skills-list">
+                    <li class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        HTML/CSS
+                    </li>
+                    <li class="skill-item">
+                        <i class="fab fa-js"></i>
+                        JavaScript
+                    </li>
+                    <li class="skill-item">
+                        <i class="fab fa-react"></i>
+                        React
+                    </li>
+                    <li class="skill-item">
+                        <i class="fab fa-node-js"></i>
+                        Node.js
+                    </li>
+                    <li class="skill-item">
+                        <i class="fas fa-database"></i>
+                        SQL/NoSQL
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <section id="home">
+                <div class="header">
+                    <img src="https://via.placeholder.com/200" alt="Your Photo" class="profile-photo">
+                    <div class="profile-info">
+                        <span class="profile-tag">Developer</span>
+                        <h1 class="profile-name">Your Name</h1>
+                        <p class="profile-bio">
+                            Full-stack developer with a passion for creating elegant, user-friendly websites 
+                            and applications. Specialized in modern JavaScript frameworks and responsive design.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <a href="#contact" class="btn btn-primary">Contact Me</a>
+                    <a href="#" class="btn btn-outline" id="resume-btn">Download Resume</a>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/300" alt="Project 1" class="project-image">
+                        <h3 class="project-title">E-commerce Platform</h3>
+                        <p class="project-description">A full-stack e-commerce solution with product catalog, shopping cart, and payment integration.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/300" alt="Project 2" class="project-image">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">A React-based task management application with drag-and-drop interface.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/300" alt="Project 3" class="project-image">
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <p class="project-description">Interactive weather application using APIs to display forecasts and weather data.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/300" alt="Project 4" class="project-image">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-description">A responsive portfolio website with Spotify-inspired design (this site).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-company">Tech Company Inc.</h3>
+                        <span class="experience-duration">2022 - Present</span>
+                    </div>
+                    <h4 class="experience-title">Senior Frontend Developer</h4>
+                    <p class="experience-description">
+                        Led the development of the company's flagship web application. 
+                        Implemented modern frontend architecture and improved loading times by 40%.
+                    </p>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-company">Digital Agency LLC</h3>
+                        <span class="experience-duration">2020 - 2022</span>
+                    </div>
+                    <h4 class="experience-title">Web Developer</h4>
+                    <p class="experience-description">
+                        Developed responsive websites for various clients across industries.
+                        Collaborated with design team to implement pixel-perfect interfaces.
+                    </p>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-company">Startup Hub</h3>
+                        <span class="experience-duration">2018 - 2020</span>
+                    </div>
+                    <h4 class="experience-title">Junior Developer</h4>
+                    <p class="experience-description">
+                        Assisted in the development of web applications and helped maintain 
+                        client websites. Gained experience with JavaScript frameworks and APIs.
+                    </p>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        <span class="contact-text">youremail@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span class="contact-text">+1 (123) 456-7890</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="contact-text">San Francisco, CA</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="footer">
+                <p>&copy; 2025 Your Name. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple JavaScript to handle active navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            
+            // Function to update active nav item
+            const updateActiveNav = () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Handle nav link clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Project cards click handler
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // You can add modal functionality or navigation to project details here
+                    console.log('Project clicked:', this.querySelector('.project-title').textContent);
+                });
+            });
+            
+            // Resume download button
+            const resumeBtn = document.getElementById('resume-btn');
+            resumeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Resume download functionality will be implemented here!');
+                // In a real implementation, this would trigger a download
+            });
+        });
+    </script>
+</body>
+</html>
