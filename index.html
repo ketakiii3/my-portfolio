@@ -200,14 +200,14 @@
                  <h3>Skills</h3>
                  <ul class="skills-list"><li class="skill-item"><i class="fab fa-python"></i> Python</li>
                      <li class="skill-item"><i class="fas fa-file-code"></i> C / C++</li>
+                     <li class="skill-item"><i class="fas fa-eye"></i> Computer Vision</li>
+                     <li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li>
+                     <li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis</li>
+                     <li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li>
+                     <li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li>
                      <li class="skill-item"><i class="fas fa-database"></i> SQL</li>
                      <li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li>
                      <li class="skill-item"><i class="fab fa-js"></i> JavaScript / Flask</li>
-                     <li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li>
-                     <li class="skill-item"><i class="fas fa-eye"></i> Comp Vision (YOLO)</li>
-                     <li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li>
-                     <li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis/Viz</li>
-                     <li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li>
                  </ul>
              </div>
         </div>
@@ -243,15 +243,14 @@
 
             <section id="experience">
                 <h2 class="section-title">Work Experience & Research</h2>
-                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div><h4 class="experience-title">Deep Learning Engineer Intern</h4><ul class="experience-description-list"><li>Leveraged DeepStream SDK...</li><li>Creating real-time factory simulations...</li><li>Building internal project...</li></ul></div>
-                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div><h4 class="experience-title">Data Analyst Intern</h4><ul class="experience-description-list"><li>Streamlined reporting...</li><li>Developed interactive Grafana dashboards...</li></ul></div>
-                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div><h4 class="experience-title">Research Trainee</h4><ul class="experience-description-list"><li>Led team developing ML system...</li><li>Utilized classifiers...</li></ul></div>
+                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div><h4 class="experience-title">Deep Learning Engineer Intern</h4><ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul></div>
+                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div><h4 class="experience-title">Data Analyst Intern</h4><ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul></div>
+                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div><h4 class="experience-title">Research Trainee</h4><ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul></div>
             </section>
 
              <section id="certifications">
                  <h2 class="section-title">Courses & Certifications</h2>
                  <div class="certifications-grid">
-                      {/* Certification Cards */}
                       <div class="certification-card"><h3 class="certification-title">Google Project Management Pro Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">November 2024</p></div>
                       <div class="certification-card"><h3 class="certification-title">Machine Learning Specialization</h3><p class="certification-issuer">DeepLearning.AI / Stanford Online</p><p class="certification-date">July 2024</p></div>
                       <div class="certification-card"><h3 class="certification-title">Accenture NA Data Analytics & Viz Sim</h3><p class="certification-issuer">Forage</p><p class="certification-date">March 2024</p></div>
@@ -282,13 +281,22 @@
                         <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog"><i class="fab fa-wordpress"></i></a>
                     </div>
-                 </div> {/* End contact-info card */}
+                 </div> 
             </section>
 
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
         </div></div><script>
-        // Same JS as before
-        document.addEventListener('DOMContentLoaded', () => { /* ... JS code ... */ });
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.main-content section');
+            const mainContent = document.querySelector('.main-content');
+            const updateActiveNav = () => { let currentSectionId = 'home'; let scrollPosition = mainContent.scrollTop; sections.forEach(section => { const sectionTop = section.offsetTop - 100; if (scrollPosition >= sectionTop) { currentSectionId = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); } }); };
+            mainContent.addEventListener('scroll', updateActiveNav); updateActiveNav();
+            navLinks.forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const targetId = this.getAttribute('href'); const targetSection = document.querySelector(targetId); if (targetSection) { mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' }); } navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => { card.addEventListener('click', function(event) { const title = this.querySelector('.project-title').textContent; console.log('Project card clicked:', title); const linkElement = this.querySelector('.project-links a'); if (linkElement && linkElement.href && !linkElement.contains(event.target)) { if (linkElement.target === '_blank') { window.open(linkElement.href, '_blank', 'noopener,noreferrer'); } else { window.location.href = linkElement.href; } } }); });
+            const resumeBtn = document.getElementById('resume-btn'); if (resumeBtn) { resumeBtn.addEventListener('click', function(e) { console.log('Download Resume button clicked.'); }); }
+        });
     </script>
 </body>
 </html>
