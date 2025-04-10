@@ -33,7 +33,7 @@
         .nav-link i { margin-right: 16px; font-size: 18px; width: 20px; text-align: center; }
 
         /* Skills Section */
-        .skills-section { margin-top: 24px; padding: 0 12px; overflow-y: auto; max-height: calc(100vh - 380px); }
+        .skills-section { margin-top: 24px; padding: 0 12px; overflow-y: auto; max-height: calc(100vh - 400px); }
         .skills-section h3 { color: var(--spotify-light-gray); text-transform: uppercase; font-size: 12px; margin-bottom: 16px; letter-spacing: 0.1em; }
         .skills-list { list-style: none; }
         .skill-item { padding: 8px 12px; margin-bottom: 8px; background-color: var(--spotify-gray); border-radius: 4px; font-size: 14px; display: flex; align-items: center; transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease; position: relative; }
@@ -56,7 +56,15 @@
         .btn-outline:hover { transform: scale(1.05); border-color: var(--spotify-white); }
         .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
 
-        /* Projects Section */
+         /* --- Education Section Styling --- */
+         #education .section-title { margin-top: 0; }
+         .education-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 20px 25px; margin-bottom: 16px; }
+         .institution { font-size: 18px; font-weight: 700; color: var(--spotify-white); margin-bottom: 4px; }
+         .degree { font-size: 16px; font-weight: 600; color: var(--spotify-light-gray); margin-bottom: 8px; }
+         .education-details { font-size: 14px; color: var(--spotify-light-gray); }
+         .education-details span { color: var(--spotify-white); font-weight: 600; }
+
+        /* --- Projects Section --- */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
         .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
         .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 280px; }
@@ -79,83 +87,29 @@
         .experience-description-list { font-size: 14px; color: var(--spotify-light-gray); list-style: disc; padding-left: 20px; margin-top: 8px; }
         .experience-description-list li { margin-bottom: 8px; }
 
-        /* Certifications */
-        .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-        .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 12px 16px; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; position: relative; }
-        .certification-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); z-index: 5; }
-        .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--spotify-white); }
-        .certification-issuer { font-size: 13px; color: var(--spotify-light-gray); margin-bottom: 4px; }
-        .certification-date { font-size: 11px; color: var(--spotify-light-gray); margin-top: auto; }
-        .certification-card a { color: var(--spotify-green); text-decoration: none; }
-        .certification-card a:hover { text-decoration: underline; }
+         /* Certifications */
+         .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+         .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 12px 16px; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; position: relative; }
+         .certification-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); z-index: 5; }
+         .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--spotify-white); }
+         .certification-issuer { font-size: 13px; color: var(--spotify-light-gray); margin-bottom: 4px; }
+         .certification-date { font-size: 11px; color: var(--spotify-light-gray); margin-top: auto; }
+         .certification-card a { color: var(--spotify-green); text-decoration: none; }
+         .certification-card a:hover { text-decoration: underline; }
 
-        /* --- Contact Section Styling (Spotify Card Style) --- */ /* */
-        #contact {
-            /* text-align: center; */ /* Remove center align from section if needed */
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-         #contact .section-title {
-             text-align: left; /* Align title normally */
-             margin-bottom: 16px;
-        }
-
-         /* Reintroduce .contact-info as the card */
-         .contact-info {
-            background-color: var(--spotify-dark-gray); /* Card background */
-            border-radius: 8px;
-            padding: 24px; /* Padding inside card */
-            max-width: 600px; /* Limit card width */
-            margin: 0 auto; /* Center card if desired, or remove for left align */
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
-            position: relative; /* For z-index on hover */
-         }
-          /* Hover effect for the contact card */ /* */
-         .contact-info:hover {
-            background-color: var(--spotify-gray);
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-            z-index: 5;
-         }
-
-         /* Style items inside the card */
-        .contact-item {
-             display: flex; /* Align icon and text horizontally */
-             align-items: center;
-             margin-bottom: 16px;
-             /* Remove previous column styles if any */
-             flex-direction: row;
-             width: auto;
-        }
-        .contact-item i {
-            font-size: 20px; /* Standard icon size */
-            margin-right: 16px; /* Space between icon and text */
-            margin-bottom: 0; /* Remove bottom margin */
-            color: var(--spotify-green); /* Green icon */
-            width: 25px; text-align: center; /* Consistent width */
-        }
-        .contact-text { font-size: 16px; text-align: left; } /* Ensure text is left-aligned */
+        /* Contact Section */
+        #contact { padding-top: 30px; padding-bottom: 30px; }
+        #contact .section-title { text-align: left; margin-bottom: 16px; }
+         .contact-info { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 24px; max-width: 600px; margin: 0 auto; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+         .contact-info:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); z-index: 5; }
+        .contact-item { display: flex; align-items: center; margin-bottom: 16px; flex-direction: row; width: auto; }
+        .contact-item i { font-size: 20px; margin-right: 16px; margin-bottom: 0; color: var(--spotify-green); width: 25px; text-align: center; }
+        .contact-text { font-size: 16px; text-align: left; }
         .contact-text a { color: var(--spotify-white); text-decoration: none; transition: color 0.2s ease; }
         .contact-text a:hover { color: var(--spotify-green); text-decoration: underline; }
-
-        .social-links {
-             display: flex;
-             gap: 16px;
-             margin-top: 24px; /* Space above social links */
-             justify-content: flex-start; /* Align to start by default */
-             /* Or use justify-content: center; if you prefer them centered within the card */
-        }
-        .social-link {
-             width: 40px; height: 40px; /* Reset size if changed */
-             border-radius: 50%; background-color: var(--spotify-gray);
-             display: flex; align-items: center; justify-content: center;
-             color: var(--spotify-white); text-decoration: none;
-             transition: transform 0.2s ease, background-color 0.2s ease;
-             font-size: 18px; /* Reset size */
-        }
-        .social-link:hover { transform: scale(1.1); background-color: #1ed760; } /* Brighter green */
-        /* --- End Contact Section Styling --- */
-
+        .social-links { display: flex; gap: 16px; margin-top: 24px; justify-content: flex-start; }
+        .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
+        .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
 
         /* Footer */
         .footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--spotify-gray); text-align: center; color: var(--spotify-light-gray); font-size: 14px; }
@@ -176,7 +130,7 @@
             .experience-duration { margin-left: 0; margin-top: 4px; }
             .certifications-grid { grid-template-columns: 1fr; }
             .certification-card { padding: 12px 15px; }
-            .contact-info { margin-left: 0; margin-right: 0; max-width: none; } /* Adjust centering/width on mobile */
+            .contact-info { margin-left: 0; margin-right: 0; max-width: none; }
         }
         @media (max-width: 480px) {
             .profile-name { font-size: 36px; } .profile-photo { width: 120px; height: 120px; }
@@ -190,25 +144,10 @@
     <div class="container">
         <div class="sidebar">
              <div class="logo"><h1>Portfolio</h1></div>
-             <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li>
-                <li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-             </ul>
+             <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
              <div class="skills-section">
                  <h3>Skills</h3>
-                 <ul class="skills-list"><li class="skill-item"><i class="fab fa-python"></i> Python</li>
-                     <li class="skill-item"><i class="fas fa-file-code"></i> C / C++</li>
-                     <li class="skill-item"><i class="fas fa-eye"></i> Computer Vision</li>
-                     <li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li>
-                     <li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis</li>
-                     <li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li>
-                     <li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li>
-                     <li class="skill-item"><i class="fas fa-database"></i> SQL</li>
-                     <li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li>
-                     <li class="skill-item"><i class="fab fa-js"></i> JavaScript / Flask</li>
-                 </ul>
+                 <ul class="skills-list"><li class="skill-item"><i class="fab fa-python"></i> Python</li><li class="skill-item"><i class="fas fa-file-code"></i> C / C++</li><li class="skill-item"><i class="fas fa-database"></i> SQL</li><li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li><li class="skill-item"><i class="fab fa-js"></i> JavaScript / Flask</li><li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li><li class="skill-item"><i class="fas fa-eye"></i> Comp Vision (YOLO)</li><li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li><li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis/Viz</li><li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li></ul>
              </div>
         </div>
 
@@ -219,8 +158,7 @@
                      <div class="profile-info">
                          <span class="profile-tag">Computer Science Engineer</span>
                          <h1 class="profile-name">Ketaki Dabade</h1>
-                         <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.
-                        </p>
+                         <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.</p>
                      </div>
                  </div>
                  <div class="actions">
@@ -228,6 +166,25 @@
                      <a href="Ketaki_Dabade_Resume.pdf" class="btn btn-outline" id="resume-btn" download>Download Resume</a>
                  </div>
             </section>
+
+             <section id="education">
+                 <h2 class="section-title">Education</h2>
+                 <div class="education-card">
+                     <h3 class="institution">Dr. Vishwanath Karad MIT-WPU, Pune, India</h3>
+                     <h4 class="degree">Bachelor of Technology in Computer Science and Engineering</h4>
+                     <p class="education-details">
+                         Expected Graduation: July 2025 <br>
+                         CGPA: <span>8.8 / 10.0</span>
+                     </p>
+                 </div>
+                  <div class="education-card">
+                     <h3 class="institution">Columbia University</h3>
+                     <h4 class="degree">Master of Science in Computer Science</h4>
+                     <p class="education-details">
+                         Expected: August 2025 - December 2026
+                     </p>
+                 </div>
+             </section>
 
             <section id="projects">
                 <h2 class="section-title">Featured Projects</h2>
@@ -243,9 +200,21 @@
 
             <section id="experience">
                 <h2 class="section-title">Work Experience & Research</h2>
-                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div><h4 class="experience-title">Deep Learning Engineer Intern</h4><ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul></div>
-                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div><h4 class="experience-title">Data Analyst Intern</h4><ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul></div>
-                <div class="experience-card"><div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div><h4 class="experience-title">Research Trainee</h4><ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul></div>
+                <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div>
+                    <h4 class="experience-title">Deep Learning Engineer Intern</h4>
+                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div>
+                    <h4 class="experience-title">Data Analyst Intern</h4>
+                    <ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul>
+                </div>
+                 <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div>
+                    <h4 class="experience-title">Research Trainee</h4>
+                    <ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul>
+                </div>
             </section>
 
              <section id="certifications">
@@ -264,24 +233,15 @@
             <section id="contact">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="far fa-envelope"></i>
-                        <span class="contact-text"><a href="mailto:dabadeketakil@gmail.com">dabadeketakil@gmail.com</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span class="contact-text">+91 7057646706</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span class="contact-text">Pune, India</span>
-                    </div>
+                    <div class="contact-item"><i class="far fa-envelope"></i><span class="contact-text"><a href="mailto:dabadeketakil@gmail.com">dabadeketakil@gmail.com</a></span></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span class="contact-text">+91 7057646706</span></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span class="contact-text">Pune, India</span></div>
                     <div class="social-links">
                         <a href="https://github.com/ketakiii3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog"><i class="fab fa-wordpress"></i></a>
                     </div>
-                 </div> 
+                 </div>
             </section>
 
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
