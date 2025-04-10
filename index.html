@@ -136,7 +136,7 @@
             background-color: #333; /* Darken background on hover */
         }
 
-        /* Skill item icon styling */
+        /* Skill item icon styling (for Font Awesome) */
         .skill-item i {
             margin-right: 12px;
             font-size: 16px;
@@ -144,6 +144,16 @@
             text-align: center;
             color: var(--spotify-green); /* Use accent color for icons */
         }
+         /* Skill item image styling (for IMG tags like NVIDIA logo) */
+         .skill-item img {
+            margin-right: 12px; /* Space between image and text */
+            width: 16px;  /* Adjust width as needed */
+            height: 16px; /* Adjust height as needed */
+            object-fit: contain; /* Ensure logo scales nicely */
+            /* Optional: Apply filter to match icon color scheme */
+            /* filter: brightness(0) invert(1); /* Example: Makes it white */
+         }
+
 
         /* Main content area styling */
         .main-content {
@@ -169,7 +179,6 @@
             object-fit: cover; /* Ensure image covers the area */
             margin-right: 24px; /* Space between photo and info */
             box-shadow: 0 4px 60px rgba(0,0,0,.5); /* Subtle shadow */
-            /* Consider replacing placeholder with an actual photo URL */
         }
 
         /* Profile information container */
@@ -287,7 +296,6 @@
             object-fit: cover; /* Cover the area */
             margin-bottom: 16px;
             box-shadow: 0 8px 24px rgba(0,0,0,.5); /* Shadow for depth */
-             /* Consider replacing placeholder with actual project image URLs */
         }
 
         /* Project title styling */
@@ -311,7 +319,7 @@
             display: -webkit-box; /* Required for -webkit-line-clamp */
             -webkit-box-orient: vertical; /* Required for -webkit-line-clamp */
             -webkit-line-clamp: 3; /* Limit to 3 lines (WebKit browsers) */
-            line-clamp: 3; /* Limit to 3 lines (Standard property) */ /* */
+            line-clamp: 3; /* Limit to 3 lines (Standard property) */
             flex-grow: 1; /* Allow description to take available space */
             margin-bottom: 10px; /* Add space below description */
         }
@@ -614,7 +622,7 @@
                         <i class="fas fa-eye"></i> Comp Vision (YOLO)
                     </li>
                      <li class="skill-item">
-                         <i class="fab fa-nvidia"></i> NVIDIA Tools
+                         <img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools
                     </li>
                      <li class="skill-item">
                         <i class="fas fa-chart-bar"></i> Data Analysis/Viz
@@ -629,59 +637,62 @@
         <div class="main-content">
             <section id="home">
                 <div class="header">
-                    <img src="https://via.placeholder.com/200" alt="Ketaki Dabade Photo" class="profile-photo">
-                    <div class="profile-info">
-                        <span class="profile-tag">Computer Science Engineer</span> <h1 class="profile-name">Ketaki Dabade</h1>
+                    <img src="images/myphoto.png" alt="Ketaki Dabade Photo" class="profile-photo"> <div class="profile-info">
+                        <span class="profile-tag">Computer Science Engineer</span>
+                        <h1 class="profile-name">Ketaki Dabade</h1>
                         <p class="profile-bio">
-                            Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation. </p>
+                            Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.
+                        </p>
                     </div>
                 </div>
 
                 <div class="actions">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="Ketaki_Dabade_Resume.pdf" class="btn btn-outline" id="resume-btn" download>Download Resume</a> </div>
+                    <a href="Ketaki_Dabade_Resume.pdf" class="btn btn-outline" id="resume-btn" download>Download Resume</a>
+                </div>
             </section>
 
             <section id="projects">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300/1DB954/FFFFFF?text=ViziAssist" alt="ViziAssist Project" class="project-image"> <h3 class="project-title">ViziAssist</h3>
+                        <img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"> <h3 class="project-title">ViziAssist</h3>
                         <p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p>
                          <div class="project-links">
                              <span>Technologies: YOLOv7, Jetson Nano</span>
                              </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300/FFC107/000000?text=Sherpa" alt="SkillSet Sherpa Project" class="project-image"> <h3 class="project-title">SkillSet Sherpa</h3>
+                         <img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"> <h3 class="project-title">SkillSet Sherpa</h3>
                         <p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p>
                         <div class="project-links">
                              <span>Technologies: LLM, EasyOCR, Flask</span>
-                             <a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a> </div>
+                             <a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a>
+                        </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300/9C27B0/FFFFFF?text=CanMan" alt="CanMan Project" class="project-image"> <h3 class="project-title">CanMan</h3>
+                         <img src="images/canman.jpg" alt="CanMan Project" class="project-image"> <h3 class="project-title">CanMan</h3>
                         <p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p>
                          <div class="project-links">
                              <span>Technologies: Flask, MongoDB, NLTK, D3.js</span>
                              </div>
                     </div>
                      <div class="project-card">
-                        <img src="https://via.placeholder.com/300/2196F3/FFFFFF?text=OneView" alt="One View Project" class="project-image"> <h3 class="project-title">One View</h3>
+                         <img src="images/oneview.jpg" alt="One View Project" class="project-image"> <h3 class="project-title">One View</h3>
                         <p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p>
                         <div class="project-links">
                              <span>Technologies: Flask, MongoDB, DBSCAN</span>
                              </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300/795548/FFFFFF?text=DoorLock" alt="Door Lock Project" class="project-image"> <h3 class="project-title">Automated Door Lock</h3>
+                         <img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image"> <h3 class="project-title">Automated Door Lock</h3>
                         <p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p>
                          <div class="project-links">
                              <span>Technologies: Arduino, R307 Sensor</span>
-                              </div>
+                             </div>
                     </div>
                      <div class="project-card">
-                        <img src="https://via.placeholder.com/300/FF5722/FFFFFF?text=SportsML" alt="Sports ML Project" class="project-image"> <h3 class="project-title">ML & Game Theory in Sports</h3>
+                         <img src="images/sports.png" alt="Sports ML Project" class="project-image"> <h3 class="project-title">ML & Game Theory in Sports</h3>
                         <p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p>
                         <div class="project-links">
                              <span>Area: Research, ML, Game Theory</span>
@@ -698,7 +709,7 @@
                         <span class="experience-duration">July 2024 - Present</span>
                     </div>
                     <h4 class="experience-title">Deep Learning Engineer Intern</h4>
-                     <ul class="experience-description">
+                    <ul class="experience-description">
                          <li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li>
                          <li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li>
                         <li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li>
@@ -726,25 +737,34 @@
                          <li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li>
                     </ul>
                 </div>
-                </section>
+            </section>
 
             <section id="contact">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-info">
                     <div class="contact-item">
-                        <i class="far fa-envelope"></i> <span class="contact-text"><a href="mailto:dabadeketakil@gmail.com">dabadeketakil@gmail.com</a></span>
+                        <i class="far fa-envelope"></i>
+                         <span class="contact-text"><a href="mailto:dabadeketakil@gmail.com">dabadeketakil@gmail.com</a></span>
                     </div>
                      <div class="contact-item">
-                        <i class="fas fa-phone"></i> <span class="contact-text">+91 7057646706</span>
-                        </div>
+                        <i class="fas fa-phone"></i>
+                         <span class="contact-text">+91 7057646706</span>
+                    </div>
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i> <span class="contact-text">Pune, India</span>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="contact-text">Pune, India</span>
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/ketakiii3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i> </a> <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i> </a> <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog">
-                            <i class="fab fa-wordpress"></i> </a> </div>
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                         <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog">
+                            <i class="fab fa-wordpress"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -770,7 +790,6 @@
                     const sectionTop = section.offsetTop; // Distance from the top of the main content area
                     const sectionHeight = section.clientHeight; // Height of the section
                     // Check if the scroll position is within the bounds of the section (with an offset)
-                    // Offset helps activate the link slightly before the section top hits the exact top
                     if (mainContent.scrollTop >= (sectionTop - 100) && mainContent.scrollTop < (sectionTop + sectionHeight - 100)) {
                          currentSectionId = section.getAttribute('id');
                     }
@@ -809,10 +828,7 @@
 
                     // If the target section exists, scroll to it smoothly
                     if (targetSection) {
-                         // Calculate the position to scroll to, considering the main content's scroll position
                          const scrollToPosition = targetSection.offsetTop;
-
-                         // Scroll the main content area smoothly to the target section's position
                         mainContent.scrollTo({
                             top: scrollToPosition, // Scroll to the top of the target section
                              behavior: 'smooth' // Enable smooth scrolling animation
@@ -828,38 +844,24 @@
             // Add click handlers for project cards (optional: for modals or links)
             const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Example action: Log the project title to the console
-                    // You could replace this with opening a modal, linking to a project page, etc.
-                     const title = this.querySelector('.project-title').textContent;
-                     console.log('Project card clicked:', title);
-                     // Check if there's a link within the card and navigate if found
-                     const linkElement = this.querySelector('.project-links a');
-                     // Check if the click target itself wasn't the link, to avoid double navigation
-                     if (linkElement && linkElement.href && !linkElement.contains(event.target)) {
-                         // Example: Open link in a new tab
-                         window.open(linkElement.href, '_blank');
-                     }
+                card.addEventListener('click', function(event) { // Pass the event object
+                    const title = this.querySelector('.project-title').textContent;
+                    console.log('Project card clicked:', title);
+                    const linkElement = this.querySelector('.project-links a');
+                    // Check if the click target *itself* wasn't the link element or inside it
+                    if (linkElement && linkElement.href && !linkElement.contains(event.target)) {
+                        window.open(linkElement.href, '_blank', 'noopener,noreferrer');
+                    }
                 });
             });
 
-            // --- Resume Download Button ---
-            // Get the resume download button element by its ID
-            const resumeBtn = document.getElementById('resume-btn');
-             // NOTE: The 'href' attribute of the resume button above points directly to 'Ketaki_Dabade_Resume.pdf'.
-             // For this to work, the PDF file MUST be in the same directory as the HTML file,
-             // OR you need to provide the correct relative or absolute path to the file in the 'href'.
-             // The 'download' attribute suggests the browser should download the file.
 
-             // Optional: Add a click listener if you need more complex behavior
-             if (resumeBtn) { // Check if the button exists
+            // --- Resume Download Button ---
+            const resumeBtn = document.getElementById('resume-btn');
+             if (resumeBtn) {
                  resumeBtn.addEventListener('click', function(e) {
-                     // We let the default behavior (following the href and downloading) happen.
-                     // You could add tracking code here if needed.
                      console.log('Download Resume button clicked.');
-                     // If the href wasn't set directly, you might prevent default and trigger download differently:
-                     // e.preventDefault();
-                     // window.location.href = 'path/to/your/Ketaki_Dabade_Resume.pdf'; // Or trigger download via other JS methods
+                     // Default behavior (download via href) is allowed to proceed.
                  });
              }
 
