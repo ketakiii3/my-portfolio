@@ -103,6 +103,9 @@
         .skills-section {
             margin-top: 24px;
             padding: 0 12px;
+            /* Allow skills to scroll if they overflow sidebar */
+            overflow-y: auto;
+             max-height: calc(100vh - 350px); /* Adjust max-height based on other sidebar elements */
         }
 
         /* Skills section title */
@@ -150,15 +153,12 @@
             width: 16px;  /* Adjust width as needed */
             height: 16px; /* Adjust height as needed */
             object-fit: contain; /* Ensure logo scales nicely */
-            /* Optional: Apply filter to match icon color scheme */
-            /* filter: brightness(0) invert(1); /* Example: Makes it white */
          }
 
 
         /* Main content area styling */
         .main-content {
             flex: 1; /* Take remaining space */
-            /* Subtle gradient background */
             background: linear-gradient(to bottom, #1a1a1a, var(--spotify-black) 20%);
             overflow-y: auto; /* Allow vertical scrolling */
             padding: 24px; /* Padding around content */
@@ -167,39 +167,39 @@
         /* Header section layout */
         .header {
             display: flex;
-            align-items: center; /* Vertically align items */
-            margin-bottom: 24px; /* Space below header */
+            align-items: center;
+            margin-bottom: 24px;
         }
 
         /* Profile photo styling */
         .profile-photo {
             width: 200px;
             height: 200px;
-            border-radius: 50%; /* Circular photo */
-            object-fit: cover; /* Ensure image covers the area */
-            margin-right: 24px; /* Space between photo and info */
-            box-shadow: 0 4px 60px rgba(0,0,0,.5); /* Subtle shadow */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 24px;
+            box-shadow: 0 4px 60px rgba(0,0,0,.5);
         }
 
         /* Profile information container */
         .profile-info {
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
+            flex-direction: column;
         }
 
-        /* Profile tag (e.g., Developer) styling */
+        /* Profile tag styling */
         .profile-tag {
             font-size: 14px;
             text-transform: uppercase;
             font-weight: 700;
             margin-bottom: 8px;
-            color: var(--spotify-light-gray); /* Lighter color for tag */
+            color: var(--spotify-light-gray);
         }
 
         /* Profile name styling */
         .profile-name {
-            font-size: 72px; /* Large font size */
-            font-weight: 900; /* Bold weight */
+            font-size: 72px;
+            font-weight: 900;
             line-height: 1.1;
             margin-bottom: 16px;
         }
@@ -208,94 +208,87 @@
         .profile-bio {
             font-size: 16px;
             color: var(--spotify-light-gray);
-            max-width: 800px; /* Limit width for readability */
+            max-width: 800px;
         }
 
         /* Action buttons container */
         .actions {
             display: flex;
             align-items: center;
-            margin: 24px 0; /* Space around buttons */
+            margin: 24px 0;
         }
 
         /* General button styling */
         .btn {
-            padding: 12px 32px; /* Button padding */
-            border-radius: 500px; /* Pill shape */
+            padding: 12px 32px;
+            border-radius: 500px;
             font-size: 16px;
             font-weight: 700;
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: all 0.2s ease; /* Smooth transitions */
-            text-decoration: none; /* Remove underline */
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
             text-align: center;
-            border: none; /* Remove default border */
+            border: none;
         }
 
-        /* Primary button styling (green) */
+        /* Primary button styling */
         .btn-primary {
             background-color: var(--spotify-green);
-            color: var(--spotify-black); /* Text color contrasts background */
-            margin-right: 16px; /* Space between buttons */
+            color: var(--spotify-black);
+            margin-right: 16px;
         }
-
-        /* Primary button hover effect */
         .btn-primary:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            background-color: #1ed760; /* Slightly lighter green */
+            transform: scale(1.05);
+            background-color: #1ed760;
         }
 
         /* Outline button styling */
         .btn-outline {
-            background-color: transparent; /* No background */
-            color: var(--spotify-white); /* White text */
-            border: 1px solid var(--spotify-light-gray); /* Gray border */
+            background-color: transparent;
+            color: var(--spotify-white);
+            border: 1px solid var(--spotify-light-gray);
         }
-
-        /* Outline button hover effect */
         .btn-outline:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            border-color: var(--spotify-white); /* White border on hover */
+            transform: scale(1.05);
+            border-color: var(--spotify-white);
         }
 
         /* Section title styling */
         .section-title {
             font-size: 24px;
             font-weight: 700;
-            margin: 32px 0 16px; /* Space around title */
+            margin: 32px 0 16px;
         }
 
         /* Projects grid layout */
         .projects-grid {
             display: grid;
-            /* Responsive grid: fills columns, min width 200px */
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 24px; /* Space between grid items */
+            gap: 24px;
         }
 
         /* Project card styling */
         .project-card {
             background-color: var(--spotify-dark-gray);
-            border-radius: 8px; /* Rounded corners */
+            border-radius: 8px;
             padding: 16px;
-            transition: background-color 0.3s ease; /* Smooth background transition */
-            cursor: pointer; /* Indicate interactivity */
-            display: flex; /* Use flexbox for content layout */
-            flex-direction: column; /* Stack content vertically */
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
-
-        /* Project card hover effect */
         .project-card:hover {
-            background-color: var(--spotify-gray); /* Darken background on hover */
+            background-color: var(--spotify-gray);
         }
 
         /* Project image styling */
         .project-image {
             width: 100%;
-            aspect-ratio: 1; /* Square aspect ratio */
-            border-radius: 4px; /* Slightly rounded corners */
-            object-fit: cover; /* Cover the area */
+            aspect-ratio: 1;
+            border-radius: 4px;
+            object-fit: cover;
             margin-bottom: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,.5); /* Shadow for depth */
+            box-shadow: 0 8px 24px rgba(0,0,0,.5);
         }
 
         /* Project title styling */
@@ -303,42 +296,37 @@
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 8px;
-            white-space: nowrap; /* Prevent wrapping */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: ellipsis; /* Add ellipsis for long titles */
-            flex-shrink: 0; /* Prevent title from shrinking */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-shrink: 0;
         }
 
         /* Project description styling */
         .project-description {
             font-size: 14px;
             color: var(--spotify-light-gray);
-            overflow: hidden; /* Required for line-clamp */
-            text-overflow: ellipsis; /* Add ellipsis */
-            /* Apply line clamping */
-            display: -webkit-box; /* Required for -webkit-line-clamp */
-            -webkit-box-orient: vertical; /* Required for -webkit-line-clamp */
-            -webkit-line-clamp: 3; /* Limit to 3 lines (WebKit browsers) */
-            line-clamp: 3; /* Limit to 3 lines (Standard property) */
-            flex-grow: 1; /* Allow description to take available space */
-            margin-bottom: 10px; /* Add space below description */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            flex-grow: 1;
+            margin-bottom: 10px;
         }
 
-        /* Project technologies/links container */
+        /* Project links container */
         .project-links {
-            margin-top: auto; /* Push to the bottom */
+            margin-top: auto;
             font-size: 12px;
             color: var(--spotify-light-gray);
         }
-
-        /* Styling for links within project cards */
         .project-links a {
             color: var(--spotify-green);
             text-decoration: none;
             margin-left: 5px;
         }
-
-        /* Hover effect for project links */
         .project-links a:hover {
             text-decoration: underline;
         }
@@ -349,222 +337,186 @@
             background-color: var(--spotify-dark-gray);
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 16px; /* Space between cards */
+            margin-bottom: 16px;
             transition: background-color 0.3s ease;
         }
-
-        /* Experience card hover effect */
         .experience-card:hover {
             background-color: var(--spotify-gray);
         }
 
-        /* Experience card header (Company & Duration) */
+        /* Experience header styling */
         .experience-header {
             display: flex;
-            justify-content: space-between; /* Space out company and duration */
-            align-items: baseline; /* Align text baselines */
-            margin-bottom: 8px; /* Reduced margin */
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
         }
-
-        /* Experience company name */
         .experience-company {
             font-size: 18px;
             font-weight: 700;
         }
-
-        /* Experience duration text */
         .experience-duration {
             font-size: 14px;
             color: var(--spotify-light-gray);
-            flex-shrink: 0; /* Prevent duration from wrapping */
-            margin-left: 16px; /* Add space between title and duration */
+            flex-shrink: 0;
+            margin-left: 16px;
         }
 
-        /* Experience job title */
+        /* Experience title styling */
         .experience-title {
             font-size: 16px;
-            font-weight: 600; /* Slightly less bold than company */
+            font-weight: 600;
             margin-bottom: 12px;
-             color: var(--spotify-white); /* Ensure title is clearly visible */
+             color: var(--spotify-white);
         }
 
-        /* Experience description/bullet points */
-        .experience-description {
+        /* Experience description list styling */ /* */
+        .experience-description-list { /* Renamed class for clarity */
             font-size: 14px;
             color: var(--spotify-light-gray);
-            padding-left: 0; /* Remove default list padding if using ul */
-            list-style-position: outside; /* Position bullets outside */
+             list-style: disc; /* Use standard bullets */
+            padding-left: 20px; /* Indent bullets */
+             margin-top: 8px; /* Space above list */
         }
-
-        /* Style for list items if using <ul> for description */
-         .experience-description li {
+         /* List item styling within experience */ /* */
+        .experience-description-list li {
             margin-bottom: 8px; /* Space between points */
         }
 
+         /* Certification Card Styling */
+         .certification-card {
+             background-color: var(--spotify-dark-gray);
+             border-radius: 8px;
+             padding: 15px 20px;
+             margin-bottom: 16px;
+             transition: background-color 0.3s ease;
+             display: flex;
+             flex-direction: column;
+         }
+         .certification-card:hover {
+             background-color: var(--spotify-gray);
+         }
 
-        /* Contact information container */
+         /* Certification title styling */
+         .certification-title {
+             font-size: 16px;
+             font-weight: 700;
+             margin-bottom: 4px;
+             color: var(--spotify-white);
+         }
+
+         /* Certification issuer/platform styling */
+         .certification-issuer {
+             font-size: 14px;
+             color: var(--spotify-light-gray);
+             margin-bottom: 6px;
+         }
+
+         /* Certification date styling */
+         .certification-date {
+             font-size: 12px;
+             color: var(--spotify-light-gray);
+             margin-top: auto;
+         }
+
+         /* Add link styling if you add URLs to certs */
+         .certification-card a {
+             color: var(--spotify-green);
+             text-decoration: none;
+         }
+         .certification-card a:hover {
+             text-decoration: underline;
+         }
+
+
+        /* Contact info container */
         .contact-info {
             background-color: var(--spotify-dark-gray);
             border-radius: 8px;
             padding: 20px;
-            margin-top: 16px; /* Space above contact info */
+            margin-top: 16px;
         }
 
-        /* Individual contact item (icon + text) */
+        /* Contact item styling */
         .contact-item {
             display: flex;
             align-items: center;
             margin-bottom: 16px;
         }
-
-        /* Contact item icon */
         .contact-item i {
             font-size: 20px;
-            margin-right: 16px; /* Increased space */
+            margin-right: 16px;
             color: var(--spotify-light-gray);
-            width: 25px; /* Fixed width for alignment */
+            width: 25px;
             text-align: center;
         }
-
-        /* Contact item text */
         .contact-text {
             font-size: 16px;
         }
-         /* Make contact links clickable */
         .contact-text a {
             color: var(--spotify-white);
             text-decoration: none;
             transition: color 0.2s ease;
         }
-
-        /* Hover effect for contact links */
         .contact-text a:hover {
             color: var(--spotify-green);
             text-decoration: underline;
         }
 
 
-        /* Social media links container */
+        /* Social links container */
         .social-links {
             display: flex;
-            gap: 16px; /* Space between icons */
-            margin-top: 24px; /* Space above social links */
+            gap: 16px;
+            margin-top: 24px;
         }
-
-        /* Individual social media link */
         .social-link {
             width: 40px;
             height: 40px;
-            border-radius: 50%; /* Circular icons */
+            border-radius: 50%;
             background-color: var(--spotify-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--spotify-white);
             text-decoration: none;
-            transition: transform 0.2s ease, background-color 0.2s ease; /* Add background transition */
-            font-size: 18px; /* Adjust icon size if needed */
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            font-size: 18px;
         }
-
-        /* Social link hover effect */
         .social-link:hover {
-            transform: scale(1.1); /* Enlarge icon */
-            background-color: var(--spotify-green); /* Change background color */
+            transform: scale(1.1);
+            background-color: var(--spotify-green);
         }
 
         /* Footer styling */
         .footer {
-            margin-top: 48px; /* Space above footer */
-            padding: 24px 0; /* Padding */
-            border-top: 1px solid var(--spotify-gray); /* Separator line */
+            margin-top: 48px;
+            padding: 24px 0;
+            border-top: 1px solid var(--spotify-gray);
             text-align: center;
             color: var(--spotify-light-gray);
             font-size: 14px;
         }
 
-        /* Responsive styles for smaller screens */
+        /* Responsive styles */
         @media (max-width: 768px) {
-            /* Stack container items vertically */
-            .container {
-                flex-direction: column;
-                height: auto; /* Adjust height */
-                 overflow: visible; /* Allow content to scroll naturally */
-            }
-
-            /* Full width sidebar */
-            .sidebar {
-                width: 100%;
-                padding: 16px;
-                border-right: none; /* Remove border */
-                border-bottom: 1px solid #282828; /* Add bottom border */
-                /* Optionally make sidebar collapsible */
-            }
-
-            /* Adjust main content padding */
-            .main-content {
-                padding: 16px;
-                overflow-y: visible; /* Remove internal scroll */
-            }
-
-            /* Stack header items vertically */
-            .header {
-                flex-direction: column;
-                align-items: flex-start; /* Align items to the start */
-            }
-
-            /* Adjust profile photo size and margin */
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-                margin-right: 0; /* Remove right margin */
-                margin-bottom: 24px; /* Add bottom margin */
-            }
-
-            /* Adjust profile name size */
-            .profile-name {
-                font-size: 48px;
-            }
-
-             /* Adjust action buttons layout */
-            .actions {
-                flex-direction: column; /* Stack buttons */
-                align-items: flex-start; /* Align to start */
-                gap: 16px; /* Add gap between buttons */
-            }
-
-             /* Remove margin from primary button when stacked */
-             .btn-primary {
-                 margin-right: 0;
-             }
-
-            /* Adjust projects grid columns and gap */
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 16px;
-            }
-             /* Ensure experience duration doesn't wrap awkwardly on mobile */
-            .experience-header {
-                flex-direction: column; /* Stack company and duration */
-                align-items: flex-start;
-            }
-            .experience-duration {
-                margin-left: 0; /* Remove left margin */
-                margin-top: 4px; /* Add top margin */
-            }
+            .container { flex-direction: column; height: auto; overflow: visible; }
+            .sidebar { width: 100%; padding: 16px; border-right: none; border-bottom: 1px solid #282828; max-height: none; /* Remove max-height for mobile */ overflow-y: visible; }
+            .main-content { padding: 16px; overflow-y: visible; }
+            .header { flex-direction: column; align-items: flex-start; }
+            .profile-photo { width: 150px; height: 150px; margin-right: 0; margin-bottom: 24px; }
+            .profile-name { font-size: 48px; }
+            .actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .btn-primary { margin-right: 0; }
+            .projects-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+            .experience-header { flex-direction: column; align-items: flex-start; }
+            .experience-duration { margin-left: 0; margin-top: 4px; }
+            .certification-card { padding: 12px 15px; }
         }
-         /* Further adjustments for very small screens if needed */
         @media (max-width: 480px) {
-            .profile-name {
-                font-size: 36px; /* Even smaller name */
-            }
-             .profile-photo {
-                width: 120px;
-                height: 120px;
-            }
-             .projects-grid {
-                /* Single column grid on very small screens */
-                 grid-template-columns: 1fr;
-            }
+            .profile-name { font-size: 36px; }
+            .profile-photo { width: 120px; height: 120px; }
+            .projects-grid { grid-template-columns: 1fr; }
         }
 
     </style>
@@ -575,69 +527,18 @@
             <div class="logo">
                 <h1>Portfolio</h1>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">
-                        <i class="fas fa-home"></i> Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">
-                        <i class="fas fa-folder"></i> Projects
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">
-                        <i class="fas fa-briefcase"></i> Experience
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">
-                        <i class="fas fa-envelope"></i> Contact
-                    </a>
-                </li>
-            </ul>
+            <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
             <div class="skills-section">
                 <h3>Skills</h3>
-                <ul class="skills-list">
-                     <li class="skill-item">
-                        <i class="fab fa-python"></i> Python
-                    </li>
-                     <li class="skill-item">
-                        <i class="fas fa-file-code"></i> C / C++
-                    </li>
-                     <li class="skill-item">
-                        <i class="fas fa-brain"></i> PyTorch / TensorFlow
-                    </li>
-                     <li class="skill-item">
-                        <i class="fas fa-eye"></i> Computer Vision
-                    </li>
-                     <li class="skill-item">
-                         <img src="/images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools
-                    </li>
-                     <li class="skill-item">
-                        <i class="fas fa-chart-bar"></i> Data Analysis/Viz
-                    </li>
-                     <li class="skill-item">
-                        <i class="fas fa-tools"></i> Git / Docker / Linux
-                    </li>
-                    <li class="skill-item">
-                        <i class="fas fa-database"></i> SQL
-                    </li>
-                     <li class="skill-item">
-                        <i class="fab fa-html5"></i> HTML/CSS
-                    </li>
-                    <li class="skill-item">
-                        <i class="fab fa-js"></i> JavaScript / Flask
-                    </li>
-                </ul>
+                <ul class="skills-list"><li class="skill-item"><i class="fab fa-python"></i> Python</li><li class="skill-item"><i class="fas fa-file-code"></i> C / C++</li><li class="skill-item"><i class="fas fa-database"></i> SQL</li><li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li><li class="skill-item"><i class="fab fa-js"></i> JavaScript / Flask</li><li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li><li class="skill-item"><i class="fas fa-eye"></i> Comp Vision (YOLO)</li><li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li><li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis/Viz</li><li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li></ul>
             </div>
         </div>
 
         <div class="main-content">
             <section id="home">
                 <div class="header">
-                    <img src="/images/myphoto.png" alt="Ketaki Dabade Photo" class="profile-photo"> <div class="profile-info">
+                    <img src="images/myphoto.png" alt="Ketaki Dabade Photo" class="profile-photo">
+                    <div class="profile-info">
                         <span class="profile-tag">Computer Science Engineer</span>
                         <h1 class="profile-name">Ketaki Dabade</h1>
                         <p class="profile-bio">
@@ -645,7 +546,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="actions">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
                     <a href="Ketaki_Dabade_Resume.pdf" class="btn btn-outline" id="resume-btn" download>Download Resume</a>
@@ -656,14 +556,14 @@
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <img src="/images/viziassist.png" alt="ViziAssist Project" class="project-image"> <h3 class="project-title">ViziAssist</h3>
+                        <img src="images/viziassist.png" alt="ViziAssist Project" class="project-image">
+                        <h3 class="project-title">ViziAssist</h3>
                         <p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p>
-                         <div class="project-links">
-                             <span>Technologies: YOLOv7, Jetson Nano</span>
-                             </div>
+                         <div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div>
                     </div>
                     <div class="project-card">
-                         <img src="/images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"> <h3 class="project-title">SkillSet Sherpa</h3>
+                        <img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image">
+                        <h3 class="project-title">SkillSet Sherpa</h3>
                         <p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p>
                         <div class="project-links">
                              <span>Technologies: LLM, EasyOCR, Flask</span>
@@ -671,60 +571,49 @@
                         </div>
                     </div>
                     <div class="project-card">
-                         <img src="/images/canman.jpg" alt="CanMan Project" class="project-image"> <h3 class="project-title">CanMan</h3>
+                        <img src="images/canman.jpg" alt="CanMan Project" class="project-image">
+                        <h3 class="project-title">CanMan</h3>
                         <p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p>
-                         <div class="project-links">
-                             <span>Technologies: Flask, MongoDB, NLTK, D3.js</span>
-                             </div>
+                         <div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div>
                     </div>
                      <div class="project-card">
-                         <img src="/images/oneview.jpg" alt="One View Project" class="project-image"> <h3 class="project-title">One View</h3>
+                        <img src="images/oneview.jpg" alt="One View Project" class="project-image">
+                        <h3 class="project-title">One View</h3>
                         <p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p>
-                        <div class="project-links">
-                             <span>Technologies: Flask, MongoDB, DBSCAN</span>
-                             </div>
+                        <div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div>
                     </div>
                     <div class="project-card">
-                         <img src="/images/doorlock.jpg" alt="Door Lock Project" class="project-image"> <h3 class="project-title">Automated Door Lock</h3>
+                        <img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image">
+                        <h3 class="project-title">Automated Door Lock</h3>
                         <p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p>
-                         <div class="project-links">
-                             <span>Technologies: Arduino, R307 Sensor</span>
-                             </div>
+                         <div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div>
                     </div>
                      <div class="project-card">
-                         <img src="/images/sports.png" alt="Sports ML Project" class="project-image"> <h3 class="project-title">ML & Game Theory in Sports</h3>
+                        <img src="images/sports.png" alt="Sports ML Project" class="project-image">
+                        <h3 class="project-title">ML & Game Theory in Sports</h3>
                         <p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p>
-                        <div class="project-links">
-                             <span>Area: Research, ML, Game Theory</span>
-                             </div>
+                        <div class="project-links"><span>Area: Research, ML, Game Theory</span></div>
                     </div>
                 </div>
             </section>
 
             <section id="experience">
                 <h2 class="section-title">Work Experience & Research</h2>
-                 <div class="experience-card">
+                <div class="experience-card">
                     <div class="experience-header">
                         <h3 class="experience-company">AI4M Technology Private Limited</h3>
                         <span class="experience-duration">July 2024 - Present</span>
                     </div>
                     <h4 class="experience-title">Deep Learning Engineer Intern</h4>
-                    <ul class="experience-description">
-                         <li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li>
-                         <li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li>
-                        <li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li>
-                    </ul>
+                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
                 </div>
-                 <div class="experience-card">
+                <div class="experience-card">
                     <div class="experience-header">
                         <h3 class="experience-company">VILA Emach Wirken Private Limited</h3>
                         <span class="experience-duration">June 2022 - Dec 2022</span>
                     </div>
                     <h4 class="experience-title">Data Analyst Intern</h4>
-                    <ul class="experience-description">
-                        <li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li>
-                        <li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li>
-                    </ul>
+                     <ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul>
                 </div>
                  <div class="experience-card">
                     <div class="experience-header">
@@ -732,12 +621,49 @@
                         <span class="experience-duration">Feb 2024 - Mar 2024</span>
                     </div>
                     <h4 class="experience-title">Research Trainee</h4>
-                     <ul class="experience-description">
-                        <li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li>
-                         <li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li>
-                    </ul>
+                    <ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul>
                 </div>
             </section>
+
+             <section id="certifications">
+                 <h2 class="section-title">Courses & Certifications</h2>
+
+                 <div class="certification-card">
+                     <h3 class="certification-title">Google Project Management Professional Certificate</h3>
+                     <p class="certification-issuer">Google / Coursera</p>
+                     <p class="certification-date">November 2024</p>
+                 </div>
+                 <div class="certification-card">
+                     <h3 class="certification-title">Machine Learning Specialization</h3>
+                     <p class="certification-issuer">DeepLearning.AI / Stanford Online</p>
+                     <p class="certification-date">July 2024</p>
+                 </div>
+                 <div class="certification-card">
+                     <h3 class="certification-title">Accenture North America Data Analytics and Visualization Job Simulation</h3>
+                     <p class="certification-issuer">Forage</p>
+                     <p class="certification-date">March 2024</p>
+                 </div>
+                 <div class="certification-card">
+                     <h3 class="certification-title">Introduction to Al in the Data Center</h3>
+                     <p class="certification-issuer">NVIDIA Deep Learning Institute</p>
+                     <p class="certification-date">February 2024</p>
+                 </div>
+                 <div class="certification-card">
+                     <h3 class="certification-title">Google Data Analytics Professional Certificate</h3>
+                     <p class="certification-issuer">Google / Coursera</p>
+                     <p class="certification-date">December 2023</p>
+                 </div>
+                 <div class="certification-card">
+                     <h3 class="certification-title">Mastering Data Structures & Algorithms (C/C++)</h3>
+                     <p class="certification-issuer">Udemy</p>
+                     <p class="certification-date">September 2023</p>
+                 </div>
+                 <div class="certification-card">
+                     <h3 class="certification-title">The Git and Github Bootcamp</h3>
+                     <p class="certification-issuer">Udemy</p>
+                     <p class="certification-date">February 2024</p>
+                 </div>
+             </section>
 
             <section id="contact">
                 <h2 class="section-title">Get In Touch</h2>
@@ -755,15 +681,9 @@
                         <span class="contact-text">Pune, India</span>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/ketakiii3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                         <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog">
-                            <i class="fab fa-wordpress"></i>
-                        </a>
+                        <a href="https://github.com/ketakiii3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                         <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog"><i class="fab fa-wordpress"></i></a>
                     </div>
                 </div>
             </section>
@@ -778,93 +698,69 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Select all navigation links and content sections
             const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.main-content section'); // Target sections within main-content
-            const mainContent = document.querySelector('.main-content'); // Get the scrollable element
+            const sections = document.querySelectorAll('.main-content section'); // Selects all sections
+            const mainContent = document.querySelector('.main-content');
 
             // Function to update the active navigation link based on scroll position
             const updateActiveNav = () => {
-                let currentSectionId = ''; // Variable to store the ID of the currently visible section
-
-                // Iterate over each section to find the one currently in view
+                let currentSectionId = '';
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop; // Distance from the top of the main content area
-                    const sectionHeight = section.clientHeight; // Height of the section
-                    // Check if the scroll position is within the bounds of the section (with an offset)
-                    if (mainContent.scrollTop >= (sectionTop - 100) && mainContent.scrollTop < (sectionTop + sectionHeight - 100)) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (mainContent.scrollTop >= (sectionTop - 150) && mainContent.scrollTop < (sectionTop + sectionHeight - 150)) {
                          currentSectionId = section.getAttribute('id');
                     }
                 });
-
-                 // Fallback to home if no other section is active near the top
                 if (currentSectionId === '' && mainContent.scrollTop < 200) {
                     currentSectionId = 'home';
                 }
-
-
-                // Update the 'active' class on navigation links
                 navLinks.forEach(link => {
-                    link.classList.remove('active'); // Remove active class from all links first
-                     // Get the target section ID from the link's href attribute
+                    link.classList.remove('active');
                     const linkHref = link.getAttribute('href');
-                     // Add active class if the link's href matches the current section ID
                     if (linkHref === `#${currentSectionId}`) {
                         link.classList.add('active');
                     }
                 });
             };
 
-            // Add scroll event listener to the main content area to update active nav on scroll
-             mainContent.addEventListener('scroll', updateActiveNav);
-             // Initial call to set the active nav link on page load
-             updateActiveNav();
+            mainContent.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Initial call
 
             // Handle smooth scrolling when navigation links are clicked
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault(); // Prevent default anchor link behavior (jumping)
-
-                    const targetId = this.getAttribute('href'); // Get the target section ID (e.g., '#projects')
-                    const targetSection = document.querySelector(targetId); // Find the target section element
-
-                    // If the target section exists, scroll to it smoothly
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
                     if (targetSection) {
                          const scrollToPosition = targetSection.offsetTop;
-                        mainContent.scrollTo({
-                            top: scrollToPosition, // Scroll to the top of the target section
-                             behavior: 'smooth' // Enable smooth scrolling animation
-                        });
+                        mainContent.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
                     }
-
-                     // Update active class immediately on click for better UX
                      navLinks.forEach(l => l.classList.remove('active'));
                      this.classList.add('active');
                 });
             });
 
-            // Add click handlers for project cards (optional: for modals or links)
+            // Add click handlers for project cards
             const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
-                card.addEventListener('click', function(event) { // Pass the event object
+                card.addEventListener('click', function(event) {
                     const title = this.querySelector('.project-title').textContent;
                     console.log('Project card clicked:', title);
                     const linkElement = this.querySelector('.project-links a');
-                    // Check if the click target *itself* wasn't the link element or inside it
                     if (linkElement && linkElement.href && !linkElement.contains(event.target)) {
                         window.open(linkElement.href, '_blank', 'noopener,noreferrer');
                     }
                 });
             });
 
-
-            // --- Resume Download Button ---
+            // Resume Download Button Logic
             const resumeBtn = document.getElementById('resume-btn');
              if (resumeBtn) {
                  resumeBtn.addEventListener('click', function(e) {
                      console.log('Download Resume button clicked.');
-                     // Default behavior (download via href) is allowed to proceed.
                  });
              }
-
         });
     </script>
     </body>
