@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Ketaki Dabade - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Define CSS variables for consistent styling (Spotify theme) */
         :root {
             --spotify-black: #121212;
             --spotify-dark-gray: #181818;
@@ -14,83 +15,97 @@
             --spotify-green: #1DB954;
             --spotify-white: #FFFFFF;
             --content-spacing: 24px;
-            --font-family: 'Gotham', 'Helvetica Neue', Arial, sans-serif;
+            --font-family: 'Gotham', 'Helvetica Neue', Arial, sans-serif; /* Define primary font */
         }
 
+        /* Reset default browser styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Basic body styling */
         body {
-            font-family: var(--font-family);
-            background-color: var(--spotify-black);
-            color: var(--spotify-white);
-            line-height: 1.6;
+            font-family: var(--font-family); /* Use defined font */
+            background-color: var(--spotify-black); /* Set background color */
+            color: var(--spotify-white); /* Set default text color */
+            line-height: 1.6; /* Set line height for readability */
         }
 
+        /* Main container layout using flexbox */
         .container {
             display: flex;
-            height: 100vh;
-            overflow: hidden;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide overflow */
         }
 
         /* Sidebar styling */
         .sidebar {
-            width: 240px;
-            background-color: var(--spotify-black);
-            padding: 24px 12px;
+            width: 240px; /* Fixed width */
+            background-color: var(--spotify-black); /* Background color */
+            padding: 24px 12px; /* Padding */
             display: flex;
-            flex-direction: column;
-            border-right: 1px solid #282828;
+            flex-direction: column; /* Stack items vertically */
+            border-right: 1px solid #282828; /* Subtle border */
         }
 
+        /* Logo container styling */
         .logo {
             padding: 0 12px;
             margin-bottom: 18px;
         }
 
+        /* Logo text styling */
         .logo h1 {
             font-size: 24px;
             font-weight: 700;
             color: var(--spotify-white);
         }
 
+        /* Navigation menu list styling */
         .nav-menu {
-            list-style: none;
+            list-style: none; /* Remove default list bullets */
             padding: 0 12px;
         }
 
+        /* Navigation item styling */
         .nav-item {
             margin-bottom: 16px;
         }
 
+        /* Navigation link styling */
         .nav-link {
             display: flex;
-            align-items: center;
-            color: var(--spotify-light-gray);
-            text-decoration: none;
+            align-items: center; /* Align icon and text */
+            color: var(--spotify-light-gray); /* Default link color */
+            text-decoration: none; /* Remove underline */
             font-weight: 600;
             font-size: 14px;
             padding: 8px 0;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease; /* Smooth color transition on hover */
         }
 
+        /* Navigation link hover and active state */
         .nav-link:hover, .nav-link.active {
-            color: var(--spotify-white);
+            color: var(--spotify-white); /* Change color on hover/active */
         }
 
+        /* Navigation link icon styling */
         .nav-link i {
-            margin-right: 16px;
+            margin-right: 16px; /* Space between icon and text */
             font-size: 18px;
+            width: 20px; /* Ensure icons align */
+            text-align: center;
         }
 
+        /* Skills section container */
         .skills-section {
             margin-top: 24px;
             padding: 0 12px;
         }
 
+        /* Skills section title */
         .skills-section h3 {
             color: var(--spotify-light-gray);
             text-transform: uppercase;
@@ -99,303 +114,455 @@
             letter-spacing: 0.1em;
         }
 
+        /* Skills list styling */
         .skills-list {
-            list-style: none;
+            list-style: none; /* Remove default list bullets */
         }
 
+        /* Individual skill item styling */
         .skill-item {
             padding: 8px 12px;
             margin-bottom: 8px;
-            background-color: var(--spotify-gray);
-            border-radius: 4px;
+            background-color: var(--spotify-gray); /* Background color */
+            border-radius: 4px; /* Rounded corners */
             font-size: 14px;
             display: flex;
             align-items: center;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease; /* Smooth background transition */
         }
 
+        /* Skill item hover effect */
         .skill-item:hover {
-            background-color: #333;
+            background-color: #333; /* Darken background on hover */
         }
 
+        /* Skill item icon styling */
         .skill-item i {
             margin-right: 12px;
             font-size: 16px;
+            width: 20px; /* Ensure icons align */
+            text-align: center;
+            color: var(--spotify-green); /* Use accent color for icons */
         }
 
         /* Main content area styling */
         .main-content {
-            flex: 1;
+            flex: 1; /* Take remaining space */
+            /* Subtle gradient background */
             background: linear-gradient(to bottom, #1a1a1a, var(--spotify-black) 20%);
-            overflow-y: auto;
-            padding: 24px;
+            overflow-y: auto; /* Allow vertical scrolling */
+            padding: 24px; /* Padding around content */
         }
 
+        /* Header section layout */
         .header {
             display: flex;
-            align-items: center;
-            margin-bottom: 24px;
+            align-items: center; /* Vertically align items */
+            margin-bottom: 24px; /* Space below header */
         }
 
+        /* Profile photo styling */
         .profile-photo {
             width: 200px;
             height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 24px;
-            box-shadow: 0 4px 60px rgba(0,0,0,.5);
+            border-radius: 50%; /* Circular photo */
+            object-fit: cover; /* Ensure image covers the area */
+            margin-right: 24px; /* Space between photo and info */
+            box-shadow: 0 4px 60px rgba(0,0,0,.5); /* Subtle shadow */
+            /* Consider replacing placeholder with an actual photo URL */
         }
 
+        /* Profile information container */
         .profile-info {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Stack elements vertically */
         }
 
+        /* Profile tag (e.g., Developer) styling */
         .profile-tag {
             font-size: 14px;
             text-transform: uppercase;
             font-weight: 700;
             margin-bottom: 8px;
+            color: var(--spotify-light-gray); /* Lighter color for tag */
         }
 
+        /* Profile name styling */
         .profile-name {
-            font-size: 72px;
-            font-weight: 900;
+            font-size: 72px; /* Large font size */
+            font-weight: 900; /* Bold weight */
             line-height: 1.1;
             margin-bottom: 16px;
         }
 
+        /* Profile biography styling */
         .profile-bio {
             font-size: 16px;
             color: var(--spotify-light-gray);
-            max-width: 800px;
+            max-width: 800px; /* Limit width for readability */
         }
 
+        /* Action buttons container */
         .actions {
             display: flex;
             align-items: center;
-            margin: 24px 0;
+            margin: 24px 0; /* Space around buttons */
         }
 
+        /* General button styling */
         .btn {
-            padding: 12px 32px;
-            border-radius: 500px;
+            padding: 12px 32px; /* Button padding */
+            border-radius: 500px; /* Pill shape */
             font-size: 16px;
             font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: all 0.2s ease; /* Smooth transitions */
+            text-decoration: none; /* Remove underline */
             text-align: center;
+            border: none; /* Remove default border */
         }
 
+        /* Primary button styling (green) */
         .btn-primary {
             background-color: var(--spotify-green);
-            color: var(--spotify-black);
-            border: none;
-            margin-right: 16px;
+            color: var(--spotify-black); /* Text color contrasts background */
+            margin-right: 16px; /* Space between buttons */
         }
 
+        /* Primary button hover effect */
         .btn-primary:hover {
-            transform: scale(1.05);
-            background-color: #1ed760;
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            background-color: #1ed760; /* Slightly lighter green */
         }
 
+        /* Outline button styling */
         .btn-outline {
-            background-color: transparent;
-            color: var(--spotify-white);
-            border: 1px solid var(--spotify-light-gray);
+            background-color: transparent; /* No background */
+            color: var(--spotify-white); /* White text */
+            border: 1px solid var(--spotify-light-gray); /* Gray border */
         }
 
+        /* Outline button hover effect */
         .btn-outline:hover {
-            transform: scale(1.05);
-            border-color: var(--spotify-white);
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            border-color: var(--spotify-white); /* White border on hover */
         }
 
+        /* Section title styling */
         .section-title {
             font-size: 24px;
             font-weight: 700;
-            margin: 32px 0 16px;
+            margin: 32px 0 16px; /* Space around title */
         }
 
+        /* Projects grid layout */
         .projects-grid {
             display: grid;
+            /* Responsive grid: fills columns, min width 200px */
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 24px;
+            gap: 24px; /* Space between grid items */
         }
 
+        /* Project card styling */
         .project-card {
             background-color: var(--spotify-dark-gray);
-            border-radius: 8px;
+            border-radius: 8px; /* Rounded corners */
             padding: 16px;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth background transition */
+            cursor: pointer; /* Indicate interactivity */
+            display: flex; /* Use flexbox for content layout */
+            flex-direction: column; /* Stack content vertically */
         }
 
+        /* Project card hover effect */
         .project-card:hover {
-            background-color: var(--spotify-gray);
+            background-color: var(--spotify-gray); /* Darken background on hover */
         }
 
+        /* Project image styling */
         .project-image {
             width: 100%;
-            aspect-ratio: 1;
-            border-radius: 4px;
-            object-fit: cover;
+            aspect-ratio: 1; /* Square aspect ratio */
+            border-radius: 4px; /* Slightly rounded corners */
+            object-fit: cover; /* Cover the area */
             margin-bottom: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,.5);
+            box-shadow: 0 8px 24px rgba(0,0,0,.5); /* Shadow for depth */
+             /* Consider replacing placeholder with actual project image URLs */
         }
 
+        /* Project title styling */
         .project-title {
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 8px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: nowrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Add ellipsis for long titles */
+            flex-shrink: 0; /* Prevent title from shrinking */
         }
 
+        /* Project description styling */
         .project-description {
             font-size: 14px;
             color: var(--spotify-light-gray);
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            overflow: hidden; /* Required for line-clamp */
+            text-overflow: ellipsis; /* Add ellipsis */
+            /* Apply line clamping */
+            display: -webkit-box; /* Required for -webkit-line-clamp */
+            -webkit-box-orient: vertical; /* Required for -webkit-line-clamp */
+            -webkit-line-clamp: 3; /* Limit to 3 lines (WebKit browsers) */
+            line-clamp: 3; /* Limit to 3 lines (Standard property) */ /* */
+            flex-grow: 1; /* Allow description to take available space */
+            margin-bottom: 10px; /* Add space below description */
         }
 
+        /* Project technologies/links container */
+        .project-links {
+            margin-top: auto; /* Push to the bottom */
+            font-size: 12px;
+            color: var(--spotify-light-gray);
+        }
+
+        /* Styling for links within project cards */
+        .project-links a {
+            color: var(--spotify-green);
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        /* Hover effect for project links */
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Experience card styling */
         .experience-card {
             background-color: var(--spotify-dark-gray);
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 16px; /* Space between cards */
             transition: background-color 0.3s ease;
         }
 
+        /* Experience card hover effect */
         .experience-card:hover {
             background-color: var(--spotify-gray);
         }
 
+        /* Experience card header (Company & Duration) */
         .experience-header {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
+            justify-content: space-between; /* Space out company and duration */
+            align-items: baseline; /* Align text baselines */
+            margin-bottom: 8px; /* Reduced margin */
         }
 
+        /* Experience company name */
         .experience-company {
             font-size: 18px;
             font-weight: 700;
         }
 
+        /* Experience duration text */
         .experience-duration {
             font-size: 14px;
             color: var(--spotify-light-gray);
+            flex-shrink: 0; /* Prevent duration from wrapping */
+            margin-left: 16px; /* Add space between title and duration */
         }
 
+        /* Experience job title */
         .experience-title {
             font-size: 16px;
+            font-weight: 600; /* Slightly less bold than company */
             margin-bottom: 12px;
+             color: var(--spotify-white); /* Ensure title is clearly visible */
         }
 
+        /* Experience description/bullet points */
         .experience-description {
             font-size: 14px;
             color: var(--spotify-light-gray);
+            padding-left: 0; /* Remove default list padding if using ul */
+            list-style-position: outside; /* Position bullets outside */
         }
 
+        /* Style for list items if using <ul> for description */
+         .experience-description li {
+            margin-bottom: 8px; /* Space between points */
+        }
+
+
+        /* Contact information container */
         .contact-info {
             background-color: var(--spotify-dark-gray);
             border-radius: 8px;
             padding: 20px;
+            margin-top: 16px; /* Space above contact info */
         }
 
+        /* Individual contact item (icon + text) */
         .contact-item {
             display: flex;
             align-items: center;
             margin-bottom: 16px;
         }
 
+        /* Contact item icon */
         .contact-item i {
             font-size: 20px;
-            margin-right: 12px;
+            margin-right: 16px; /* Increased space */
             color: var(--spotify-light-gray);
+            width: 25px; /* Fixed width for alignment */
+            text-align: center;
         }
 
+        /* Contact item text */
         .contact-text {
             font-size: 16px;
         }
-
-        .social-links {
-            display: flex;
-            gap: 16px;
-            margin-top: 24px;
+         /* Make contact links clickable */
+        .contact-text a {
+            color: var(--spotify-white);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
 
+        /* Hover effect for contact links */
+        .contact-text a:hover {
+            color: var(--spotify-green);
+            text-decoration: underline;
+        }
+
+
+        /* Social media links container */
+        .social-links {
+            display: flex;
+            gap: 16px; /* Space between icons */
+            margin-top: 24px; /* Space above social links */
+        }
+
+        /* Individual social media link */
         .social-link {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 50%; /* Circular icons */
             background-color: var(--spotify-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--spotify-white);
             text-decoration: none;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.2s ease; /* Add background transition */
+            font-size: 18px; /* Adjust icon size if needed */
         }
 
+        /* Social link hover effect */
         .social-link:hover {
-            transform: scale(1.1);
-            background-color: var(--spotify-green);
+            transform: scale(1.1); /* Enlarge icon */
+            background-color: var(--spotify-green); /* Change background color */
         }
 
+        /* Footer styling */
         .footer {
-            margin-top: 48px;
-            padding: 24px 0;
-            border-top: 1px solid var(--spotify-gray);
+            margin-top: 48px; /* Space above footer */
+            padding: 24px 0; /* Padding */
+            border-top: 1px solid var(--spotify-gray); /* Separator line */
             text-align: center;
             color: var(--spotify-light-gray);
             font-size: 14px;
         }
 
-        /* Responsive styles */
+        /* Responsive styles for smaller screens */
         @media (max-width: 768px) {
+            /* Stack container items vertically */
             .container {
                 flex-direction: column;
-                height: auto;
+                height: auto; /* Adjust height */
+                 overflow: visible; /* Allow content to scroll naturally */
             }
 
+            /* Full width sidebar */
             .sidebar {
                 width: 100%;
                 padding: 16px;
+                border-right: none; /* Remove border */
+                border-bottom: 1px solid #282828; /* Add bottom border */
+                /* Optionally make sidebar collapsible */
             }
 
+            /* Adjust main content padding */
             .main-content {
                 padding: 16px;
+                overflow-y: visible; /* Remove internal scroll */
             }
 
+            /* Stack header items vertically */
             .header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: flex-start; /* Align items to the start */
             }
 
+            /* Adjust profile photo size and margin */
             .profile-photo {
                 width: 150px;
                 height: 150px;
-                margin-bottom: 24px;
+                margin-right: 0; /* Remove right margin */
+                margin-bottom: 24px; /* Add bottom margin */
             }
 
+            /* Adjust profile name size */
             .profile-name {
                 font-size: 48px;
             }
 
+             /* Adjust action buttons layout */
+            .actions {
+                flex-direction: column; /* Stack buttons */
+                align-items: flex-start; /* Align to start */
+                gap: 16px; /* Add gap between buttons */
+            }
+
+             /* Remove margin from primary button when stacked */
+             .btn-primary {
+                 margin-right: 0;
+             }
+
+            /* Adjust projects grid columns and gap */
             .projects-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
                 gap: 16px;
             }
+             /* Ensure experience duration doesn't wrap awkwardly on mobile */
+            .experience-header {
+                flex-direction: column; /* Stack company and duration */
+                align-items: flex-start;
+            }
+            .experience-duration {
+                margin-left: 0; /* Remove left margin */
+                margin-top: 4px; /* Add top margin */
+            }
         }
+         /* Further adjustments for very small screens if needed */
+        @media (max-width: 480px) {
+            .profile-name {
+                font-size: 36px; /* Even smaller name */
+            }
+             .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+             .projects-grid {
+                /* Single column grid on very small screens */
+                 grid-template-columns: 1fr;
+            }
+        }
+
     </style>
-</head>
+    </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo">
                 <h1>Portfolio</h1>
@@ -403,241 +570,300 @@
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#home" class="nav-link active">
-                        <i class="fas fa-home"></i>
-                        Home
+                        <i class="fas fa-home"></i> Home
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#projects" class="nav-link">
-                        <i class="fas fa-folder"></i>
-                        Projects
+                        <i class="fas fa-folder"></i> Projects
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#experience" class="nav-link">
-                        <i class="fas fa-briefcase"></i>
-                        Experience
+                        <i class="fas fa-briefcase"></i> Experience
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">
-                        <i class="fas fa-envelope"></i>
-                        Contact
+                        <i class="fas fa-envelope"></i> Contact
                     </a>
                 </li>
             </ul>
             <div class="skills-section">
                 <h3>Skills</h3>
                 <ul class="skills-list">
-                    <li class="skill-item">
-                        <i class="fab fa-html5"></i>
-                        HTML/CSS
+                     <li class="skill-item">
+                        <i class="fab fa-python"></i> Python
+                    </li>
+                     <li class="skill-item">
+                        <i class="fas fa-file-code"></i> C / C++
+                    </li>
+                     <li class="skill-item">
+                        <i class="fas fa-database"></i> SQL
+                    </li>
+                     <li class="skill-item">
+                        <i class="fab fa-html5"></i> HTML/CSS
                     </li>
                     <li class="skill-item">
-                        <i class="fab fa-js"></i>
-                        JavaScript
+                        <i class="fab fa-js"></i> JavaScript / Flask
                     </li>
-                    <li class="skill-item">
-                        <i class="fab fa-react"></i>
-                        React
+                     <li class="skill-item">
+                        <i class="fas fa-brain"></i> PyTorch / TensorFlow
                     </li>
-                    <li class="skill-item">
-                        <i class="fab fa-node-js"></i>
-                        Node.js
+                     <li class="skill-item">
+                        <i class="fas fa-eye"></i> Comp Vision (YOLO)
                     </li>
-                    <li class="skill-item">
-                        <i class="fas fa-database"></i>
-                        SQL/NoSQL
+                     <li class="skill-item">
+                         <i class="fab fa-nvidia"></i> NVIDIA Tools
+                    </li>
+                     <li class="skill-item">
+                        <i class="fas fa-chart-bar"></i> Data Analysis/Viz
+                    </li>
+                     <li class="skill-item">
+                        <i class="fas fa-tools"></i> Git / Docker / Linux
                     </li>
                 </ul>
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <section id="home">
                 <div class="header">
-                    <img src="https://via.placeholder.com/200" alt="Your Photo" class="profile-photo">
+                    <img src="https://via.placeholder.com/200" alt="Ketaki Dabade Photo" class="profile-photo">
                     <div class="profile-info">
-                        <span class="profile-tag">Developer</span>
-                        <h1 class="profile-name">Your Name</h1>
+                        <span class="profile-tag">Computer Science Engineer</span> <h1 class="profile-name">Ketaki Dabade</h1>
                         <p class="profile-bio">
-                            Full-stack developer with a passion for creating elegant, user-friendly websites 
-                            and applications. Specialized in modern JavaScript frameworks and responsive design.
-                        </p>
+                            Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation. </p>
                     </div>
                 </div>
-                
+
                 <div class="actions">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="#" class="btn btn-outline" id="resume-btn">Download Resume</a>
-                </div>
+                    <a href="Ketaki_Dabade_Resume.pdf" class="btn btn-outline" id="resume-btn" download>Download Resume</a> </div>
             </section>
 
             <section id="projects">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300" alt="Project 1" class="project-image">
-                        <h3 class="project-title">E-commerce Platform</h3>
-                        <p class="project-description">A full-stack e-commerce solution with product catalog, shopping cart, and payment integration.</p>
+                        <img src="https://via.placeholder.com/300/1DB954/FFFFFF?text=ViziAssist" alt="ViziAssist Project" class="project-image"> <h3 class="project-title">ViziAssist</h3>
+                        <p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p>
+                         <div class="project-links">
+                             <span>Technologies: YOLOv7, Jetson Nano</span>
+                             </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300" alt="Project 2" class="project-image">
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-description">A React-based task management application with drag-and-drop interface.</p>
+                        <img src="https://via.placeholder.com/300/FFC107/000000?text=Sherpa" alt="SkillSet Sherpa Project" class="project-image"> <h3 class="project-title">SkillSet Sherpa</h3>
+                        <p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p>
+                        <div class="project-links">
+                             <span>Technologies: LLM, EasyOCR, Flask</span>
+                             <a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a> </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300" alt="Project 3" class="project-image">
-                        <h3 class="project-title">Weather Dashboard</h3>
-                        <p class="project-description">Interactive weather application using APIs to display forecasts and weather data.</p>
+                        <img src="https://via.placeholder.com/300/9C27B0/FFFFFF?text=CanMan" alt="CanMan Project" class="project-image"> <h3 class="project-title">CanMan</h3>
+                        <p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p>
+                         <div class="project-links">
+                             <span>Technologies: Flask, MongoDB, NLTK, D3.js</span>
+                             </div>
+                    </div>
+                     <div class="project-card">
+                        <img src="https://via.placeholder.com/300/2196F3/FFFFFF?text=OneView" alt="One View Project" class="project-image"> <h3 class="project-title">One View</h3>
+                        <p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p>
+                        <div class="project-links">
+                             <span>Technologies: Flask, MongoDB, DBSCAN</span>
+                             </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300" alt="Project 4" class="project-image">
-                        <h3 class="project-title">Portfolio Website</h3>
-                        <p class="project-description">A responsive portfolio website with Spotify-inspired design (this site).</p>
+                        <img src="https://via.placeholder.com/300/795548/FFFFFF?text=DoorLock" alt="Door Lock Project" class="project-image"> <h3 class="project-title">Automated Door Lock</h3>
+                        <p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p>
+                         <div class="project-links">
+                             <span>Technologies: Arduino, R307 Sensor</span>
+                              </div>
+                    </div>
+                     <div class="project-card">
+                        <img src="https://via.placeholder.com/300/FF5722/FFFFFF?text=SportsML" alt="Sports ML Project" class="project-image"> <h3 class="project-title">ML & Game Theory in Sports</h3>
+                        <p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p>
+                        <div class="project-links">
+                             <span>Area: Research, ML, Game Theory</span>
+                             </div>
                     </div>
                 </div>
             </section>
 
             <section id="experience">
-                <h2 class="section-title">Work Experience</h2>
-                <div class="experience-card">
+                <h2 class="section-title">Work Experience & Research</h2>
+                 <div class="experience-card">
                     <div class="experience-header">
-                        <h3 class="experience-company">Tech Company Inc.</h3>
-                        <span class="experience-duration">2022 - Present</span>
+                        <h3 class="experience-company">AI4M Technology Private Limited</h3>
+                        <span class="experience-duration">July 2024 - Present</span>
                     </div>
-                    <h4 class="experience-title">Senior Frontend Developer</h4>
-                    <p class="experience-description">
-                        Led the development of the company's flagship web application. 
-                        Implemented modern frontend architecture and improved loading times by 40%.
-                    </p>
+                    <h4 class="experience-title">Deep Learning Engineer Intern</h4>
+                     <ul class="experience-description">
+                         <li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li>
+                         <li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li>
+                        <li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li>
+                    </ul>
                 </div>
-                <div class="experience-card">
+                 <div class="experience-card">
                     <div class="experience-header">
-                        <h3 class="experience-company">Digital Agency LLC</h3>
-                        <span class="experience-duration">2020 - 2022</span>
+                        <h3 class="experience-company">VILA Emach Wirken Private Limited</h3>
+                        <span class="experience-duration">June 2022 - Dec 2022</span>
                     </div>
-                    <h4 class="experience-title">Web Developer</h4>
-                    <p class="experience-description">
-                        Developed responsive websites for various clients across industries.
-                        Collaborated with design team to implement pixel-perfect interfaces.
-                    </p>
+                    <h4 class="experience-title">Data Analyst Intern</h4>
+                    <ul class="experience-description">
+                        <li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li>
+                        <li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li>
+                    </ul>
                 </div>
-                <div class="experience-card">
+                 <div class="experience-card">
                     <div class="experience-header">
-                        <h3 class="experience-company">Startup Hub</h3>
-                        <span class="experience-duration">2018 - 2020</span>
+                        <h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3>
+                        <span class="experience-duration">Feb 2024 - Mar 2024</span>
                     </div>
-                    <h4 class="experience-title">Junior Developer</h4>
-                    <p class="experience-description">
-                        Assisted in the development of web applications and helped maintain 
-                        client websites. Gained experience with JavaScript frameworks and APIs.
-                    </p>
+                    <h4 class="experience-title">Research Trainee</h4>
+                     <ul class="experience-description">
+                        <li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li>
+                         <li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li>
+                    </ul>
                 </div>
-            </section>
+                </section>
 
             <section id="contact">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-info">
                     <div class="contact-item">
-                        <i class="far fa-envelope"></i>
-                        <span class="contact-text">youremail@example.com</span>
+                        <i class="far fa-envelope"></i> <span class="contact-text"><a href="mailto:dabadeketakil@gmail.com">dabadeketakil@gmail.com</a></span>
                     </div>
+                     <div class="contact-item">
+                        <i class="fas fa-phone"></i> <span class="contact-text">+91 7057646706</span>
+                        </div>
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span class="contact-text">+1 (123) 456-7890</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span class="contact-text">San Francisco, CA</span>
+                        <i class="fas fa-map-marker-alt"></i> <span class="contact-text">Pune, India</span>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+                        <a href="https://github.com/ketakiii3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i> </a> <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i> </a> <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog">
+                            <i class="fab fa-wordpress"></i> </a> </div>
                 </div>
             </section>
 
             <div class="footer">
-                <p>&copy; 2025 Your Name. All rights reserved.</p>
+                <p>&copy; 2025 Ketaki Dabade. All rights reserved.</p>
             </div>
         </div>
-    </div>
-
-    <script>
-        // Simple JavaScript to handle active navigation
+         </div>
+     <script>
+        // Wait for the HTML document to be fully loaded and parsed
         document.addEventListener('DOMContentLoaded', () => {
+            // Select all navigation links and content sections
             const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
-            
-            // Function to update active nav item
+            const sections = document.querySelectorAll('.main-content section'); // Target sections within main-content
+            const mainContent = document.querySelector('.main-content'); // Get the scrollable element
+
+            // Function to update the active navigation link based on scroll position
             const updateActiveNav = () => {
-                let current = '';
-                
+                let currentSectionId = ''; // Variable to store the ID of the currently visible section
+
+                // Iterate over each section to find the one currently in view
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (window.scrollY >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
+                    const sectionTop = section.offsetTop; // Distance from the top of the main content area
+                    const sectionHeight = section.clientHeight; // Height of the section
+                    // Check if the scroll position is within the bounds of the section (with an offset)
+                    // Offset helps activate the link slightly before the section top hits the exact top
+                    if (mainContent.scrollTop >= (sectionTop - 100) && mainContent.scrollTop < (sectionTop + sectionHeight - 100)) {
+                         currentSectionId = section.getAttribute('id');
                     }
                 });
-                
+
+                 // Fallback to home if no other section is active near the top
+                if (currentSectionId === '' && mainContent.scrollTop < 200) {
+                    currentSectionId = 'home';
+                }
+
+
+                // Update the 'active' class on navigation links
                 navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('active'); // Remove active class from all links first
+                     // Get the target section ID from the link's href attribute
+                    const linkHref = link.getAttribute('href');
+                     // Add active class if the link's href matches the current section ID
+                    if (linkHref === `#${currentSectionId}`) {
                         link.classList.add('active');
                     }
                 });
             };
-            
-            // Add scroll event listener
-            window.addEventListener('scroll', updateActiveNav);
-            
-            // Handle nav link clicks
+
+            // Add scroll event listener to the main content area to update active nav on scroll
+             mainContent.addEventListener('scroll', updateActiveNav);
+             // Initial call to set the active nav link on page load
+             updateActiveNav();
+
+            // Handle smooth scrolling when navigation links are clicked
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    this.classList.add('active');
+                    e.preventDefault(); // Prevent default anchor link behavior (jumping)
+
+                    const targetId = this.getAttribute('href'); // Get the target section ID (e.g., '#projects')
+                    const targetSection = document.querySelector(targetId); // Find the target section element
+
+                    // If the target section exists, scroll to it smoothly
+                    if (targetSection) {
+                         // Calculate the position to scroll to, considering the main content's scroll position
+                         const scrollToPosition = targetSection.offsetTop;
+
+                         // Scroll the main content area smoothly to the target section's position
+                        mainContent.scrollTo({
+                            top: scrollToPosition, // Scroll to the top of the target section
+                             behavior: 'smooth' // Enable smooth scrolling animation
+                        });
+                    }
+
+                     // Update active class immediately on click for better UX
+                     navLinks.forEach(l => l.classList.remove('active'));
+                     this.classList.add('active');
                 });
             });
-            
-            // Project cards click handler
+
+            // Add click handlers for project cards (optional: for modals or links)
             const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
                 card.addEventListener('click', function() {
-                    // You can add modal functionality or navigation to project details here
-                    console.log('Project clicked:', this.querySelector('.project-title').textContent);
+                    // Example action: Log the project title to the console
+                    // You could replace this with opening a modal, linking to a project page, etc.
+                     const title = this.querySelector('.project-title').textContent;
+                     console.log('Project card clicked:', title);
+                     // Check if there's a link within the card and navigate if found
+                     const linkElement = this.querySelector('.project-links a');
+                     // Check if the click target itself wasn't the link, to avoid double navigation
+                     if (linkElement && linkElement.href && !linkElement.contains(event.target)) {
+                         // Example: Open link in a new tab
+                         window.open(linkElement.href, '_blank');
+                     }
                 });
             });
-            
-            // Resume download button
+
+            // --- Resume Download Button ---
+            // Get the resume download button element by its ID
             const resumeBtn = document.getElementById('resume-btn');
-            resumeBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Resume download functionality will be implemented here!');
-                // In a real implementation, this would trigger a download
-            });
+             // NOTE: The 'href' attribute of the resume button above points directly to 'Ketaki_Dabade_Resume.pdf'.
+             // For this to work, the PDF file MUST be in the same directory as the HTML file,
+             // OR you need to provide the correct relative or absolute path to the file in the 'href'.
+             // The 'download' attribute suggests the browser should download the file.
+
+             // Optional: Add a click listener if you need more complex behavior
+             if (resumeBtn) { // Check if the button exists
+                 resumeBtn.addEventListener('click', function(e) {
+                     // We let the default behavior (following the href and downloading) happen.
+                     // You could add tracking code here if needed.
+                     console.log('Download Resume button clicked.');
+                     // If the href wasn't set directly, you might prevent default and trigger download differently:
+                     // e.preventDefault();
+                     // window.location.href = 'path/to/your/Ketaki_Dabade_Resume.pdf'; // Or trigger download via other JS methods
+                 });
+             }
+
         });
     </script>
-</body>
+    </body>
 </html>
