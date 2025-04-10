@@ -57,12 +57,34 @@
         .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
 
          /* --- Education Section Styling --- */
+         #education { padding-bottom: 16px; } /* Add padding below section */
          #education .section-title { margin-top: 0; }
-         .education-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 20px 25px; margin-bottom: 16px; }
+         /* Education Grid Layout */ /* */
+         .education-grid {
+             display: grid;
+             grid-template-columns: 1fr 1fr; /* Two equal columns */
+             gap: 16px; /* Space between cards */
+             margin-bottom: 32px;
+         }
+         .education-card {
+            background-color: var(--spotify-dark-gray); border-radius: 8px;
+            padding: 20px 25px;
+            /* margin-bottom: 16px; Removed, gap handles spacing */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added */
+            position: relative; /* Added */
+         }
+          /* Education Card Hover Effect */ /* */
+          .education-card:hover {
+              background-color: var(--spotify-gray);
+              transform: scale(1.02);
+              box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+              z-index: 5;
+           }
          .institution { font-size: 18px; font-weight: 700; color: var(--spotify-white); margin-bottom: 4px; }
          .degree { font-size: 16px; font-weight: 600; color: var(--spotify-light-gray); margin-bottom: 8px; }
          .education-details { font-size: 14px; color: var(--spotify-light-gray); }
          .education-details span { color: var(--spotify-white); font-weight: 600; }
+
 
         /* --- Projects Section --- */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
@@ -126,6 +148,8 @@
             .btn-primary { margin-right: 0; }
             .projects-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
             .project-card { min-height: 200px; } .project-card:hover { min-height: 260px; }
+             /* Stack education cards on smaller screens */ /* */
+             .education-grid { grid-template-columns: 1fr; }
             .experience-header { flex-direction: column; align-items: flex-start; }
             .experience-duration { margin-left: 0; margin-top: 4px; }
             .certifications-grid { grid-template-columns: 1fr; }
@@ -169,20 +193,22 @@
 
              <section id="education">
                  <h2 class="section-title">Education</h2>
-                 <div class="education-card">
-                     <h3 class="institution">Dr. Vishwanath Karad MIT-WPU, Pune, India</h3>
-                     <h4 class="degree">Bachelor of Technology in Computer Science and Engineering</h4>
-                     <p class="education-details">
-                         Expected Graduation: July 2025 <br>
-                         CGPA: <span>8.8 / 10.0</span>
-                     </p>
-                 </div>
-                  <div class="education-card">
-                     <h3 class="institution">Columbia University</h3>
-                     <h4 class="degree">Master of Science in Computer Science</h4>
-                     <p class="education-details">
-                         Expected: August 2025 - December 2026
-                     </p>
+                 <div class="education-grid">
+                     <div class="education-card">
+                         <h3 class="institution">Dr. Vishwanath Karad MIT-WPU, Pune, India</h3>
+                         <h4 class="degree">Bachelor of Technology in Computer Science and Engineering (with Distinction)</h4>
+                         <p class="education-details">
+                             Expected Graduation: July 2025 <br>
+                             CGPA: <span>8.8 / 10.0</span>
+                         </p>
+                     </div>
+                     <div class="education-card">
+                         <h3 class="institution">Columbia University</h3>
+                         <h4 class="degree">Master of Science in Computer Science</h4>
+                         <p class="education-details">
+                             Expected: August 2025 - December 2026
+                         </p>
+                     </div>
                  </div>
              </section>
 
@@ -246,6 +272,7 @@
 
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
         </div></div><script>
+        // Same JS as before
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.main-content section');
