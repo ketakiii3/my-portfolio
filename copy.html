@@ -21,7 +21,7 @@
         /* Layout */
         .container { display: flex; height: 100vh; overflow: hidden; }
         .sidebar { width: 240px; background-color: var(--spotify-black); padding: 24px 12px; display: flex; flex-direction: column; border-right: 1px solid #282828; }
-        .main-content { flex: 1; background: linear-gradient(to bottom, #1a1a1a, var(--spotify-black) 20%); overflow-y: auto; padding: 24px; scroll-behavior: smooth; }
+        .main-content { flex: 1; background: linear-gradient(to bottom, #1a1a1a, var(--spotify-black) 20%); overflow-y: auto; padding: 24px; }
 
         /* Sidebar Content */
         .logo { padding: 0 12px; margin-bottom: 18px; }
@@ -30,7 +30,6 @@
         .nav-item { margin-bottom: 16px; }
         .nav-link { display: flex; align-items: center; color: var(--spotify-light-gray); text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 0; transition: color 0.2s ease; }
         .nav-link:hover, .nav-link.active { color: var(--spotify-white); }
-        .nav-link.active { font-weight: 700; }
         .nav-link i { margin-right: 16px; font-size: 18px; width: 20px; text-align: center; }
 
         /* Skills Section */
@@ -55,45 +54,64 @@
         .btn-primary:hover { transform: scale(1.05); background-color: #1ed760; }
         .btn-outline { background-color: transparent; color: var(--spotify-white); border: 1px solid var(--spotify-light-gray); }
         .btn-outline:hover { transform: scale(1.05); border-color: var(--spotify-white); }
-        .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 20px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(29, 185, 84, 0.3); }
+        .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
 
          /* --- Education Section Styling --- */
+         #education { padding-bottom: 16px; } /* Add padding below section */
          #education .section-title { margin-top: 0; }
-         .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
-         .education-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 24px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
-         .education-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
+         /* Education Grid Layout */ /* */
+         .education-grid {
+             display: grid;
+             grid-template-columns: 1fr 1fr; /* Two equal columns */
+             gap: 16px; /* Space between cards */
+         }
+         .education-card {
+            background-color: var(--spotify-dark-gray); border-radius: 8px;
+            padding: 20px 25px;
+            /* margin-bottom: 16px; Removed, gap handles spacing */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added */
+            position: relative; /* Added */
+         }
+          /* Education Card Hover Effect */ /* */
+          .education-card:hover {
+              background-color: var(--spotify-gray);
+              transform: scale(1.02);
+              box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+              z-index: 5;
+           }
          .institution { font-size: 18px; font-weight: 700; color: var(--spotify-white); margin-bottom: 4px; }
          .degree { font-size: 16px; font-weight: 600; color: var(--spotify-light-gray); margin-bottom: 8px; }
          .education-details { font-size: 14px; color: var(--spotify-light-gray); }
          .education-details span { color: var(--spotify-white); font-weight: 600; }
 
+
         /* --- Projects Section --- */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
-        .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px; border: 1px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out, border-color 0.3s ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
-        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 280px; border-color: var(--spotify-green); }
+        .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
+        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 280px; }
         .project-image { width: 100%; aspect-ratio: 1; border-radius: 4px; object-fit: cover; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,.4); }
         .project-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; text-align: center; }
         .project-description, .project-links { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.3s ease-out, max-height 0.4s ease-out, margin-top 0.3s ease-out; margin-top: 0; }
         .project-description { font-size: 13px; color: var(--spotify-light-gray); line-height: 1.5; }
         .project-links { font-size: 11px; color: var(--spotify-light-gray); }
         .project-card:hover .project-description, .project-card:hover .project-links { opacity: 1; max-height: 200px; margin-top: 8px; }
-        .project-links a { color: var(--spotify-green); text-decoration: none; margin-left: 5px; transition: color 0.2s ease; }
-        .project-links a:hover { text-decoration: underline; color: var(--spotify-green); }
+        .project-links a { color: var(--spotify-green); text-decoration: none; margin-left: 5px; }
+        .project-links a:hover { text-decoration: underline; }
 
         /* Experience */
-        .experience-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 19px; margin-bottom: 16px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
-        .experience-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
-        .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; /* Allow wrapping */ }
-        .experience-company { font-size: 18px; font-weight: 700; margin-right: 10px; /* Space before duration */ }
-        .experience-duration { font-size: 14px; color: var(--spotify-light-gray); flex-shrink: 0; /* margin-left: 16px; Removed */ white-space: nowrap; }
-        .experience-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--spotify-white); clear: both; /* Ensure title starts below header */ padding-top: 5px; }
-        .experience-description-list { font-size: 14px; color: var(--spotify-light-gray); list-style: disc; padding-left: 20px; margin-top: 0px; /* Reduced top margin */ }
+        .experience-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 20px; margin-bottom: 16px; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+        .experience-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; }
+        .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .experience-company { font-size: 18px; font-weight: 700; }
+        .experience-duration { font-size: 14px; color: var(--spotify-light-gray); flex-shrink: 0; margin-left: 16px; }
+        .experience-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--spotify-white); }
+        .experience-description-list { font-size: 14px; color: var(--spotify-light-gray); list-style: disc; padding-left: 20px; margin-top: 8px; }
         .experience-description-list li { margin-bottom: 8px; }
 
          /* Certifications */
          .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-         .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px 15px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; position: relative; }
-         .certification-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); z-index: 5; border-color: var(--spotify-green); }
+         .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 12px 16px; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; position: relative; }
+         .certification-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); z-index: 5; }
          .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--spotify-white); }
          .certification-issuer { font-size: 13px; color: var(--spotify-light-gray); margin-bottom: 4px; }
          .certification-date { font-size: 11px; color: var(--spotify-light-gray); margin-top: auto; }
@@ -103,8 +121,8 @@
         /* Contact Section */
         #contact { padding-top: 30px; padding-bottom: 30px; }
         #contact .section-title { text-align: left; margin-bottom: 16px; }
-         .contact-info { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 23px; max-width: 600px; margin: 0 auto; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
-         .contact-info:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
+         .contact-info { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 24px; max-width: 600px; margin: 0 auto; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+         .contact-info:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); z-index: 5; }
         .contact-item { display: flex; align-items: center; margin-bottom: 16px; flex-direction: row; width: auto; }
         .contact-item i { font-size: 20px; margin-right: 16px; margin-bottom: 0; color: var(--spotify-green); width: 25px; text-align: center; }
         .contact-text { font-size: 16px; text-align: left; }
@@ -116,10 +134,6 @@
 
         /* Footer */
         .footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--spotify-gray); text-align: center; color: var(--spotify-light-gray); font-size: 14px; }
-
-        /* --- Entrance Animation --- */
-        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -133,7 +147,8 @@
             .btn-primary { margin-right: 0; }
             .projects-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
             .project-card { min-height: 200px; } .project-card:hover { min-height: 260px; }
-            .education-grid { grid-template-columns: 1fr; } /* Stack education */
+             /* Stack education cards on smaller screens */ /* */
+             .education-grid { grid-template-columns: 1fr; }
             .experience-header { flex-direction: column; align-items: flex-start; }
             .experience-duration { margin-left: 0; margin-top: 4px; }
             .certifications-grid { grid-template-columns: 1fr; }
@@ -154,14 +169,24 @@
              <div class="logo"><h1>Portfolio</h1></div>
              <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
              <div class="skills-section">
-                 <h3>Skills</h3>
-                 <ul class="skills-list"><li class="skill-item"><i class="fab fa-python"></i> Python</li><li class="skill-item"><i class="fas fa-file-code"></i> C / C++</li><li class="skill-item"><i class="fas fa-database"></i> SQL</li><li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li><li class="skill-item"><i class="fab fa-js"></i> JavaScript / Flask</li><li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li><li class="skill-item"><i class="fas fa-eye"></i> Comp Vision (YOLO)</li><li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li><li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis/Viz</li><li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li></ul>
-             </div>
+                <h3>Skills</h3>
+                <ul class="skills-list"><li class="skill-item"><i class="fab fa-python"></i> Python</li>
+                    <li class="skill-item"><i class="fas fa-file-code"></i> C / C++</li>
+                    <li class="skill-item"><i class="fas fa-eye"></i> Computer Vision</li>
+                    <li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li>
+                    <li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis</li>
+                    <li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li>
+                    <li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li>
+                    <li class="skill-item"><i class="fas fa-database"></i> SQL</li>
+                    <li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li>
+                    <li class="skill-item"><i class="fab fa-js"></i> JavaScript / Flask</li>
+                </ul>
+            </div>
         </div>
 
         <div class="main-content">
             <section id="home">
-                 <div class="header fade-in-section">
+                 <div class="header">
                      <img src="images/myphoto.png" alt="Ketaki Dabade Photo" class="profile-photo">
                      <div class="profile-info">
                          <span class="profile-tag">Computer Science Engineer</span>
@@ -169,25 +194,25 @@
                          <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.</p>
                      </div>
                  </div>
-                 <div class="actions fade-in-section">
+                 <div class="actions">
                      <a href="#contact" class="btn btn-primary">Contact Me</a>
                      <a href="Ketaki_Dabade_Resume.pdf" class="btn btn-outline" id="resume-btn" download>Download Resume</a>
                  </div>
             </section>
 
              <section id="education">
-                 <h2 class="section-title fade-in-section">Education</h2>
+                 <h2 class="section-title">Education</h2>
                  <div class="education-grid">
-                     <div class="education-card fade-in-section">
+                     <div class="education-card">
                          <h3 class="institution">Dr. Vishwanath Karad MIT-WPU, Pune, India</h3>
-                         <h4 class="degree">Bachelor of Technology in Computer Science and Engineering (with Distinction)</h4>
+                         <h4 class="degree">Bachelor of Technology in Computer Science and Engineering </h4>
                          <p class="education-details">
                              Expected Graduation: July 2025 <br>
-                             CGPA: <span>8.74 / 10.0</span>
+                             CGPA: <span> 8.9 / 10.0</span> 
                          </p>
                      </div>
-                     <div class="education-card fade-in-section">
-                         <h3 class="institution">Columbia University</h3>
+                     <div class="education-card">
+                         <h3 class="institution">Columbia University, New York, USA</h3>
                          <h4 class="degree">Master of Science in Computer Science</h4>
                          <p class="education-details">
                              Expected: August 2025 - December 2026
@@ -197,60 +222,30 @@
              </section>
 
             <section id="projects">
-                <h2 class="section-title fade-in-section">Featured Projects</h2>
+                <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card fade-in-section">
-                        <img src="images/viziassist.png" alt="ViziAssist Project" class="project-image">
-                        <h3 class="project-title">ViziAssist</h3>
-                        <p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p>
-                        <div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div>
-                    </div>
-                    <div class="project-card fade-in-section">
-                        <img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image">
-                        <h3 class="project-title">SkillSet Sherpa</h3>
-                        <p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p>
-                        <div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div>
-                    </div>
-                    <div class="project-card fade-in-section">
-                        <img src="images/canman.jpg" alt="CanMan Project" class="project-image">
-                        <h3 class="project-title">CanMan</h3>
-                        <p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p>
-                        <div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div>
-                    </div>
-                     <div class="project-card fade-in-section">
-                        <img src="images/oneview.jpg" alt="One View Project" class="project-image">
-                        <h3 class="project-title">One View</h3>
-                        <p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p>
-                        <div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div>
-                    </div>
-                    <div class="project-card fade-in-section">
-                        <img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image">
-                        <h3 class="project-title">Automated Door Lock</h3>
-                        <p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p>
-                        <div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div>
-                    </div>
-                     <div class="project-card fade-in-section">
-                        <img src="images/sports.png" alt="Sports ML Project" class="project-image">
-                        <h3 class="project-title">ML & Game Theory in Sports</h3>
-                        <p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p>
-                        <div class="project-links"><span>Area: Research, ML, Game Theory</span></div>
-                    </div>
+                    <div class="project-card"><img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"><h3 class="project-title">ViziAssist</h3><p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p><div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div></div>
+                    <div class="project-card"><img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"><h3 class="project-title">SkillSet Sherpa</h3><p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p><div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div></div>
+                    <div class="project-card"><img src="images/canman.jpg" alt="CanMan Project" class="project-image"><h3 class="project-title">CanMan</h3><p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p><div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div></div>
+                    <div class="project-card"><img src="images/oneview.jpg" alt="One View Project" class="project-image"><h3 class="project-title">One View</h3><p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p><div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div></div>
+                    <div class="project-card"><img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image"><h3 class="project-title">Automated Door Lock</h3><p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p><div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div></div>
+                    <div class="project-card"><img src="images/sports.png" alt="Sports ML Project" class="project-image"><h3 class="project-title">ML & Game Theory in Sports</h3><p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p><div class="project-links"><span>Area: Research, ML, Game Theory</span></div></div>
                 </div>
             </section>
 
             <section id="experience">
-                <h2 class="section-title fade-in-section">Work Experience & Research</h2>
-                <div class="experience-card fade-in-section">
+                <h2 class="section-title">Work Experience & Research</h2>
+                <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div>
                     <h4 class="experience-title">Deep Learning Engineer Intern</h4>
                     <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
                 </div>
-                <div class="experience-card fade-in-section">
+                <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div>
                     <h4 class="experience-title">Data Analyst Intern</h4>
                     <ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul>
                 </div>
-                 <div class="experience-card fade-in-section">
+                 <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div>
                     <h4 class="experience-title">Research Trainee</h4>
                     <ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul>
@@ -258,21 +253,21 @@
             </section>
 
              <section id="certifications">
-                 <h2 class="section-title fade-in-section">Courses & Certifications</h2>
+                 <h2 class="section-title">Courses & Certifications</h2>
                  <div class="certifications-grid">
-                      <div class="certification-card fade-in-section"><h3 class="certification-title">Google Project Management Professional Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">November 2024</p></div>
-                      <div class="certification-card fade-in-section"><h3 class="certification-title">Machine Learning Specialization</h3><p class="certification-issuer">DeepLearning.AI / Stanford Online</p><p class="certification-date">July 2024</p></div>
-                      <div class="certification-card fade-in-section"><h3 class="certification-title">Accenture North America Data Analytics and Visualization Job Simulation</h3><p class="certification-issuer">Forage</p><p class="certification-date">March 2024</p></div>
-                      <div class="certification-card fade-in-section"><h3 class="certification-title">Introduction to Al in the Data Center</h3><p class="certification-issuer">NVIDIA Deep Learning Institute</p><p class="certification-date">February 2024</p></div>
-                      <div class="certification-card fade-in-section"><h3 class="certification-title">Google Data Analytics Professional Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">December 2023</p></div>
-                      <div class="certification-card fade-in-section"><h3 class="certification-title">Mastering Data Structures & Algorithms (C/C++)</h3><p class="certification-issuer">Udemy</p><p class="certification-date">September 2023</p></div>
-                      <div class="certification-card fade-in-section"><h3 class="certification-title">The Git and Github Bootcamp</h3><p class="certification-issuer">Udemy</p><p class="certification-date">February 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Google Project Management Pro Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">November 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Machine Learning Specialization</h3><p class="certification-issuer">DeepLearning.AI / Stanford Online</p><p class="certification-date">July 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Accenture NA Data Analytics & Viz Sim</h3><p class="certification-issuer">Forage</p><p class="certification-date">March 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Intro to Al in the Data Center</h3><p class="certification-issuer">NVIDIA Deep Learning Institute</p><p class="certification-date">February 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Google Data Analytics Pro Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">December 2023</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Mastering DS & Algorithms (C/C++)</h3><p class="certification-issuer">Udemy</p><p class="certification-date">September 2023</p></div>
+                      <div class="certification-card"><h3 class="certification-title">The Git and Github Bootcamp</h3><p class="certification-issuer">Udemy</p><p class="certification-date">February 2024</p></div>
                  </div>
              </section>
 
             <section id="contact">
-                <h2 class="section-title fade-in-section">Get In Touch</h2>
-                <div class="contact-info fade-in-section">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-info">
                     <div class="contact-item"><i class="far fa-envelope"></i><span class="contact-text"><a href="mailto:dabadeketakil@gmail.com">dabadeketakil@gmail.com</a></span></div>
                     <div class="contact-item"><i class="fas fa-phone"></i><span class="contact-text">+91 7057646706</span></div>
                     <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span class="contact-text">Pune, India</span></div>
@@ -286,89 +281,17 @@
 
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
         </div></div><script>
+        // Same JS as before
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Navigation Logic ---
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.main-content section');
             const mainContent = document.querySelector('.main-content');
-            const updateActiveNav = () => {
-                let currentSectionId = 'home';
-                let scrollPosition = mainContent.scrollTop;
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100; // Offset for activation
-                    if (scrollPosition >= sectionTop) {
-                        currentSectionId = section.getAttribute('id');
-                    }
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            };
-            mainContent.addEventListener('scroll', updateActiveNav);
-            updateActiveNav(); // Initial check on load
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' });
-                    }
-                    // Immediately update active link for responsiveness
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            // --- Project Card Click Logic ---
+            const updateActiveNav = () => { let currentSectionId = 'home'; let scrollPosition = mainContent.scrollTop; sections.forEach(section => { const sectionTop = section.offsetTop - 100; if (scrollPosition >= sectionTop) { currentSectionId = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); } }); };
+            mainContent.addEventListener('scroll', updateActiveNav); updateActiveNav();
+            navLinks.forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const targetId = this.getAttribute('href'); const targetSection = document.querySelector(targetId); if (targetSection) { mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' }); } navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
             const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
-                card.addEventListener('click', function(event) {
-                    const title = this.querySelector('.project-title').textContent;
-                    console.log('Project card clicked:', title);
-                    const linkElement = this.querySelector('.project-links a');
-                    // Navigate if a link exists and the click wasn't directly on the link
-                    if (linkElement && linkElement.href && !linkElement.contains(event.target)) {
-                        if (linkElement.target === '_blank') {
-                            window.open(linkElement.href, '_blank', 'noopener,noreferrer');
-                        } else {
-                            window.location.href = linkElement.href;
-                        }
-                    }
-                });
-            });
-
-            // --- Resume Button Logic ---
-            const resumeBtn = document.getElementById('resume-btn');
-            if (resumeBtn) {
-                resumeBtn.addEventListener('click', (e) => { // No need for function(e) here
-                    console.log('Download Resume button clicked.');
-                    // The download attribute on the <a> tag handles the download
-                });
-            }
-
-            // --- Intersection Observer for Entrance Animations --- /* */
-            const animatedElements = document.querySelectorAll('.fade-in-section');
-
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target); // Animate only once
-                        }
-                    });
-                }, { threshold: 0.1 }); // Trigger when 10% is visible
-
-                animatedElements.forEach(el => observer.observe(el));
-            } else {
-                // Fallback for older browsers
-                animatedElements.forEach(el => el.classList.add('is-visible'));
-            }
+            projectCards.forEach(card => { card.addEventListener('click', function(event) { const title = this.querySelector('.project-title').textContent; console.log('Project card clicked:', title); const linkElement = this.querySelector('.project-links a'); if (linkElement && linkElement.href && !linkElement.contains(event.target)) { if (linkElement.target === '_blank') { window.open(linkElement.href, '_blank', 'noopener,noreferrer'); } else { window.location.href = linkElement.href; } } }); });
+            const resumeBtn = document.getElementById('resume-btn'); if (resumeBtn) { resumeBtn.addEventListener('click', function(e) { console.log('Download Resume button clicked.'); }); }
         });
     </script>
 </body>
