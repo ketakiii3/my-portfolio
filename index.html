@@ -58,14 +58,28 @@
         .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 20px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(29, 185, 84, 0.3); }
 
          /* --- Education Section Styling --- */
+         #education { padding-bottom: 16px; }
          #education .section-title { margin-top: 0; }
          .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
-         .education-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 24px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
-         .education-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
+         .education-card {
+            background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 24px;
+            border: 1px solid transparent;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Ensure all transitions are here */
+            position: relative;
+         }
+          /* Education Card Hover Effect - Updated */ /* */
+          .education-card:hover {
+              background-color: var(--spotify-gray); /* Background change */
+              transform: scale(1.02); /* Scale effect */
+              box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+              z-index: 5; /* Bring to front */
+              border-color: var(--spotify-green); /* Green border */
+           }
          .institution { font-size: 18px; font-weight: 700; color: var(--spotify-white); margin-bottom: 4px; }
          .degree { font-size: 16px; font-weight: 600; color: var(--spotify-light-gray); margin-bottom: 8px; }
          .education-details { font-size: 14px; color: var(--spotify-light-gray); }
          .education-details span { color: var(--spotify-white); font-weight: 600; }
+
 
         /* --- Projects Section --- */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
@@ -83,11 +97,11 @@
         /* Experience */
         .experience-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 19px; margin-bottom: 16px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
         .experience-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
-        .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; /* Allow wrapping */ }
-        .experience-company { font-size: 18px; font-weight: 700; margin-right: 10px; /* Space before duration */ }
-        .experience-duration { font-size: 14px; color: var(--spotify-light-gray); flex-shrink: 0; /* margin-left: 16px; Removed */ white-space: nowrap; }
-        .experience-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--spotify-white); clear: both; /* Ensure title starts below header */ padding-top: 5px; }
-        .experience-description-list { font-size: 14px; color: var(--spotify-light-gray); list-style: disc; padding-left: 20px; margin-top: 0px; /* Reduced top margin */ }
+        .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; }
+        .experience-company { font-size: 18px; font-weight: 700; margin-right: 10px; }
+        .experience-duration { font-size: 14px; color: var(--spotify-light-gray); flex-shrink: 0; white-space: nowrap; }
+        .experience-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--spotify-white); clear: both; padding-top: 5px; }
+        .experience-description-list { font-size: 14px; color: var(--spotify-light-gray); list-style: disc; padding-left: 20px; margin-top: 0px; }
         .experience-description-list li { margin-bottom: 8px; }
 
          /* Certifications */
@@ -199,42 +213,12 @@
             <section id="projects">
                 <h2 class="section-title fade-in-section">Featured Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card fade-in-section">
-                        <img src="images/viziassist.png" alt="ViziAssist Project" class="project-image">
-                        <h3 class="project-title">ViziAssist</h3>
-                        <p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p>
-                        <div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div>
-                    </div>
-                    <div class="project-card fade-in-section">
-                        <img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image">
-                        <h3 class="project-title">SkillSet Sherpa</h3>
-                        <p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p>
-                        <div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div>
-                    </div>
-                    <div class="project-card fade-in-section">
-                        <img src="images/canman.jpg" alt="CanMan Project" class="project-image">
-                        <h3 class="project-title">CanMan</h3>
-                        <p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p>
-                        <div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div>
-                    </div>
-                     <div class="project-card fade-in-section">
-                        <img src="images/oneview.jpg" alt="One View Project" class="project-image">
-                        <h3 class="project-title">One View</h3>
-                        <p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p>
-                        <div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div>
-                    </div>
-                    <div class="project-card fade-in-section">
-                        <img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image">
-                        <h3 class="project-title">Automated Door Lock</h3>
-                        <p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p>
-                        <div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div>
-                    </div>
-                     <div class="project-card fade-in-section">
-                        <img src="images/sports.png" alt="Sports ML Project" class="project-image">
-                        <h3 class="project-title">ML & Game Theory in Sports</h3>
-                        <p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p>
-                        <div class="project-links"><span>Area: Research, ML, Game Theory</span></div>
-                    </div>
+                    <div class="project-card fade-in-section"><img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"><h3 class="project-title">ViziAssist</h3><p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p><div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div></div>
+                    <div class="project-card fade-in-section"><img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"><h3 class="project-title">SkillSet Sherpa</h3><p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p><div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div></div>
+                    <div class="project-card fade-in-section"><img src="images/canman.jpg" alt="CanMan Project" class="project-image"><h3 class="project-title">CanMan</h3><p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p><div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div></div>
+                    <div class="project-card fade-in-section"><img src="images/oneview.jpg" alt="One View Project" class="project-image"><h3 class="project-title">One View</h3><p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p><div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div></div>
+                    <div class="project-card fade-in-section"><img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image"><h3 class="project-title">Automated Door Lock</h3><p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p><div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div></div>
+                    <div class="project-card fade-in-section"><img src="images/sports.png" alt="Sports ML Project" class="project-image"><h3 class="project-title">ML & Game Theory in Sports</h3><p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p><div class="project-links"><span>Area: Research, ML, Game Theory</span></div></div>
                 </div>
             </section>
 
@@ -291,69 +275,19 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.main-content section');
             const mainContent = document.querySelector('.main-content');
-            const updateActiveNav = () => {
-                let currentSectionId = 'home';
-                let scrollPosition = mainContent.scrollTop;
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100; // Offset for activation
-                    if (scrollPosition >= sectionTop) {
-                        currentSectionId = section.getAttribute('id');
-                    }
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            };
-            mainContent.addEventListener('scroll', updateActiveNav);
-            updateActiveNav(); // Initial check on load
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' });
-                    }
-                    // Immediately update active link for responsiveness
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
+            const updateActiveNav = () => { let currentSectionId = 'home'; let scrollPosition = mainContent.scrollTop; sections.forEach(section => { const sectionTop = section.offsetTop - 100; if (scrollPosition >= sectionTop) { currentSectionId = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); } }); };
+            mainContent.addEventListener('scroll', updateActiveNav); updateActiveNav();
+            navLinks.forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const targetId = this.getAttribute('href'); const targetSection = document.querySelector(targetId); if (targetSection) { mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' }); } navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
 
             // --- Project Card Click Logic ---
             const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
-                card.addEventListener('click', function(event) {
-                    const title = this.querySelector('.project-title').textContent;
-                    console.log('Project card clicked:', title);
-                    const linkElement = this.querySelector('.project-links a');
-                    // Navigate if a link exists and the click wasn't directly on the link
-                    if (linkElement && linkElement.href && !linkElement.contains(event.target)) {
-                        if (linkElement.target === '_blank') {
-                            window.open(linkElement.href, '_blank', 'noopener,noreferrer');
-                        } else {
-                            window.location.href = linkElement.href;
-                        }
-                    }
-                });
-            });
+            projectCards.forEach(card => { card.addEventListener('click', function(event) { const title = this.querySelector('.project-title').textContent; console.log('Project card clicked:', title); const linkElement = this.querySelector('.project-links a'); if (linkElement && linkElement.href && !linkElement.contains(event.target)) { if (linkElement.target === '_blank') { window.open(linkElement.href, '_blank', 'noopener,noreferrer'); } else { window.location.href = linkElement.href; } } }); });
 
             // --- Resume Button Logic ---
-            const resumeBtn = document.getElementById('resume-btn');
-            if (resumeBtn) {
-                resumeBtn.addEventListener('click', (e) => { // No need for function(e) here
-                    console.log('Download Resume button clicked.');
-                    // The download attribute on the <a> tag handles the download
-                });
-            }
+            const resumeBtn = document.getElementById('resume-btn'); if (resumeBtn) { resumeBtn.addEventListener('click', function(e) { console.log('Download Resume button clicked.'); }); }
 
-            // --- Intersection Observer for Entrance Animations --- /* */
+            // --- Intersection Observer for Entrance Animations ---
             const animatedElements = document.querySelectorAll('.fade-in-section');
-
             if ("IntersectionObserver" in window) {
                 const observer = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
@@ -363,11 +297,9 @@
                         }
                     });
                 }, { threshold: 0.1 }); // Trigger when 10% is visible
-
                 animatedElements.forEach(el => observer.observe(el));
             } else {
-                // Fallback for older browsers
-                animatedElements.forEach(el => el.classList.add('is-visible'));
+                animatedElements.forEach(el => el.classList.add('is-visible')); // Fallback
             }
         });
     </script>
