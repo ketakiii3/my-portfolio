@@ -72,7 +72,7 @@
               background-color: var(--spotify-gray); /* Background change */
               transform: scale(1.02); /* Scale effect */
               box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
-              z-index: 5; /* Bring to front */
+              z-index: 10; /* Bring to front */
               border-color: var(--spotify-green); /* Green border */
            }
          .institution { font-size: 18px; font-weight: 700; color: var(--spotify-white); margin-bottom: 4px; }
@@ -96,7 +96,7 @@
 
         /* Experience */
         .experience-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 19px; margin-bottom: 16px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
-        .experience-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
+        .experience-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 10; border-color: var(--spotify-green); }
         .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; }
         .experience-company { font-size: 18px; font-weight: 700; margin-right: 10px; }
         .experience-duration { font-size: 14px; color: var(--spotify-light-gray); flex-shrink: 0; white-space: nowrap; }
@@ -192,7 +192,7 @@
              <section id="education">
                  <h2 class="section-title fade-in-section">Education</h2>
                  <div class="education-grid">
-                     <div class="education-card fade-in-section">
+                     <div class="education-card">
                          <h3 class="institution">Dr. Vishwanath Karad MIT-WPU, Pune, India</h3>
                          <h4 class="degree">Bachelor of Technology in Computer Science and Engineering (with Distinction)</h4>
                          <p class="education-details">
