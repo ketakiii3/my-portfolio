@@ -160,6 +160,164 @@
             .project-card { min-height: 180px; } .project-card:hover { min-height: 240px; }
         }
 
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        
+        .chat-button {
+            background-color: var(--spotify-green);
+            color: var(--spotify-white);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        
+        .chat-button:hover {
+            background-color: #1ed760; /* Brighter green */
+            transform: scale(1.1);
+        }
+        
+        .chat-window {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 90px; /* Position above the button */
+            right: 20px;
+            width: 350px;
+            max-width: 90vw;
+            height: 450px;
+            max-height: 70vh;
+            background-color: var(--spotify-dark-gray);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999;
+            border: 1px solid var(--spotify-gray);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        
+        .chat-window.active {
+            display: flex; /* Show when active */
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        
+        .chat-header {
+            background-color: var(--spotify-gray);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--spotify-black);
+        }
+        
+        .chat-header h3 {
+            color: var(--spotify-white);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .chat-close {
+            background: none;
+            border: none;
+            color: var(--spotify-light-gray);
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .chat-close:hover {
+            color: var(--spotify-white);
+        }
+        
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .message {
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        
+        .user-message {
+            background-color: var(--spotify-green);
+            color: var(--spotify-black);
+            border-bottom-right-radius: 5px;
+            align-self: flex-end;
+        }
+        
+        .bot-message {
+            background-color: var(--spotify-gray);
+            color: var(--spotify-white);
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+        }
+        
+        .chat-input-area {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid var(--spotify-black);
+            background-color: var(--spotify-gray);
+        }
+        
+        .chat-input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: var(--spotify-dark-gray);
+            color: var(--spotify-white);
+            font-size: 14px;
+            margin-right: 10px;
+            outline: none;
+        }
+        .chat-input::placeholder {
+            color: var(--spotify-light-gray);
+        }
+        
+        .chat-send {
+            background-color: var(--spotify-green);
+            color: var(--spotify-white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background-color 0.2s ease;
+        }
+        .chat-send:hover {
+            background-color: #1ed760;
+        }
+
     </style>
 </head>
 <body>
@@ -300,7 +458,138 @@
             } else {
                 animatedElements.forEach(el => el.classList.add('is-visible')); // Fallback
             }
+            // --- Chatbot UI Logic --- /* */
+        const chatToggleButton = document.getElementById('chat-toggle-button');
+        const chatWindow = document.getElementById('chat-window');
+        const chatCloseButton = document.getElementById('chat-close-button');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendButton = document.getElementById('chat-send-button');
+
+        // Function to toggle chat window visibility
+        const toggleChatWindow = () => {
+            chatWindow.classList.toggle('active');
+            // Focus input when opening
+            if (chatWindow.classList.contains('active')) {
+                chatInput.focus();
+            }
+        };
+
+        // Function to add a message to the chat display
+        const addMessage = (text, sender) => {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            // Scroll to the bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        // Function to handle sending a message
+        const handleSendMessage = () => {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') return; // Don't send empty messages
+
+            addMessage(userMessage, 'user'); // Display user message immediately
+            chatInput.value = ''; // Clear input field
+
+            // --- Placeholder for Bot Reply ---
+            addMessage("Thinking...", 'bot'); // Show thinking indicator
+
+            // ================================================================
+            // TODO: Connect to AI Backend / Service HERE!
+            // ================================================================
+            // 1. Choose your backend/service (e.g., Google AI API via Cloud Function,
+            //    OpenAI API via serverless function, an embeddable chatbot service).
+            //    Refer to the search results for options and tutorials.
+            // 2. Get your API key and set up the backend/cloud function securely
+            //    (DO NOT put API keys directly in this frontend Javascript).
+            // 3. Prepare your resume/portfolio data as context for the AI.
+            //    For APIs, you might send the user's question + your resume text.
+            //    For embeddable services, you usually configure the knowledge base on their platform.
+            // 4. Use fetch() or another method to send `userMessage` (and potentially context)
+            //    to your backend/cloud function/API endpoint.
+            // 5. Receive the response from the AI service.
+            // 6. Replace the "Thinking..." message with the actual bot response.
+
+            // Example using fetch (replace with your actual endpoint and logic):
+            /*
+            fetch('/api/chatbot', { // Your backend/cloud function endpoint
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: userMessage, context: "Paste relevant resume info here..." })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove "Thinking..." message
+                const thinkingMessage = chatMessages.querySelector('.bot-message:last-child');
+                if (thinkingMessage && thinkingMessage.textContent === 'Thinking...') {
+                     thinkingMessage.remove();
+                }
+                // Display actual bot response
+                addMessage(data.reply || "Sorry, I couldn't process that.", 'bot');
+            })
+            .catch(error => {
+                console.error('Error fetching bot reply:', error);
+                // Remove "Thinking..." message
+                const thinkingMessage = chatMessages.querySelector('.bot-message:last-child');
+                if (thinkingMessage && thinkingMessage.textContent === 'Thinking...') {
+                     thinkingMessage.remove();
+                }
+                addMessage('Sorry, an error occurred.', 'bot');
+            });
+            */
+
+            // Remove this placeholder reply once backend is connected
+            setTimeout(() => {
+                 // Remove "Thinking..." message
+                const thinkingMessage = chatMessages.querySelector('.bot-message:last-child');
+                if (thinkingMessage && thinkingMessage.textContent === 'Thinking...') {
+                     thinkingMessage.remove();
+                }
+                 addMessage("This is a placeholder reply. Connect me to an AI!", 'bot');
+            }, 1500); // Simulate delay
+
+        };
+
+        // Event Listeners
+        if (chatToggleButton) {
+            chatToggleButton.addEventListener('click', toggleChatWindow);
+        }
+        if (chatCloseButton) {
+            chatCloseButton.addEventListener('click', toggleChatWindow);
+        }
+        if (chatSendButton) {
+            chatSendButton.addEventListener('click', handleSendMessage);
+        }
+        if (chatInput) {
+            // Allow sending message by pressing Enter key
+            chatInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    handleSendMessage();
+                }
+            });
+        }
+        // --- End Chatbot UI Logic ---
         });
     </script>
+    <div class="chat-widget">
+        <button id="chat-toggle-button" class="chat-button" aria-label="Toggle Chat">
+            <i class="fas fa-comment-dots"></i> </button>
+        <div id="chat-window" class="chat-window">
+            <div class="chat-header">
+                <h3>Chat About Ketaki</h3>
+                <button id="chat-close-button" class="chat-close" aria-label="Close Chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot-message">Hi there! Ask me anything about Ketaki's profile.</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Type your question...">
+                <button id="chat-send-button" class="chat-send" aria-label="Send Message">
+                    <i class="fas fa-paper-plane"></i> </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
