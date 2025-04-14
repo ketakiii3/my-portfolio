@@ -43,13 +43,13 @@
         .skill-item img { margin-right: 12px; width: 16px; height: 16px; object-fit: contain; }
 
         /* Main Content General */
-        .header { display: flex; align-items: center; margin-bottom: 24px; }
+        .header { display: flex; align-items: center; margin-bottom: 24px; position: relative; /* Needed for potential absolute arrow positioning */ }
         .profile-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-right: 24px; box-shadow: 0 4px 60px rgba(0,0,0,.5); }
         .profile-info { display: flex; flex-direction: column; }
         .profile-tag { font-size: 14px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; color: var(--spotify-light-gray); }
         .profile-name { font-size: 72px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
-        .profile-bio { font-size: 16px; color: var(--spotify-light-gray); max-width: 800px; }
-        .actions { display: flex; align-items: center; margin: 24px 0; }
+        .profile-bio { font-size: 16px; color: var(--spotify-light-gray); max-width: 800px; margin-bottom: 16px; }
+        .actions { display: flex; align-items: center; margin-bottom: 24px; }
         .btn { padding: 12px 32px; border-radius: 500px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; text-decoration: none; text-align: center; border: none; }
         .btn-primary { background-color: var(--spotify-green); color: var(--spotify-black); margin-right: 16px; }
         .btn-primary:hover { transform: scale(1.05); background-color: #1ed760; }
@@ -57,34 +57,21 @@
         .btn-outline:hover { transform: scale(1.05); border-color: var(--spotify-white); }
         .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 20px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(29, 185, 84, 0.3); }
 
-         /* --- Education Section Styling --- */
+         /* Education Section Styling */
          #education { padding-bottom: 16px; }
          #education .section-title { margin-top: 0; }
-         .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 1px; }
-         .education-card {
-            background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 24px;
-            border: 1px solid transparent;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Ensure all transitions are here */
-            position: relative;
-         }
-          /* Education Card Hover Effect - Corrected */ /* */
-          .education-card:hover {
-              background-color: var(--spotify-gray); /* Background change */
-              transform: scale(1.02); /* Scale effect */
-              box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
-              z-index: 5; /* Bring to front */
-              border-color: var(--spotify-green); /* Green border */
-           }
+         .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+         .education-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 24px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
+         .education-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
          .institution { font-size: 18px; font-weight: 700; color: var(--spotify-white); margin-bottom: 4px; }
          .degree { font-size: 16px; font-weight: 600; color: var(--spotify-light-gray); margin-bottom: 8px; }
          .education-details { font-size: 14px; color: var(--spotify-light-gray); }
          .education-details span { color: var(--spotify-white); font-weight: 600; }
 
-
-        /* --- Projects Section --- */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; margin-bottom: 10px; }
+        /* Projects Section */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
         .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px; border: 1px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out, border-color 0.3s ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
-        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 5; min-height: 280px; border-color: var(--spotify-green); }
+        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 280px; border-color: var(--spotify-green); }
         .project-image { width: 100%; aspect-ratio: 1; border-radius: 4px; object-fit: cover; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,.4); }
         .project-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; text-align: center; }
         .project-description, .project-links { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.3s ease-out, max-height 0.4s ease-out, margin-top 0.3s ease-out; margin-top: 0; }
@@ -105,7 +92,7 @@
         .experience-description-list li { margin-bottom: 8px; }
 
          /* Certifications */
-         .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;}
+         .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
          .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px 15px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; position: relative; }
          .certification-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); z-index: 5; border-color: var(--spotify-green); }
          .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--spotify-white); }
@@ -131,6 +118,42 @@
         /* Footer */
         .footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--spotify-gray); text-align: center; color: var(--spotify-light-gray); font-size: 14px; }
 
+        /* --- Chatbot Trigger Prompt --- */
+        /* --- Arrow Pointing to Chat Prompt (Requires manual positioning) --- */
+        .chat-prompt-trigger {
+            display: inline-flex; align-items: center; gap: 8px;
+            margin-top: 10px; padding: 6px 12px;
+            background-color: rgba(40, 40, 40, 0.6);
+            color: var(--spotify-light-gray); border-radius: 20px;
+            font-size: 14px; cursor: pointer; border: 1px solid var(--spotify-gray);
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease; /* Added transform */
+            position: relative; /* Needed for pseudo-element arrow */
+        }
+        /* Added hover effect */ /* */
+        .chat-prompt-trigger:hover {
+            background-color: var(--spotify-gray); color: var(--spotify-white);
+            transform: scale(1.05); /* Slight scale on hover */
+        }
+        .chat-prompt-trigger i { color: var(--spotify-green); }
+
+        /* --- Chatbot Window Styles --- */
+        .chat-window { position: fixed; bottom: 20px; right: 20px; width: 350px; max-width: 90vw; height: 450px; max-height: 70vh; background-color: var(--spotify-dark-gray); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; overflow: hidden; z-index: 999; border: 1px solid var(--spotify-gray); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; visibility: hidden; transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out; }
+        .chat-window.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; visibility: visible; }
+        .chat-header { background-color: var(--spotify-gray); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--spotify-black); }
+        .chat-header h3 { color: var(--spotify-white); font-size: 16px; font-weight: 600; margin: 0; }
+        .chat-close { background: none; border: none; color: var(--spotify-light-gray); font-size: 24px; cursor: pointer; line-height: 1; }
+        .chat-close:hover { color: var(--spotify-white); }
+        .chat-messages { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 8px 12px; border-radius: 15px; max-width: 80%; font-size: 14px; line-height: 1.4; word-wrap: break-word; }
+        .user-message { background-color: var(--spotify-green); color: var(--spotify-black); border-bottom-right-radius: 5px; align-self: flex-end; }
+        .bot-message { background-color: var(--spotify-gray); color: var(--spotify-white); border-bottom-left-radius: 5px; align-self: flex-start; }
+        .chat-input-area { display: flex; padding: 10px; border-top: 1px solid var(--spotify-black); background-color: var(--spotify-gray); }
+        .chat-input { flex-grow: 1; border: none; padding: 10px; border-radius: 20px; background-color: var(--spotify-dark-gray); color: var(--spotify-white); font-size: 14px; margin-right: 10px; outline: none; }
+        .chat-input::placeholder { color: var(--spotify-light-gray); }
+        .chat-send { background-color: var(--spotify-green); color: var(--spotify-white); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 16px; display: flex; justify-content: center; align-items: center; cursor: pointer; flex-shrink: 0; transition: background-color 0.2s ease; }
+        .chat-send:hover { background-color: #1ed760; }
+
+
         /* --- Entrance Animation --- */
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
@@ -143,11 +166,13 @@
             .header { flex-direction: column; align-items: center; text-align: center; }
             .profile-photo { width: 150px; height: 150px; margin-right: 0; margin-bottom: 24px; }
             .profile-name { font-size: 48px; } .profile-bio { text-align: center; }
+             /* Center prompt trigger on mobile */
+             .profile-info { align-items: center; }
             .actions { flex-direction: column; align-items: center; gap: 16px; }
             .btn-primary { margin-right: 0; }
             .projects-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
             .project-card { min-height: 200px; } .project-card:hover { min-height: 260px; }
-            .education-grid { grid-template-columns: 1fr; } /* Stack education */
+            .education-grid { grid-template-columns: 1fr; }
             .experience-header { flex-direction: column; align-items: flex-start; }
             .experience-duration { margin-left: 0; margin-top: 4px; }
             .certifications-grid { grid-template-columns: 1fr; }
@@ -158,6 +183,7 @@
             .profile-name { font-size: 36px; } .profile-photo { width: 120px; height: 120px; }
             .projects-grid { grid-template-columns: 1fr; }
             .project-card { min-height: 180px; } .project-card:hover { min-height: 240px; }
+             .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 15px; height: 60vh; max-height: 400px;}
         }
 
     </style>
@@ -181,6 +207,9 @@
                          <span class="profile-tag">Computer Science Engineer</span>
                          <h1 class="profile-name">Ketaki Dabade</h1>
                          <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.</p>
+                         <p id="chat-prompt-trigger" class="chat-prompt-trigger">
+                             <i class="fas fa-comment-dots"></i> Hey! It's me as a chatbot. Ask me about my profile!
+                         </p>
                      </div>
                  </div>
                  <div class="actions">
@@ -213,20 +242,20 @@
             <section id="projects">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card "><img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"><h3 class="project-title">ViziAssist</h3><p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p><div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div></div>
-                    <div class="project-card "><img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"><h3 class="project-title">SkillSet Sherpa</h3><p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p><div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div></div>
-                    <div class="project-card "><img src="images/canman.jpg" alt="CanMan Project" class="project-image"><h3 class="project-title">CanMan</h3><p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p><div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div></div>
-                    <div class="project-card "><img src="images/oneview.jpg" alt="One View Project" class="project-image"><h3 class="project-title">One View</h3><p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p><div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div></div>
-                    <div class="project-card "><img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image"><h3 class="project-title">Automated Door Lock</h3><p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p><div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div></div>
+                    <div class="project-card"><img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"><h3 class="project-title">ViziAssist</h3><p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p><div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div></div>
+                    <div class="project-card"><img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"><h3 class="project-title">SkillSet Sherpa</h3><p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p><div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div></div>
+                    <div class="project-card"><img src="images/canman.jpg" alt="CanMan Project" class="project-image"><h3 class="project-title">CanMan</h3><p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p><div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div></div>
+                    <div class="project-card"><img src="images/oneview.jpg" alt="One View Project" class="project-image"><h3 class="project-title">One View</h3><p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p><div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div></div>
+                    <div class="project-card"><img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image"><h3 class="project-title">Automated Door Lock</h3><p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p><div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div></div>
                 </div>
             </section>
 
             <section id="experience">
                 <h2 class="section-title">Work Experience & Research</h2>
                 <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div>
+                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Dec 2024</span></div>
                     <h4 class="experience-title">Deep Learning Engineer Intern</h4>
-                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
+                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Created real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Built internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
                 </div>
                 <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div>
@@ -268,7 +297,23 @@
             </section>
 
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
-        </div></div><script>
+        </div></div><div id="chat-window" class="chat-window">
+         <div class="chat-header">
+             <h3>Chat About Ketaki</h3>
+             <button id="chat-close-button" class="chat-close" aria-label="Close Chat">&times;</button>
+         </div>
+         <div id="chat-messages" class="chat-messages">
+             <div class="message bot-message">Hi there! Ask me anything about Ketaki's profile.</div>
+         </div>
+         <div class="chat-input-area">
+             <input type="text" id="chat-input" class="chat-input" placeholder="Type your question...">
+             <button id="chat-send-button" class="chat-send" aria-label="Send Message">
+                 <i class="fas fa-paper-plane"></i>
+             </button>
+         </div>
+     </div>
+
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Navigation Logic ---
             const navLinks = document.querySelectorAll('.nav-link');
@@ -288,18 +333,26 @@
             // --- Intersection Observer for Entrance Animations ---
             const animatedElements = document.querySelectorAll('.fade-in-section');
             if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target); // Animate only once
-                        }
-                    });
-                }, { threshold: 0.1 }); // Trigger when 10% is visible
+                const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
                 animatedElements.forEach(el => observer.observe(el));
-            } else {
-                animatedElements.forEach(el => el.classList.add('is-visible')); // Fallback
-            }
+            } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
+
+            // --- Chatbot UI Logic - Updated Trigger ---
+            const chatPromptTrigger = document.getElementById('chat-prompt-trigger'); // Use the new trigger ID
+            const chatWindow = document.getElementById('chat-window');
+            const chatCloseButton = document.getElementById('chat-close-button');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input');
+            const chatSendButton = document.getElementById('chat-send-button');
+
+            const toggleChatWindow = () => { chatWindow.classList.toggle('active'); if (chatWindow.classList.contains('active')) { chatInput.focus(); } };
+            const addMessage = (text, sender) => { const messageDiv = document.createElement('div'); messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message'); messageDiv.textContent = text; chatMessages.appendChild(messageDiv); chatMessages.scrollTop = chatMessages.scrollHeight; };
+            const handleSendMessage = () => { const userMessage = chatInput.value.trim(); if (userMessage === '') return; addMessage(userMessage, 'user'); chatInput.value = ''; addMessage("Thinking...", 'bot'); /* TODO: Connect to AI Backend HERE! */ setTimeout(() => { const thinkingMessage = chatMessages.querySelector('.bot-message:last-child'); if (thinkingMessage && thinkingMessage.textContent === 'Thinking...') { thinkingMessage.remove(); } addMessage("This is a placeholder reply. Connect me to an AI!", 'bot'); }, 1500); };
+
+            if (chatPromptTrigger) { chatPromptTrigger.addEventListener('click', toggleChatWindow); }
+            if (chatCloseButton) { chatCloseButton.addEventListener('click', toggleChatWindow); }
+            if (chatSendButton) { chatSendButton.addEventListener('click', handleSendMessage); }
+            if (chatInput) { chatInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { handleSendMessage(); } }); }
         });
     </script>
 </body>

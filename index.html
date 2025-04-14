@@ -33,17 +33,11 @@
         .nav-link.active { font-weight: 700; }
         .nav-link i { margin-right: 16px; font-size: 18px; width: 20px; text-align: center; }
 
-        /* Skills Section */
-        .skills-section { margin-top: 24px; padding: 0 12px; overflow-y: auto; max-height: calc(100vh - 400px); }
-        .skills-section h3 { color: var(--spotify-light-gray); text-transform: uppercase; font-size: 12px; margin-bottom: 16px; letter-spacing: 0.1em; }
-        .skills-list { list-style: none; }
-        .skill-item { padding: 8px 12px; margin-bottom: 8px; background-color: var(--spotify-gray); border-radius: 4px; font-size: 14px; display: flex; align-items: center; transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease; position: relative; }
-        .skill-item:hover { background-color: #333; color: var(--spotify-white); transform: translateX(3px) scale(1.01); }
-        .skill-item i { margin-right: 12px; font-size: 16px; width: 20px; text-align: center; color: var(--spotify-green); }
-        .skill-item img { margin-right: 12px; width: 16px; height: 16px; object-fit: contain; }
+        /* Skills Section (Removed from Sidebar) */
+        /* Styles for new skills section below */
 
         /* Main Content General */
-        .header { display: flex; align-items: center; margin-bottom: 24px; position: relative; /* Needed for potential absolute arrow positioning */ }
+        .header { display: flex; align-items: center; margin-bottom: 24px; position: relative; }
         .profile-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-right: 24px; box-shadow: 0 4px 60px rgba(0,0,0,.5); }
         .profile-info { display: flex; flex-direction: column; }
         .profile-tag { font-size: 14px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; color: var(--spotify-light-gray); }
@@ -57,7 +51,7 @@
         .btn-outline:hover { transform: scale(1.05); border-color: var(--spotify-white); }
         .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 20px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(29, 185, 84, 0.3); }
 
-         /* Education Section Styling */
+         /* --- Education Section Styling --- */
          #education { padding-bottom: 16px; }
          #education .section-title { margin-top: 0; }
          .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
@@ -68,7 +62,8 @@
          .education-details { font-size: 14px; color: var(--spotify-light-gray); }
          .education-details span { color: var(--spotify-white); font-weight: 600; }
 
-        /* Projects Section */
+
+        /* --- Projects Section --- */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
         .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px; border: 1px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out, border-color 0.3s ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
         .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 280px; border-color: var(--spotify-green); }
@@ -101,6 +96,14 @@
          .certification-card a { color: var(--spotify-green); text-decoration: none; }
          .certification-card a:hover { text-decoration: underline; }
 
+         /* --- New Skills Section Styling --- */
+         .skills-category-title { font-size: 18px; font-weight: 600; color: var(--spotify-light-gray); margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid var(--spotify-gray); padding-bottom: 6px; }
+         .skills-tag-list { list-style-type: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+         .skill-tag { background-color: var(--spotify-gray); border-radius: 5px; padding: 8px 14px; display: flex; align-items: center; font-size: 14px; color: var(--spotify-light-gray); box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+         .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 3px 6px rgba(0,0,0,0.3); background-color: #333; color: var(--spotify-white); }
+         .skill-tag i, .skill-tag img { margin-right: 8px; font-size: 16px; width: 18px; text-align: center; color: var(--spotify-green); }
+         .skill-tag img { height: 16px; width: auto; }
+
         /* Contact Section */
         #contact { padding-top: 30px; padding-bottom: 30px; }
         #contact .section-title { text-align: left; margin-bottom: 16px; }
@@ -115,71 +118,13 @@
         .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
         .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
 
-        /* Footer */
-        .footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--spotify-gray); text-align: center; color: var(--spotify-light-gray); font-size: 14px; }
-
         /* --- Chatbot Trigger Prompt --- */
-        /* --- Arrow Pointing to Chat Prompt (Requires manual positioning) --- */
+        .chat-prompt-trigger { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 6px 12px; background-color: rgba(40, 40, 40, 0.6); color: var(--spotify-light-gray); border-radius: 20px; font-size: 14px; cursor: pointer; border: 1px solid var(--spotify-gray); transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease; position: relative; }
+        .chat-prompt-trigger:hover { background-color: var(--spotify-gray); color: var(--spotify-white); transform: scale(1.05); }
+        .chat-prompt-trigger i { color: var(--spotify-green); }
+        /* Arrow CSS would go here if implemented */
 
-        .chat-prompt-trigger {
-            /* Ensure the trigger itself is positioned relatively */
-            /* if not already set by other styles */
-            position: relative;
-            /* Other existing styles for the trigger... */
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-            padding: 6px 12px;
-            background-color: rgba(40, 40, 40, 0.6);
-            color: var(--spotify-light-gray);
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            border: 1px solid var(--spotify-gray);
-            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-        }
-        .chat-prompt-trigger:hover {
-            background-color: var(--spotify-gray);
-            color: var(--spotify-white);
-            transform: scale(1.05);
-        }
-        .chat-prompt-trigger i {
-            color: var(--spotify-green);
-        }
-
-
-        /* The ::before pseudo-element creates the arrow shape */
-        .chat-prompt-trigger::before {
-            content: ''; /* Required for pseudo-elements */
-            position: absolute; /* Position relative to chat-prompt-trigger */
-
-            /* --- START: Positioning (NEEDS ADJUSTMENT) --- */
-            /* These values are guesses - you MUST adjust them */
-            /* using your browser's developer tools to make it point correctly */
-            bottom: 50%;   /* Places the bottom of the arrow at the top of the trigger */
-            left: 50%;     /* Centers the arrow horizontally relative to the trigger */
-            transform: translateX(-50%); /* Corrects the centering */
-            margin-bottom: 5px; /* Space between arrow and trigger */
-            /* You might also need transform: rotate(value_in_deg); */
-            /* --- END: Positioning (NEEDS ADJUSTMENT) --- */
-
-            /* --- Arrow Shape (using borders) --- */
-            width: 5;
-            height: 5;
-            border-style: solid;
-            /* Adjust size: border-width: bottom-height left-width/2 right-width/2 top-height(0) */
-            border-width: 0 7px 10px 7px;
-            /* Make top/left/right borders transparent, bottom border the arrow color */
-            border-color: transparent transparent var(--spotify-gray) transparent; /* Pointing up */
-            /* Use var(--spotify-dark-gray) or another color if preferred */
-
-            z-index: 1; /* Ensure it's potentially above other elements if needed */
-        }
-
-        /* --- End Arrow CSS --- */
-
-        /* --- Chatbot Window Styles --- */
+        /* --- Chatbot Window Styles (Re-added) --- */ /* */
         .chat-window { position: fixed; bottom: 20px; right: 20px; width: 350px; max-width: 90vw; height: 450px; max-height: 70vh; background-color: var(--spotify-dark-gray); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; overflow: hidden; z-index: 999; border: 1px solid var(--spotify-gray); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; visibility: hidden; transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out; }
         .chat-window.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; visibility: visible; }
         .chat-header { background-color: var(--spotify-gray); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--spotify-black); }
@@ -208,8 +153,7 @@
             .header { flex-direction: column; align-items: center; text-align: center; }
             .profile-photo { width: 150px; height: 150px; margin-right: 0; margin-bottom: 24px; }
             .profile-name { font-size: 48px; } .profile-bio { text-align: center; }
-             /* Center prompt trigger on mobile */
-             .profile-info { align-items: center; }
+            .profile-info { align-items: center; }
             .actions { flex-direction: column; align-items: center; gap: 16px; }
             .btn-primary { margin-right: 0; }
             .projects-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
@@ -219,13 +163,14 @@
             .experience-duration { margin-left: 0; margin-top: 4px; }
             .certifications-grid { grid-template-columns: 1fr; }
             .certification-card { padding: 12px 15px; }
+             .skills-tag-list { justify-content: center; }
             .contact-info { margin-left: 0; margin-right: 0; max-width: none; }
         }
         @media (max-width: 480px) {
             .profile-name { font-size: 36px; } .profile-photo { width: 120px; height: 120px; }
             .projects-grid { grid-template-columns: 1fr; }
             .project-card { min-height: 180px; } .project-card:hover { min-height: 240px; }
-             .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 15px; height: 60vh; max-height: 400px;}
+            .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 15px; height: 60vh; max-height: 400px;}
         }
 
     </style>
@@ -234,11 +179,9 @@
     <div class="container">
         <div class="sidebar">
              <div class="logo"><h1>Portfolio</h1></div>
-             <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
-             <div class="skills-section">
-                 <h3>Skills</h3>
-                 <ul class="skills-list"><li class="skill-item"><i class="fab fa-python"></i> Python</li><li class="skill-item"><i class="fas fa-file-code"></i> C / C++</li><li class="skill-item"><i class="fas fa-database"></i> SQL</li><li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li><li class="skill-item"><i class="fab fa-js"></i> JavaScript / Flask</li><li class="skill-item"><i class="fas fa-brain"></i> PyTorch / TensorFlow</li><li class="skill-item"><i class="fas fa-eye"></i> Comp Vision (YOLO)</li><li class="skill-item"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> NVIDIA Tools</li><li class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis/Viz</li><li class="skill-item"><i class="fas fa-tools"></i> Git / Docker / Linux</li></ul>
-             </div>
+              {/* Navigation Menu - Whitespace removed for validation */}
+             <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
+             {/* Sidebar skills removed */}
         </div>
 
         <div class="main-content">
@@ -250,7 +193,7 @@
                          <h1 class="profile-name">Ketaki Dabade</h1>
                          <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.</p>
                          <p id="chat-prompt-trigger" class="chat-prompt-trigger">
-                             <i class="fas fa-comment-dots"></i> Hey! It's me as a chatbot. Ask me about my profile!
+                             <i class="fas fa-comment-dots"></i> Ask me about my profile!
                          </p>
                      </div>
                  </div>
@@ -268,7 +211,7 @@
                          <h4 class="degree">Bachelor of Technology in Computer Science and Engineering (with Distinction)</h4>
                          <p class="education-details">
                              Expected Graduation: July 2025 <br>
-                             CGPA: <span>8.9 / 10.0</span>
+                             CGPA: <span>8.74 / 10.0</span>
                          </p>
                      </div>
                      <div class="education-card">
@@ -284,29 +227,34 @@
             <section id="projects">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
+                    {/* Project Cards */}
                     <div class="project-card"><img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"><h3 class="project-title">ViziAssist</h3><p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p><div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div></div>
                     <div class="project-card"><img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"><h3 class="project-title">SkillSet Sherpa</h3><p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p><div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div></div>
                     <div class="project-card"><img src="images/canman.jpg" alt="CanMan Project" class="project-image"><h3 class="project-title">CanMan</h3><p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p><div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div></div>
                     <div class="project-card"><img src="images/oneview.jpg" alt="One View Project" class="project-image"><h3 class="project-title">One View</h3><p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p><div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div></div>
                     <div class="project-card"><img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image"><h3 class="project-title">Automated Door Lock</h3><p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p><div class="project-links"><span>Technologies: Arduino, R307 Sensor</span></div></div>
+                    <div class="project-card"><img src="images/sports.png" alt="Sports ML Project" class="project-image"><h3 class="project-title">ML & Game Theory in Sports</h3><p class="project-description">Research applying ML and game theory (Markov games) for match prediction, player analysis, and strategic decision-making in team sports.</p><div class="project-links"><span>Area: Research, ML, Game Theory</span></div></div>
                 </div>
             </section>
 
             <section id="experience">
                 <h2 class="section-title">Work Experience & Research</h2>
                 <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Dec 2024</span></div>
+                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div>
                     <h4 class="experience-title">Deep Learning Engineer Intern</h4>
-                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Created real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Built internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
+                    {/* Corrected ul formatting */}
+                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
                 </div>
                 <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div>
                     <h4 class="experience-title">Data Analyst Intern</h4>
+                     {/* Corrected ul formatting */}
                     <ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul>
                 </div>
                  <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div>
                     <h4 class="experience-title">Research Trainee</h4>
+                     {/* Corrected ul formatting */}
                     <ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul>
                 </div>
             </section>
@@ -321,6 +269,22 @@
                       <div class="certification-card"><h3 class="certification-title">Google Data Analytics Professional Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">December 2023</p></div>
                       <div class="certification-card"><h3 class="certification-title">Mastering Data Structures & Algorithms (C/C++)</h3><p class="certification-issuer">Udemy</p><p class="certification-date">September 2023</p></div>
                       <div class="certification-card"><h3 class="certification-title">The Git and Github Bootcamp</h3><p class="certification-issuer">Udemy</p><p class="certification-date">February 2024</p></div>
+                 </div>
+             </section>
+
+              <section id="skills">
+                 <h2 class="section-title">Skills</h2>
+                 <div class="fade-in-section">
+                     <h3 class="skills-category-title">Programming Languages</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fab fa-python"></i> Python</li><li class="skill-tag"><i class="fas fa-file-code"></i> C / C++</li><li class="skill-tag"><i class="fab fa-js"></i> JavaScript</li><li class="skill-tag"><i class="fas fa-database"></i> SQL</li><li class="skill-tag"> R</li></ul>
+                     <h3 class="skills-category-title">Web Development</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fab fa-html5"></i> HTML</li><li class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</li><li class="skill-tag"><i class="fab fa-python"></i> Flask</li></ul>
+                     <h3 class="skills-category-title">Data Science, AI & ML</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fas fa-brain"></i> PyTorch</li><li class="skill-tag"><i class="fas fa-brain"></i> TensorFlow</li><li class="skill-tag"><i class="fas fa-eye"></i> Computer Vision (YOLO)</li><li class="skill-tag"><i class="fas fa-microchip"></i> CUDA</li><li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> DeepStream / Modulus / Omniverse</li><li class="skill-tag"><i class="fas fa-database"></i> MongoDB</li><li class="skill-tag"><i class="fas fa-chart-bar"></i> Data Analysis</li><li class="skill-tag"><i class="fas fa-chart-pie"></i> Data Visualization</li></ul>
+                     <h3 class="skills-category-title">Tools & Platforms</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fab fa-git-alt"></i> Git</li><li class="skill-tag"><i class="fab fa-docker"></i> Docker</li><li class="skill-tag"><i class="fab fa-linux"></i> Linux</li><li class="skill-tag"> Triton Inference Server</li></ul>
+                     <h3 class="skills-category-title">CS Fundamentals</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fas fa-network-wired"></i> Computer Networks</li><li class="skill-tag"><i class="fas fa-cogs"></i> Operating Systems</li><li class="skill-tag"><i class="fas fa-stream"></i> Data Structures & Algorithms</li></ul>
                  </div>
              </section>
 
@@ -340,19 +304,9 @@
 
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
         </div></div><div id="chat-window" class="chat-window">
-         <div class="chat-header">
-             <h3>Chat About Ketaki</h3>
-             <button id="chat-close-button" class="chat-close" aria-label="Close Chat">&times;</button>
-         </div>
-         <div id="chat-messages" class="chat-messages">
-             <div class="message bot-message">Hi there! Ask me anything about Ketaki's profile.</div>
-         </div>
-         <div class="chat-input-area">
-             <input type="text" id="chat-input" class="chat-input" placeholder="Type your question...">
-             <button id="chat-send-button" class="chat-send" aria-label="Send Message">
-                 <i class="fas fa-paper-plane"></i>
-             </button>
-         </div>
+         <div class="chat-header"><h3>Chat About Ketaki</h3><button id="chat-close-button" class="chat-close" aria-label="Close Chat">&times;</button></div>
+         <div id="chat-messages" class="chat-messages"><div class="message bot-message">Hi there! Ask me anything about Ketaki's profile.</div></div>
+         <div class="chat-input-area"><input type="text" id="chat-input" class="chat-input" placeholder="Type your question..."><button id="chat-send-button" class="chat-send" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button></div>
      </div>
 
     <script>
@@ -374,27 +328,14 @@
 
             // --- Intersection Observer for Entrance Animations ---
             const animatedElements = document.querySelectorAll('.fade-in-section');
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
-                animatedElements.forEach(el => observer.observe(el));
-            } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
+            if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 }); animatedElements.forEach(el => observer.observe(el)); } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
 
-            // --- Chatbot UI Logic - Updated Trigger ---
-            const chatPromptTrigger = document.getElementById('chat-prompt-trigger'); // Use the new trigger ID
-            const chatWindow = document.getElementById('chat-window');
-            const chatCloseButton = document.getElementById('chat-close-button');
-            const chatMessages = document.getElementById('chat-messages');
-            const chatInput = document.getElementById('chat-input');
-            const chatSendButton = document.getElementById('chat-send-button');
-
+            // --- Chatbot UI Logic ---
+            const chatPromptTrigger = document.getElementById('chat-prompt-trigger'); const chatWindow = document.getElementById('chat-window'); const chatCloseButton = document.getElementById('chat-close-button'); const chatMessages = document.getElementById('chat-messages'); const chatInput = document.getElementById('chat-input'); const chatSendButton = document.getElementById('chat-send-button');
             const toggleChatWindow = () => { chatWindow.classList.toggle('active'); if (chatWindow.classList.contains('active')) { chatInput.focus(); } };
             const addMessage = (text, sender) => { const messageDiv = document.createElement('div'); messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message'); messageDiv.textContent = text; chatMessages.appendChild(messageDiv); chatMessages.scrollTop = chatMessages.scrollHeight; };
             const handleSendMessage = () => { const userMessage = chatInput.value.trim(); if (userMessage === '') return; addMessage(userMessage, 'user'); chatInput.value = ''; addMessage("Thinking...", 'bot'); /* TODO: Connect to AI Backend HERE! */ setTimeout(() => { const thinkingMessage = chatMessages.querySelector('.bot-message:last-child'); if (thinkingMessage && thinkingMessage.textContent === 'Thinking...') { thinkingMessage.remove(); } addMessage("This is a placeholder reply. Connect me to an AI!", 'bot'); }, 1500); };
-
-            if (chatPromptTrigger) { chatPromptTrigger.addEventListener('click', toggleChatWindow); }
-            if (chatCloseButton) { chatCloseButton.addEventListener('click', toggleChatWindow); }
-            if (chatSendButton) { chatSendButton.addEventListener('click', handleSendMessage); }
-            if (chatInput) { chatInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { handleSendMessage(); } }); }
+            if (chatPromptTrigger) { chatPromptTrigger.addEventListener('click', toggleChatWindow); } if (chatCloseButton) { chatCloseButton.addEventListener('click', toggleChatWindow); } if (chatSendButton) { chatSendButton.addEventListener('click', handleSendMessage); } if (chatInput) { chatInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { handleSendMessage(); } }); }
         });
     </script>
 </body>
