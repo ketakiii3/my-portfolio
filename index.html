@@ -118,49 +118,99 @@
         .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
         .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
 
-        /* --- Embedded Sidebar Chat UI --- */
+        /* --- Embedded Sidebar Chat UI (Spotify Themed) --- */
         .sidebar-chat-ui {
             margin-top: auto; /* Push to bottom */
-            padding-top: 10px; /* Space above chat */
-            border-top: 1px solid #333; /* Separator */
-            flex-shrink: 0; /* Prevent shrinking */
-            height: 250px; /* Fixed height for chat area - Adjust as needed */
+            padding-top: 10px;
+            border-top: 1px solid var(--spotify-gray); /* Use spotify gray for separator */
+            flex-shrink: 0;
+            height: 280px; /* Slightly increased height */
             display: flex;
             flex-direction: column;
             background-color: var(--spotify-black); /* Match sidebar */
-            overflow: hidden; /* Hide internal overflow initially */
+            overflow: hidden;
         }
 
-        /* Ensure chat messages area scrolls */
         .sidebar-chat-ui .chat-messages {
-            flex-grow: 1; /* Take available space */
-            padding: 10px 8px; /* Reduced padding */
+            flex-grow: 1;
+            padding: 10px 10px; /* Adjusted padding */
             overflow-y: auto;
-            gap: 8px; /* Reduced gap */
+            gap: 8px;
+            /* Custom scrollbar maybe? (Optional/Advanced) */
         }
 
-        /* Adjust message styles for smaller space */
+        /* Message bubble styling */
         .sidebar-chat-ui .message {
-            padding: 6px 10px; /* Reduced padding */
-            font-size: 13px; /* Smaller font */
-            max-width: 90%; /* Allow slightly wider messages in sidebar */
+            padding: 8px 12px; /* Adjusted padding */
+            border-radius: 18px; /* More rounded like message bubbles */
+            max-width: 85%; /* Slightly wider */
+            font-size: 13px;
+            line-height: 1.45;
+            word-wrap: break-word;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
         }
-        .sidebar-chat-ui .user-message { border-bottom-right-radius: 3px; }
-        .sidebar-chat-ui .bot-message { border-bottom-left-radius: 3px; }
+        .sidebar-chat-ui .user-message {
+            background-color: var(--spotify-green);
+            color: var(--spotify-black); /* Black text on green */
+            border-bottom-right-radius: 4px; /* Spotify style tweak */
+            align-self: flex-end;
+        }
+        .sidebar-chat-ui .bot-message {
+            background-color: var(--spotify-gray); /* Use standard gray */
+            color: var(--spotify-white);
+            border-bottom-left-radius: 4px; /* Spotify style tweak */
+            align-self: flex-start;
+        }
 
-        /* Adjust input area styles */
+        /* Input area styling */
         .sidebar-chat-ui .chat-input-area {
-            padding: 8px; /* Reduced padding */
+            display: flex;
+            padding: 10px 8px; /* Adjusted padding */
+            border-top: 1px solid var(--spotify-gray); /* Separator line */
+            background-color: var(--spotify-black); /* Match background */
+            gap: 8px; /* Gap between input and button */
         }
         .sidebar-chat-ui .chat-input {
-            padding: 8px 12px; /* Reduced padding */
-            font-size: 13px;
-            margin-right: 8px;
-        }
-        .sidebar-chat-ui .chat-send {
-            width: 34px; /* Smaller button */
-            height: 34px;
+            flex-grow: 1;
+            border: none;
+            padding: 8px 15px; /* Padding inside input */
+            border-radius: 500px; /* Pill shape */
+            background-color: var(--spotify-gray); /* Use gray for input */
+            color: var(--spotify-white);
             font-size: 14px;
+            margin-right: 0; /* Use gap instead */
+            outline: none;
+            transition: background-color 0.2s ease;
+        }
+        .sidebar-chat-ui .chat-input:focus {
+            background-color: #333; /* Slightly lighter on focus */
+        }
+        .sidebar-chat-ui .chat-input::placeholder {
+            color: var(--spotify-light-gray);
+        }
+
+        /* Send button styling */
+        .sidebar-chat-ui .chat-send {
+            background-color: var(--spotify-green);
+            color: var(--spotify-black); /* Black icon on green */
+            border: none;
+            border-radius: 50%;
+            width: 36px; /* Adjusted size */
+            height: 36px;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .sidebar-chat-ui .chat-send:hover {
+            background-color: #1ed760; /* Brighter green */
+            transform: scale(1.05);
+        }
+        .sidebar-chat-ui .chat-send:active {
+            transform: scale(0.95);
         }
 
         /* --- Entrance Animation --- */
@@ -187,20 +237,16 @@
             .certification-card { padding: 12px 15px; }
             .skills-tag-list { justify-content: center; }
             .contact-info { margin-left: 0; margin-right: 0; max-width: none; }
-            .sidebar {
-                /* Adjust sidebar mobile styles if needed */
-                flex-direction: row;
-                justify-content: space-between;
-                height: auto;
-            }
-            .sidebar-top { /* Adjust sidebar top part for mobile */
-                 flex-grow: 0; display: flex; align-items: center;
-            }
-             .logo { margin-bottom: 0; margin-right: 15px;}
-             .nav-menu { display: none; } /* Still hide nav menu */
             .sidebar-chat-ui {
                 display: none; /* Hide chat UI on mobile */
             }
+            /* Adjustments for how sidebar looks on mobile if needed */
+            .sidebar {
+                flex-direction: row; justify-content: space-between; align-items: center; height: auto;
+            }
+            .sidebar-top { flex-grow: 0; display: flex; align-items: center; }
+            .logo { margin-bottom: 0; margin-right: 15px;}
+            .nav-menu { display: none; }
         }
         
         @media (max-width: 480px) {
