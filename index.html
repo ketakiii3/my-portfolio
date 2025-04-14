@@ -118,30 +118,42 @@
         .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
         .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
 
-        /* --- Sidebar Chat Trigger --- */
         .sidebar-chat-trigger {
-            display: flex;
-            align-items: center;
-            padding: 12px 12px; /* Padding */
-            margin: 10px 0 0 0; /* Margin top */
-            background-color: var(--spotify-gray);
-            border-radius: 5px;
-            color: var(--spotify-light-gray);
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            border-top: 1px solid #333; /* Separator */
-            flex-shrink: 0; /* Prevent shrinking */
+            display: flex;               /* Keep using flexbox for alignment */
+            align-items: center;         /* Vertically center content */
+            padding: 14px 16px;          /* Increased padding for a bigger feel (was 12px 12px) */
+            margin: 15px 0 5px 0;        /* Adjusted margin slightly for spacing */
+            background-color: var(--spotify-gray); /* Keep Spotify gray background */
+            border-radius: 6px;          /* Slightly larger radius */
+            color: var(--spotify-light-gray); /* Keep light gray text color */
+            font-size: 15px;             /* Slightly larger font (was 14px) */
+            font-weight: 600;            /* Keep font weight */
+            cursor: pointer;             /* Indicate it's clickable */
+            border-top: none;            /* Removed the top border for a cleaner look */
+            flex-shrink: 0;              /* Prevent shrinking */
+            /* Added transform and box-shadow to the transition */
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            /* Add a very subtle initial shadow for depth */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
+        
         .sidebar-chat-trigger:hover {
-            background-color: #333;
-            color: var(--spotify-white);
+            background-color: #3a3a3a; /* Slightly lighter gray on hover (adjust as needed) */
+            color: var(--spotify-white); /* White text on hover */
+            transform: scale(1.03);    /* Make it slightly larger on hover */
+            /* Add a more noticeable shadow on hover for a "lifting" effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
+        
         .sidebar-chat-trigger i {
-            margin-right: 12px;
-            font-size: 18px;
-            color: var(--spotify-green);
+            margin-right: 14px;        /* Slightly more space next to the larger icon */
+            font-size: 20px;           /* Larger icon (was 18px) */
+            color: var(--spotify-green); /* Keep the Spotify green icon color */
+            transition: transform 0.2s ease; /* Add transition to icon */
+        }
+        
+        .sidebar-chat-trigger:hover i {
+            transform: scale(1.1); /* Make the icon pop a bit more on hover */
         }
 
         /* --- Chatbot Window Styles (Re-added & Position Adjusted) --- */
@@ -188,13 +200,32 @@
         /* Responsive */
         @media (max-width: 768px) {
             .container { flex-direction: column; height: auto; overflow: visible; }
-            .sidebar { width: 100%; padding: 16px; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; flex-direction: row; justify-content: space-between; align-items: center; height: auto; /* Adjust sidebar for mobile */ }
+            .sidebar { width: 100%; padding: 10px 12px;; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; flex-direction: row; justify-content: space-between; align-items: center; height: auto; /* Adjust sidebar for mobile */ }
              .sidebar-top { flex-grow: 0; display: flex; align-items: center; } /* Adjust top part */
              .logo { margin-bottom: 0; margin-right: 15px;}
              .nav-menu { display: none; } /* Hide nav menu on mobile */
-             .sidebar-chat-trigger { margin: 0; border-top: none; /* Adjust chat trigger */ }
-             .sidebar-chat-trigger span { display: none; } /* Hide text on mobile */
-             .sidebar-chat-trigger i { margin-right: 0; font-size: 20px; }
+             .sidebar-chat-trigger {
+                margin: 0; /* Remove margin on mobile */
+                padding: 10px 12px; /* Slightly smaller padding for mobile */
+                box-shadow: none; /* Remove shadow on mobile if desired */
+            }
+        
+            .sidebar-chat-trigger:hover {
+                 transform: scale(1.05); /* Slightly larger scale on mobile tap/hover */
+                 box-shadow: none; /* Keep no shadow on mobile hover if desired */
+             }
+        
+            .sidebar-chat-trigger span {
+                display: none; /* Keep text hidden */
+            }
+        
+            .sidebar-chat-trigger i {
+                margin-right: 0; /* Keep no margin */
+                font-size: 22px; /* Slightly larger icon for easier tapping */
+            }
+             .sidebar-chat-trigger:hover i {
+                 transform: none; /* Optional: disable icon scaling on mobile hover */
+             }
 
             .main-content { padding: 16px; overflow-y: visible; }
             .header { flex-direction: column; align-items: center; text-align: center; }
@@ -289,7 +320,7 @@
             <section id="experience">
                 <h2 class="section-title">Work Experience & Research</h2>
                 <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Present</span></div>
+                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Dec 2024</span></div>
                     <h4 class="experience-title">Deep Learning Engineer Intern</h4>
                     <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
                 </div>
@@ -425,66 +456,119 @@
     // text: The message content (string)
     // sender: 'user' or 'bot' to determine styling
     const addMessage = (text, sender) => {
-        // Check if the chatMessages container was found
         if (chatMessages) {
-            // Create a new div element to hold the message
             const messageElement = document.createElement('div');
-            // Add the base 'message' class for general styling
             messageElement.classList.add('message');
-            // Add specific class based on the sender ('user-message' or 'bot-message')
             messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-            // Set the text content of the new div to the message text
-            messageElement.textContent = text;
-            // Append the new message div to the chat messages container
+            // Simple sanitization: replace < and > to prevent basic HTML injection
+            const sanitizedText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            messageElement.innerHTML = sanitizedText; // Use innerHTML if you might want basic formatting later (like links), but be careful!
+            // OR use textContent for plain text always: messageElement.textContent = text;
             chatMessages.appendChild(messageElement);
-            // Automatically scroll the chat container to the bottom to show the latest message
             chatMessages.scrollTop = chatMessages.scrollHeight;
+            return messageElement; // Return the element
         } else {
-             // Log an error if the chat messages container wasn't found
             console.error("Chat messages container not found!");
+            return null;
         }
     };
 
     // --- Function to handle sending a message ---
-    const handleSendMessage = () => {
-         // Check if both chatInput and chatMessages elements exist
-        if (chatInput && chatMessages) {
-            // Get the text entered by the user, trimming whitespace
-            const userText = chatInput.value.trim();
-            // If the user actually typed something (not just spaces)
-            if (userText) {
-                // Display the user's message in the chat window
-                addMessage(userText, 'user');
-                // Clear the input field after sending
-                chatInput.value = '';
+    // --- Function to handle sending a message ---
+const handleSendMessage = () => {
+    // Check if both chatInput and chatMessages elements exist
+    if (chatInput && chatMessages) {
+        // Get the text entered by the user, trimming whitespace
+        const userText = chatInput.value.trim();
+        // If the user actually typed something (not just spaces)
+        if (userText) {
+            // Display the user's message immediately
+            addMessage(userText, 'user');
+            // Clear the input field after sending
+            chatInput.value = '';
 
-                // --- !! Placeholder for Bot Logic !! ---
-                // Here you would typically send userText to a bot service or process it
-                // For now, let's just echo it back or give a default reply
-                setTimeout(() => { // Simulate a slight delay for the bot's response
-                    // Simple example: Respond based on keywords
-                    let botResponse = "Sorry, I can only provide basic info right now. Try asking about 'skills', 'projects', or 'contact'.";
-                    if (userText.toLowerCase().includes('hello') || userText.toLowerCase().includes('hi')) {
-                        botResponse = "Hello there! How can I help you with Ketaki's portfolio?";
-                    } else if (userText.toLowerCase().includes('skills')) {
-                        botResponse = "Ketaki is skilled in Python, C/C++, JavaScript, SQL, R, HTML/CSS, Flask, PyTorch, TensorFlow, Computer Vision, CUDA, DeepStream, MongoDB, Data Analysis/Visualization, Git, Docker, Linux, and more!";
-                    } else if (userText.toLowerCase().includes('projects')) {
-                         botResponse = "Some featured projects include ViziAssist (obstacle detection), SkillSet Sherpa (career guidance chatbot), CanMan (canteen system), One View (event management), and an Automated Door Lock. Check the projects section for details!";
-                     } else if (userText.toLowerCase().includes('contact')) {
-                          botResponse = "You can reach Ketaki at dabadeketakil@gmail.com or connect on LinkedIn. See the 'Get In Touch' section.";
-                     }
-                    // Display the bot's response in the chat window
-                    addMessage(botResponse, 'bot');
-                }, 500); // 500ms delay
-                // --- End Placeholder ---
+            // --- Simulate Bot Thinking Delay ---
+            setTimeout(() => {
+                // --- Bot Response Logic (Expanded If/Else) ---
 
-            }
-         } else {
-             // Log an error if input or messages area is missing
-             console.error("Chat input or messages element not found!");
-         }
-    };
+                // Default response if no specific keywords match
+                let botResponse = "That's interesting! Ask me about Ketaki's skills, projects, education, experience, or how to get in touch.";
 
+                // Convert user input to lowercase for case-insensitive matching
+                const lowerUserText = userText.toLowerCase();
+
+                // --- Keyword Matching Logic ---
+
+                // Greetings
+                if (lowerUserText.includes('hello') || lowerUserText.includes('hi') || lowerUserText.includes('hey')) {
+                    botResponse = "Hello there! How can I help you with Ketaki's portfolio? You can ask about skills, projects, education, experience, etc.";
+                }
+                // Skills & Technologies
+                else if (lowerUserText.includes('skill') || lowerUserText.includes('technolog') || lowerUserText.includes('programming') || lowerUserText.includes('language')) { // Added more keywords
+                    botResponse = "Ketaki lists skills like Python, C/C++, JS, SQL, R, Flask, PyTorch, TensorFlow, Computer Vision, CUDA, DeepStream, MongoDB, Data Analysis/Viz, Git, Docker, Linux, and more. Check the 'Skills' section for a categorized view!";
+                }
+                // Specific Projects (Place specific checks BEFORE general 'project' check)
+                else if (lowerUserText.includes('viziassist')) {
+                    botResponse = "ViziAssist is an ADAS (Advanced Driver-Assistance System) project for road obstacle detection using YOLOv7 on an NVIDIA Jetson Nano. It was a top 100 entry in KPIT Sparkle 2022.";
+                } else if (lowerUserText.includes('skillset') || lowerUserText.includes('sherpa')) {
+                    botResponse = "SkillSet Sherpa is a career guidance chatbot using an LLM and OCR (EasyOCR) for transcript analysis, integrating the Holland Test. A paper about it was published (DOI link in the project description).";
+                } else if (lowerUserText.includes('canman')) {
+                    botResponse = "CanMan is a full-stack canteen management system with recommendations and an NLP chatbot, built with Flask, MongoDB, NLTK, D3.js. It won 2nd place at HACKMITWPU 2024.";
+                } else if (lowerUserText.includes('one view') || lowerUserText.includes('oneview')) {
+                     botResponse = "One View is a web-based event management app featuring image capture/preview and facial data clustering using DBSCAN, built with Flask and MongoDB.";
+                 } else if (lowerUserText.includes('door lock') || lowerUserText.includes('fingerprint')) {
+                      botResponse = "That's an automated door lock system using an Arduino and an R307 fingerprint sensor for secure access, focusing on optimized fingerprint processing.";
+                  }
+                // General Project Query
+                else if (lowerUserText.includes('project')) {
+                    botResponse = "Ketaki has worked on several projects like ViziAssist, SkillSet Sherpa, CanMan, One View, and an Automated Door Lock. You can find them in the 'Featured Projects' section. Ask about a specific one for more details!";
+                }
+                // Education (MIT-WPU, Columbia, CGPA)
+                else if (lowerUserText.includes('education') || lowerUserText.includes('degree') || lowerUserText.includes('university') || lowerUserText.includes('college') || lowerUserText.includes('gpa') || lowerUserText.includes('mit-wpu') || lowerUserText.includes('columbia')) {
+                    botResponse = "Ketaki is pursuing a B.Tech in CSE (8.9 CGPA) from Dr. Vishwanath Karad MIT-WPU, Pune (Expected Graduation: July 2025), and expects to start an M.S. in CS at Columbia University in August 2025. See the 'Education' section for details.";
+                }
+                // Specific Experience (Place specific checks BEFORE general 'experience' check)
+                else if (lowerUserText.includes('ai4m')) {
+                    botResponse = "At AI4M Technology (July-Dec 2024), Ketaki worked as a Deep Learning Engineer Intern focusing on real-time defect detection using DeepStream/YOLO and creating factory simulations with NVIDIA tools like Modulus and Omniverse.";
+                } else if (lowerUserText.includes('vila emach') || lowerUserText.includes('vila')) {
+                     botResponse = "As a Data Analyst Intern at VILA Emach Wirken (June-Dec 2022), Ketaki streamlined reporting (Excel, SQL, Python), built customer clustering models, and developed interactive Grafana dashboards improving operational visibility.";
+                 } else if (lowerUserText.includes('nitttr') || lowerUserText.includes('siemens')) {
+                      botResponse = "As a Research Trainee at NITTTR-Siemens CoE, Bhopal (Feb-Mar 2024), Ketaki led a team developing an ML system (using ensemble models) analyzing the correlation between music preference and mental health, achieving 93.19% accuracy.";
+                  }
+                // General Experience / Work Query
+                 else if (lowerUserText.includes('experience') || lowerUserText.includes('work') || lowerUserText.includes('internship') || lowerUserText.includes('job') || lowerUserText.includes('research')) {
+                    botResponse = "Ketaki has interned as a Deep Learning Engineer at AI4M Technology and as a Data Analyst at VILA Emach Wirken, plus research trainee experience at NITTTR-Siemens CoE. Check the 'Work Experience & Research' section for responsibilities and dates.";
+                }
+                // Certifications / Courses
+                else if (lowerUserText.includes('certification') || lowerUserText.includes('course') || lowerUserText.includes('google project management') || lowerUserText.includes('deeplearning.ai') || lowerUserText.includes('google data analytics') || lowerUserText.includes('nvidia')) {
+                    botResponse = "Ketaki holds certifications including Google Project Management, DeepLearning.AI ML Specialization, Google Data Analytics, NVIDIA AI Intro, and others in DSA and Git/Github. See the 'Courses & Certifications' section for the full list.";
+                }
+                // Resume
+                else if (lowerUserText.includes('resume') || lowerUserText.includes('cv')) {
+                     botResponse = "You can download Ketaki's resume using the 'Download Resume' button located under the main introduction!";
+                 }
+                // Contact Info
+                 else if (lowerUserText.includes('contact') || lowerUserText.includes('email') || lowerUserText.includes('phone') || lowerUserText.includes('github') || lowerUserText.includes('linkedin') || lowerUserText.includes('connect')) {
+                    botResponse = "You can reach Ketaki at dabadeketakil@gmail.com or connect via GitHub (ketakiii3) and LinkedIn (ketaki-d-07a21a275). Check the 'Get In Touch' section at the bottom for details and links.";
+                }
+                 // Basic Politeness
+                 else if (lowerUserText.includes('thank') || lowerUserText.includes('thanks') || lowerUserText.includes('appreciate')) {
+                    botResponse = "You're welcome! Feel free to ask if anything else comes to mind.";
+                } else if (lowerUserText.includes('bye') || lowerUserText.includes('goodbye')) {
+                     botResponse = "Goodbye! Have a great day.";
+                 }
+
+                // Display the determined bot's response
+                addMessage(botResponse, 'bot');
+
+            }, 500); // 500ms delay
+
+        } // End if(userText)
+    } else {
+        // Log an error if input or messages area is missing
+        console.error("Chat input or messages element not found!");
+    }
+};
     // --- Attach Event Listeners ---
 
     // Add a click listener to the sidebar chat trigger button
