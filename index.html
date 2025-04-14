@@ -188,7 +188,14 @@
         /* Responsive */
         @media (max-width: 768px) {
             .container { flex-direction: column; height: auto; overflow: visible; }
-            .sidebar { width: 100%; padding: 16px; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; }
+            .sidebar { width: 100%; padding: 16px; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; flex-direction: row; justify-content: space-between; align-items: center; height: auto; /* Adjust sidebar for mobile */ }
+             .sidebar-top { flex-grow: 0; display: flex; align-items: center; } /* Adjust top part */
+             .logo { margin-bottom: 0; margin-right: 15px;}
+             .nav-menu { display: none; } /* Hide nav menu on mobile */
+             .sidebar-chat-trigger { margin: 0; border-top: none; /* Adjust chat trigger */ }
+             .sidebar-chat-trigger span { display: none; } /* Hide text on mobile */
+             .sidebar-chat-trigger i { margin-right: 0; font-size: 20px; }
+
             .main-content { padding: 16px; overflow-y: visible; }
             .header { flex-direction: column; align-items: center; text-align: center; }
             .profile-photo { width: 150px; height: 150px; margin-right: 0; margin-bottom: 24px; }
@@ -205,6 +212,8 @@
             .certification-card { padding: 12px 15px; }
             .skills-tag-list { justify-content: center; }
             .contact-info { margin-left: 0; margin-right: 0; max-width: none; }
+             /* Adjust chat window position slightly for mobile */
+             .chat-window { bottom: 15px; left: 15px; width: calc(100vw - 30px); }
         }
         
         @media (max-width: 480px) {
