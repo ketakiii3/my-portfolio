@@ -119,39 +119,65 @@
         .footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--spotify-gray); text-align: center; color: var(--spotify-light-gray); font-size: 14px; }
 
         /* --- Chatbot Trigger Prompt --- */
-        .chat-prompt-trigger {
-            display: inline-flex; align-items: center; gap: 8px;
-            margin-top: 10px; padding: 6px 12px;
-            background-color: rgba(40, 40, 40, 0.6);
-            color: var(--spotify-light-gray); border-radius: 20px;
-            font-size: 14px; cursor: pointer; border: 1px solid var(--spotify-gray);
-            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease; /* Added transform */
-            position: relative; /* Needed for pseudo-element arrow */
-        }
-        /* Added hover effect */ /* */
-        .chat-prompt-trigger:hover {
-            background-color: var(--spotify-gray); color: var(--spotify-white);
-            transform: scale(1.05); /* Slight scale on hover */
-        }
-        .chat-prompt-trigger i { color: var(--spotify-green); }
+        /* --- Arrow Pointing to Chat Prompt (Requires manual positioning) --- */
 
-        /* --- Arrow Attempt (Commented Out - Requires precise positioning) --- */
-        /*
-        .chat-prompt-trigger::before {
-             content: '';
-             position: absolute;
-             bottom: 100%; // Position above the prompt
-             left: 50%; // Center horizontally relative to prompt
-             transform: translateX(-50%);
-             margin-bottom: 5px; // Space between arrow and prompt
-             border-width: 0 7px 10px 7px; // Adjust size as needed
-             border-style: solid;
-             border-color: transparent transparent var(--spotify-gray) transparent; // Arrow color
-             // PROBLEM: Making this point *from* the photo requires complex calculations
-             //          or fixed positioning that breaks easily on resize.
-             //          Consider SVG or JS for a robust arrow.
+        .chat-prompt-trigger {
+            /* Ensure the trigger itself is positioned relatively */
+            /* if not already set by other styles */
+            position: relative;
+            /* Other existing styles for the trigger... */
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 6px 12px;
+            background-color: rgba(40, 40, 40, 0.6);
+            color: var(--spotify-light-gray);
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid var(--spotify-gray);
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
         }
-        */
+        .chat-prompt-trigger:hover {
+            background-color: var(--spotify-gray);
+            color: var(--spotify-white);
+            transform: scale(1.05);
+        }
+        .chat-prompt-trigger i {
+            color: var(--spotify-green);
+        }
+
+
+        /* The ::before pseudo-element creates the arrow shape */
+        .chat-prompt-trigger::before {
+            content: ''; /* Required for pseudo-elements */
+            position: absolute; /* Position relative to chat-prompt-trigger */
+
+            /* --- START: Positioning (NEEDS ADJUSTMENT) --- */
+            /* These values are guesses - you MUST adjust them */
+            /* using your browser's developer tools to make it point correctly */
+            bottom: 100%;   /* Places the bottom of the arrow at the top of the trigger */
+            left: 50%;     /* Centers the arrow horizontally relative to the trigger */
+            transform: translateX(-50%); /* Corrects the centering */
+            margin-bottom: 5px; /* Space between arrow and trigger */
+            /* You might also need transform: rotate(value_in_deg); */
+            /* --- END: Positioning (NEEDS ADJUSTMENT) --- */
+
+            /* --- Arrow Shape (using borders) --- */
+            width: 0;
+            height: 0;
+            border-style: solid;
+            /* Adjust size: border-width: bottom-height left-width/2 right-width/2 top-height(0) */
+            border-width: 0 7px 10px 7px;
+            /* Make top/left/right borders transparent, bottom border the arrow color */
+            border-color: transparent transparent var(--spotify-gray) transparent; /* Pointing up */
+            /* Use var(--spotify-dark-gray) or another color if preferred */
+
+            z-index: 1; /* Ensure it's potentially above other elements if needed */
+        }
+
+        /* --- End Arrow CSS --- */
 
         /* --- Chatbot Window Styles --- */
         .chat-window { position: fixed; bottom: 20px; right: 20px; width: 350px; max-width: 90vw; height: 450px; max-height: 70vh; background-color: var(--spotify-dark-gray); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; overflow: hidden; z-index: 999; border: 1px solid var(--spotify-gray); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; visibility: hidden; transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out; }
@@ -223,9 +249,8 @@
                          <span class="profile-tag">Computer Science Engineer</span>
                          <h1 class="profile-name">Ketaki Dabade</h1>
                          <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.</p>
-                         {/* Chatbot Trigger Prompt */}
                          <p id="chat-prompt-trigger" class="chat-prompt-trigger">
-                             <i class="fas fa-comment-dots"></i> Ask me about my profile!
+                             <i class="fas fa-comment-dots"></i> Hey! It's me as a chatbot. Ask me about my profile!
                          </p>
                      </div>
                  </div>
