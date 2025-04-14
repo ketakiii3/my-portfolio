@@ -121,12 +121,13 @@
         .sidebar-chat-trigger {
             display: flex;               /* Keep using flexbox for alignment */
             align-items: center;         /* Vertically center content */
-            padding: 14px 16px;          /* Increased padding for a bigger feel (was 12px 12px) */
-            margin: 5px 5px 5px 5px;        /* Adjusted margin slightly for spacing */
+            justify-content: center;     /* Center content horizontally */
+            padding: 20px;               /* Equal padding on all sides for square shape */
+            margin: 1px 5px 5px 5px;     /* Kept the same margin */
             background-color: var(--spotify-dark-gray); /* Keep Spotify gray background */
-            border-radius: 6px;          /* Slightly larger radius */
+            border-radius: 6px;          /* Kept the same radius */
             color: var(--spotify-light-gray); /* Keep light gray text color */
-            font-size: 15px;             /* Slightly larger font (was 14px) */
+            font-size: 16px;             /* Increased font size */
             font-weight: 600;            /* Keep font weight */
             cursor: pointer;             /* Indicate it's clickable */
             border-top: none;            /* Removed the top border for a cleaner look */
@@ -135,10 +136,14 @@
             transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             /* Add a very subtle initial shadow for depth */
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            /* Make it square shaped and larger */
+            width: 60px;                 /* Set explicit width */
+            height: 60px;                /* Set equal height for square shape */
+            aspect-ratio: 1/1;           /* Enforce 1:1 aspect ratio for square */
         }
         
         .sidebar-chat-trigger:hover {
-            background-color: #3a3a3a; /* Slightly lighter gray on hover (adjust as needed) */
+            background-color: --spotify-light-gray; /* Slightly lighter gray on hover (adjust as needed) */
             color: var(--spotify-white); /* White text on hover */
             transform: scale(1.03);    /* Make it slightly larger on hover */
             /* Add a more noticeable shadow on hover for a "lifting" effect */
@@ -146,7 +151,7 @@
         }
         
         .sidebar-chat-trigger i {
-            margin-right: 10px;        /* Slightly more space next to the larger icon */
+            margin-right: 15px;        /* Slightly more space next to the larger icon */
             font-size: 20px;           /* Larger icon (was 18px) */
             color: var(--spotify-green); /* Keep the Spotify green icon color */
             transition: transform 0.2s ease; /* Add transition to icon */
@@ -504,7 +509,7 @@ const handleSendMessage = () => {
                     botResponse = "Hello there! How can I help you with Ketaki's portfolio? You can ask about skills, projects, education, experience, etc.";
                 }
                 // Skills & Technologies
-                else if (lowerUserText.includes('skill') || lowerUserText.includes('technolog') || lowerUserText.includes('programming') || lowerUserText.includes('language')) { // Added more keywords
+                else if (lowerUserText.includes('skill') || lowerUserText.includes('technology') || lowerUserText.includes('programming') || lowerUserText.includes('language')) { // Added more keywords
                     botResponse = "Ketaki lists skills like Python, C/C++, JS, SQL, R, Flask, PyTorch, TensorFlow, Computer Vision, CUDA, DeepStream, MongoDB, Data Analysis/Viz, Git, Docker, Linux, and more. Check the 'Skills' section for a categorized view!";
                 }
                 // Specific Projects (Place specific checks BEFORE general 'project' check)
