@@ -118,100 +118,68 @@
         .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
         .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
 
-        /* --- Embedded Sidebar Chat UI (Spotify Themed) --- */
-        .sidebar-chat-ui {
-            margin-top: auto; /* Push to bottom */
-            padding-top: 10px;
-            border-top: 1px solid var(--spotify-gray); /* Use spotify gray for separator */
-            flex-shrink: 0;
-            height: 280px; /* Slightly increased height */
+        /* --- Sidebar Chat Trigger --- */
+        .sidebar-chat-trigger {
             display: flex;
-            flex-direction: column;
-            background-color: var(--spotify-black); /* Match sidebar */
-            overflow: hidden;
-        }
-
-        .sidebar-chat-ui .chat-messages {
-            flex-grow: 1;
-            padding: 10px 10px; /* Adjusted padding */
-            overflow-y: auto;
-            gap: 8px;
-            /* Custom scrollbar maybe? (Optional/Advanced) */
-        }
-
-        /* Message bubble styling */
-        .sidebar-chat-ui .message {
-            padding: 8px 12px; /* Adjusted padding */
-            border-radius: 18px; /* More rounded like message bubbles */
-            max-width: 85%; /* Slightly wider */
-            font-size: 13px;
-            line-height: 1.45;
-            word-wrap: break-word;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
-        }
-        .sidebar-chat-ui .user-message {
-            background-color: var(--spotify-green);
-            color: var(--spotify-black); /* Black text on green */
-            border-bottom-right-radius: 4px; /* Spotify style tweak */
-            align-self: flex-end;
-        }
-        .sidebar-chat-ui .bot-message {
-            background-color: var(--spotify-gray); /* Use standard gray */
-            color: var(--spotify-white);
-            border-bottom-left-radius: 4px; /* Spotify style tweak */
-            align-self: flex-start;
-        }
-
-        /* Input area styling */
-        .sidebar-chat-ui .chat-input-area {
-            display: flex;
-            padding: 10px 8px; /* Adjusted padding */
-            border-top: 1px solid var(--spotify-gray); /* Separator line */
-            background-color: var(--spotify-black); /* Match background */
-            gap: 8px; /* Gap between input and button */
-        }
-        .sidebar-chat-ui .chat-input {
-            flex-grow: 1;
-            border: none;
-            padding: 8px 15px; /* Padding inside input */
-            border-radius: 500px; /* Pill shape */
-            background-color: var(--spotify-gray); /* Use gray for input */
-            color: var(--spotify-white);
-            font-size: 14px;
-            margin-right: 0; /* Use gap instead */
-            outline: none;
-            transition: background-color 0.2s ease;
-        }
-        .sidebar-chat-ui .chat-input:focus {
-            background-color: #333; /* Slightly lighter on focus */
-        }
-        .sidebar-chat-ui .chat-input::placeholder {
-            color: var(--spotify-light-gray);
-        }
-
-        /* Send button styling */
-        .sidebar-chat-ui .chat-send {
-            background-color: var(--spotify-green);
-            color: var(--spotify-black); /* Black icon on green */
-            border: none;
-            border-radius: 50%;
-            width: 36px; /* Adjusted size */
-            height: 36px;
-            font-size: 15px;
-            display: flex;
-            justify-content: center;
             align-items: center;
+            padding: 12px 12px; /* Padding */
+            margin: 10px 0 0 0; /* Margin top */
+            background-color: var(--spotify-gray);
+            border-radius: 5px;
+            color: var(--spotify-light-gray);
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            flex-shrink: 0;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-top: 1px solid #333; /* Separator */
+            flex-shrink: 0; /* Prevent shrinking */
         }
-        .sidebar-chat-ui .chat-send:hover {
-            background-color: #1ed760; /* Brighter green */
-            transform: scale(1.05);
+        .sidebar-chat-trigger:hover {
+            background-color: #333;
+            color: var(--spotify-white);
         }
-        .sidebar-chat-ui .chat-send:active {
-            transform: scale(0.95);
+        .sidebar-chat-trigger i {
+            margin-right: 12px;
+            font-size: 18px;
+            color: var(--spotify-green);
         }
+
+        /* --- Chatbot Window Styles (Re-added & Position Adjusted) --- */
+        .chat-window {
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Position in bottom left */
+            left: 20px;   /* Position in bottom left */
+            width: 350px; max-width: 90vw; height: 450px; max-height: calc(100vh - 40px); /* Adjust max height */
+            background-color: var(--spotify-dark-gray); border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            display: flex; flex-direction: column; overflow: hidden; z-index: 999;
+            border: 1px solid var(--spotify-gray);
+            /* Initial hidden state for transition */
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            pointer-events: none; /* Not interactive when hidden */
+            visibility: hidden;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+        }
+        .chat-window.active { /* State when chat is open */
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto; /* Interactive when open */
+            visibility: visible;
+        }
+        .chat-header { background-color: var(--spotify-gray); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--spotify-black); }
+        .chat-header h3 { color: var(--spotify-white); font-size: 16px; font-weight: 600; margin: 0; }
+        .chat-close { background: none; border: none; color: var(--spotify-light-gray); font-size: 24px; cursor: pointer; line-height: 1; }
+        .chat-close:hover { color: var(--spotify-white); }
+        .chat-messages { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 8px 12px; border-radius: 15px; max-width: 80%; font-size: 14px; line-height: 1.4; word-wrap: break-word; }
+        .user-message { background-color: var(--spotify-green); color: var(--spotify-black); border-bottom-right-radius: 5px; align-self: flex-end; }
+        .bot-message { background-color: var(--spotify-gray); color: var(--spotify-white); border-bottom-left-radius: 5px; align-self: flex-start; }
+        .chat-input-area { display: flex; padding: 10px; border-top: 1px solid var(--spotify-black); background-color: var(--spotify-gray); }
+        .chat-input { flex-grow: 1; border: none; padding: 10px; border-radius: 20px; background-color: var(--spotify-dark-gray); color: var(--spotify-white); font-size: 14px; margin-right: 10px; outline: none; }
+        .chat-input::placeholder { color: var(--spotify-light-gray); }
+        .chat-send { background-color: var(--spotify-green); color: var(--spotify-white); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 16px; display: flex; justify-content: center; align-items: center; cursor: pointer; flex-shrink: 0; transition: background-color 0.2s ease; }
+        .chat-send:hover { background-color: #1ed760; }
 
         /* --- Entrance Animation --- */
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
@@ -237,16 +205,6 @@
             .certification-card { padding: 12px 15px; }
             .skills-tag-list { justify-content: center; }
             .contact-info { margin-left: 0; margin-right: 0; max-width: none; }
-            .sidebar-chat-ui {
-                display: none; /* Hide chat UI on mobile */
-            }
-            /* Adjustments for how sidebar looks on mobile if needed */
-            .sidebar {
-                flex-direction: row; justify-content: space-between; align-items: center; height: auto;
-            }
-            .sidebar-top { flex-grow: 0; display: flex; align-items: center; }
-            .logo { margin-bottom: 0; margin-right: 15px;}
-            .nav-menu { display: none; }
         }
         
         @media (max-width: 480px) {
@@ -265,18 +223,11 @@
                  <div class="logo"><h1>Portfolio</h1></div>
                  <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
             </div>
-        
-            <div id="sidebar-chat-ui" class="sidebar-chat-ui">
-                <div id="chat-messages" class="chat-messages">
-                    <div class="message bot-message">Ask about Ketaki...</div>
-                </div>
-                <div class="chat-input-area">
-                    <input type="text" id="chat-input" class="chat-input" placeholder="Type question...">
-                    <button id="chat-send-button" class="chat-send" aria-label="Send Message">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </div>
+             <div id="sidebar-chat-trigger" class="sidebar-chat-trigger">
+                 <i class="fas fa-comment-dots"></i>
+                 <span>Chat About Me</span>
+             </div>
+        </div>
         </div>
 
         <div class="main-content">
@@ -414,14 +365,26 @@
             if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 }); animatedElements.forEach(el => observer.observe(el)); } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
             
             // --- Chatbot UI Logic - Updated Trigger ---
+            const chatTrigger = document.getElementById('sidebar-chat-trigger'); // Use the new sidebar trigger ID
+            const chatWindow = document.getElementById('chat-window');
+            const chatCloseButton = document.getElementById('chat-close-button');
             const chatMessages = document.getElementById('chat-messages');
-            const chatInput = document.getElementById('sidebar-chat-input');
-            const chatSendButton = document.getElementById('sidebar-chat-send-button');
+            const chatInput = document.getElementById('chat-input');
+            const chatSendButton = document.getElementById('chat-send-button');
 
+            const toggleChatWindow = () => { /* ... function remains the same ... */
+                chatWindow.classList.toggle('active');
+                if (chatWindow.classList.contains('active')) { chatInput.focus(); }
+             };
             const addMessage = (text, sender) => { /* ... function remains the same ... */ };
             const handleSendMessage = () => { /* ... function remains the same ... */ };
 
+            // ** Updated Event Listener Target **
+            if (chatTrigger) { // Check if the new trigger exists
+                chatTrigger.addEventListener('click', toggleChatWindow);
+            }
             // Keep the rest of the listeners
+            if (chatCloseButton) { chatCloseButton.addEventListener('click', toggleChatWindow); }
             if (chatSendButton) { chatSendButton.addEventListener('click', handleSendMessage); }
             if (chatInput) { chatInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { handleSendMessage(); } }); }
             // --- End Chatbot UI Logic ---
