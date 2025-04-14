@@ -118,43 +118,56 @@
         .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
         .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
 
+        /* --- Sidebar Chat Trigger - More Attractive --- */
         .sidebar-chat-trigger {
-            display: flex;               /* Keep using flexbox for alignment */
-            align-items: center;         /* Vertically center content */
-            justify-content: center;     /* Center content horizontally */
-            padding: 20px;               /* Equal padding on all sides for square shape */
-            margin: 0 5px 5px 5px;     /* Kept the same margin */
-            background-color: var(--spotify-dark-gray); /* Keep Spotify gray background */
-            border-radius: 6px;          /* Kept the same radius */
-            color: var(--spotify-light-gray); /* Keep light gray text color */
-            font-size: 16px;             /* Increased font size */
-            font-weight: 600;            /* Keep font weight */
-            cursor: pointer;             /* Indicate it's clickable */
-            border-top: none;            /* Removed the top border for a cleaner look */
-            flex-shrink: 0;              /* Prevent shrinking */
-            /* Added transform and box-shadow to the transition */
-            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            /* Add a very subtle initial shadow for depth */
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            padding: 14px 18px; /* Slightly adjusted padding */
+            margin: 15px 0 5px 0;
+            /* Subtle gradient background */
+            background: linear-gradient(to bottom, #303030, var(--spotify-gray)); /* Darker gradient */
+            border-radius: 8px; /* Slightly more rounded */
+            color: var(--spotify-light-gray);
+            font-size: 15px;
+            font-weight: 700; /* Bolder font weight */
+            cursor: pointer;
+            border: 1px solid transparent; /* Prepare for potential border on hover */
+            flex-shrink: 0;
+            position: relative; /* Needed for potential pseudo-elements later if desired */
+            overflow: hidden; /* Hide potential overflow from animations */
+            /* Updated transition for background, color, transform, box-shadow, border */
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slightly adjusted base shadow */
         }
-        
+
         .sidebar-chat-trigger:hover {
-            background-color: #3a3a3a; /* Slightly lighter gray on hover (adjust as needed) */
-            color: var(--spotify-white); /* White text on hover */
-            transform: scale(1.03);    /* Make it slightly larger on hover */
-            /* Add a more noticeable shadow on hover for a "lifting" effect */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            background: var(--spotify-green); /* Change background TO Spotify Green */
+            color: var(--spotify-black);     /* Change text TO Black for contrast on green */
+            transform: scale(1.05) translateY(-2px); /* Scale up AND lift slightly */
+            /* A more pronounced shadow when lifted */
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+            border-color: var(--spotify-green); /* Make border match background */
         }
-        
+
+        /* Style the icon within the trigger */
         .sidebar-chat-trigger i {
-            margin-right: 15px;        /* Slightly more space next to the larger icon */
-            font-size: 20px;           /* Larger icon (was 18px) */
-            color: var(--spotify-green); /* Keep the Spotify green icon color */
-            transition: transform 0.2s ease; /* Add transition to icon */
+            margin-right: 14px;
+            font-size: 20px;
+            color: var(--spotify-green); /* Icon is green initially */
+            transition: color 0.3s ease, transform 0.2s ease; /* Smooth color and transform transition */
+            z-index: 1; /* Ensure icon stays above background */
         }
-        
+
+        /* Style the icon on trigger hover */
         .sidebar-chat-trigger:hover i {
-            transform: scale(1.1); /* Make the icon pop a bit more on hover */
+            color: var(--spotify-black); /* Change icon TO Black to match text */
+            transform: scale(1.1);     /* Slightly enlarge icon */
+        }
+
+        /* Style the text span within the trigger */
+        .sidebar-chat-trigger span {
+            z-index: 1; /* Ensure text stays above background */
+            transition: color 0.3s ease; /* Ensure text color transitions smoothly */
         }
 
         /* --- Chatbot Window Styles (Re-added & Position Adjusted) --- */
@@ -202,30 +215,45 @@
         @media (max-width: 768px) {
             .container { flex-direction: column; height: auto; overflow: visible; }
             .sidebar { width: 100%; padding: 10px 12px;; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; flex-direction: row; justify-content: space-between; align-items: center; height: auto; /* Adjust sidebar for mobile */ }
-             .sidebar-top { flex-grow: 0; display: flex; align-items: center; } /* Adjust top part */
-             .logo { margin-bottom: 0; margin-right: 15px;}
-             .nav-menu { display: none; } /* Hide nav menu on mobile */
-             .sidebar-chat-trigger {
-                margin: 0; /* Remove margin on mobile */
-                padding: 10px 12px; /* Slightly smaller padding for mobile */
-                box-shadow: none; /* Remove shadow on mobile if desired */
+            .sidebar-top { flex-grow: 0; display: flex; align-items: center; } /* Adjust top part */
+            .logo { margin-bottom: 0; margin-right: 15px;}
+            .nav-menu { display: none; } /* Hide nav menu on mobile */
+            .sidebar {
+                padding: 10px 12px;
             }
         
-            .sidebar-chat-trigger:hover {
-                 transform: scale(1.05); /* Slightly larger scale on mobile tap/hover */
-                 box-shadow: none; /* Keep no shadow on mobile hover if desired */
+            .sidebar-chat-trigger {
+                margin: 0;
+                padding: 12px 14px; /* Adjust mobile padding */
+                font-weight: 600; /* Slightly less bold on mobile */
+                background: var(--spotify-gray); /* Simpler background for mobile maybe? Or keep gradient */
+                box-shadow: none;
+                border-radius: 6px; /* Match overall mobile style maybe */
+            }
+        
+            /* Mobile hover/active state - less dramatic */
+            .sidebar-chat-trigger:hover, /* Primarily for devices that support hover */
+            .sidebar-chat-trigger:active { /* For touch feedback */
+                 background: #3a3a3a; /* Darker gray, not green maybe */
+                 color: var(--spotify-white);
+                 transform: scale(1.03); /* Smaller scale effect */
+                 box-shadow: none;
              }
         
             .sidebar-chat-trigger span {
-                display: none; /* Keep text hidden */
+                display: none;
             }
         
             .sidebar-chat-trigger i {
-                margin-right: 0; /* Keep no margin */
-                font-size: 22px; /* Slightly larger icon for easier tapping */
+                margin-right: 0;
+                font-size: 22px;
+                color: var(--spotify-green); /* Keep icon green initially */
             }
-             .sidebar-chat-trigger:hover i {
-                 transform: none; /* Optional: disable icon scaling on mobile hover */
+        
+            .sidebar-chat-trigger:hover i,
+            .sidebar-chat-trigger:active i {
+                 color: var(--spotify-white); /* Match text color on active/hover */
+                 transform: scale(1.05); /* Smaller icon scale */
              }
 
             .main-content { padding: 16px; overflow-y: visible; }
