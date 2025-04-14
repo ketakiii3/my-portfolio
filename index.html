@@ -348,6 +348,19 @@
                  </div>
             </section>
 
+            <div id="chat-window" class="chat-window">  <div class="chat-header">
+                <h3>Chat About Me</h3>
+                <button id="chat-close-button" class="chat-close" aria-label="Close chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot-message">Hi there! Ask me anything about Ketaki's portfolio.</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
+                <button id="chat-send-button" class="chat-send" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            </div>
+
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
         
 
@@ -372,30 +385,145 @@
             const animatedElements = document.querySelectorAll('.fade-in-section');
             if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 }); animatedElements.forEach(el => observer.observe(el)); } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
             
-            // --- Chatbot UI Logic - Updated Trigger ---
-            const chatTrigger = document.getElementById('sidebar-chat-trigger'); // Use the new sidebar trigger ID
-            const chatWindow = document.getElementById('chat-window');
-            const chatCloseButton = document.getElementById('chat-close-button');
-            const chatMessages = document.getElementById('chat-messages');
-            const chatInput = document.getElementById('chat-input');
-            const chatSendButton = document.getElementById('chat-send-button');
+            // --- Chatbot UI Logic ---
 
-            const toggleChatWindow = () => { /* ... function remains the same ... */
-                chatWindow.classList.toggle('active');
-                if (chatWindow.classList.contains('active')) { chatInput.focus(); }
-             };
-            const addMessage = (text, sender) => { /* ... function remains the same ... */ };
-            const handleSendMessage = () => { /* ... function remains the same ... */ };
+    // Select the button in the sidebar that triggers the chat window
+    const chatTrigger = document.getElementById('sidebar-chat-trigger');
+    // Select the main chat window container
+    const chatWindow = document.getElementById('chat-window');
+    // Select the button inside the chat window to close it
+    const chatCloseButton = document.getElementById('chat-close-button');
+    // Select the div where messages will be displayed
+    const chatMessages = document.getElementById('chat-messages');
+    // Select the text input field where the user types
+    const chatInput = document.getElementById('chat-input');
+    // Select the button to send the user's message
+    const chatSendButton = document.getElementById('chat-send-button');
 
-            // ** Updated Event Listener Target **
-            if (chatTrigger) { // Check if the new trigger exists
-                chatTrigger.addEventListener('click', toggleChatWindow);
+    // --- Function to toggle the chat window's visibility ---
+    const toggleChatWindow = () => {
+        // Check if chatWindow element was found successfully
+        if (chatWindow) {
+             // Add or remove the 'active' class to the chat window element
+             // The CSS uses this class (.chat-window.active) to make it visible
+            chatWindow.classList.toggle('active');
+            // If the chat window now has the 'active' class (meaning it's open)
+            if (chatWindow.classList.contains('active')) {
+                // Check if the chatInput element was found
+                if (chatInput) {
+                    // Automatically focus the input field so the user can start typing
+                    chatInput.focus();
+                }
             }
-            // Keep the rest of the listeners
-            if (chatCloseButton) { chatCloseButton.addEventListener('click', toggleChatWindow); }
-            if (chatSendButton) { chatSendButton.addEventListener('click', handleSendMessage); }
-            if (chatInput) { chatInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { handleSendMessage(); } }); }
-            // --- End Chatbot UI Logic ---
+        } else {
+            // Log an error if the chat window element wasn't found (for debugging)
+            console.error("Chat window element not found!");
+        }
+    };
+
+    // --- Function to add a message to the chat display ---
+    // text: The message content (string)
+    // sender: 'user' or 'bot' to determine styling
+    const addMessage = (text, sender) => {
+        // Check if the chatMessages container was found
+        if (chatMessages) {
+            // Create a new div element to hold the message
+            const messageElement = document.createElement('div');
+            // Add the base 'message' class for general styling
+            messageElement.classList.add('message');
+            // Add specific class based on the sender ('user-message' or 'bot-message')
+            messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            // Set the text content of the new div to the message text
+            messageElement.textContent = text;
+            // Append the new message div to the chat messages container
+            chatMessages.appendChild(messageElement);
+            // Automatically scroll the chat container to the bottom to show the latest message
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        } else {
+             // Log an error if the chat messages container wasn't found
+            console.error("Chat messages container not found!");
+        }
+    };
+
+    // --- Function to handle sending a message ---
+    const handleSendMessage = () => {
+         // Check if both chatInput and chatMessages elements exist
+        if (chatInput && chatMessages) {
+            // Get the text entered by the user, trimming whitespace
+            const userText = chatInput.value.trim();
+            // If the user actually typed something (not just spaces)
+            if (userText) {
+                // Display the user's message in the chat window
+                addMessage(userText, 'user');
+                // Clear the input field after sending
+                chatInput.value = '';
+
+                // --- !! Placeholder for Bot Logic !! ---
+                // Here you would typically send userText to a bot service or process it
+                // For now, let's just echo it back or give a default reply
+                setTimeout(() => { // Simulate a slight delay for the bot's response
+                    // Simple example: Respond based on keywords
+                    let botResponse = "Sorry, I can only provide basic info right now. Try asking about 'skills', 'projects', or 'contact'.";
+                    if (userText.toLowerCase().includes('hello') || userText.toLowerCase().includes('hi')) {
+                        botResponse = "Hello there! How can I help you with Ketaki's portfolio?";
+                    } else if (userText.toLowerCase().includes('skills')) {
+                        botResponse = "Ketaki is skilled in Python, C/C++, JavaScript, SQL, R, HTML/CSS, Flask, PyTorch, TensorFlow, Computer Vision, CUDA, DeepStream, MongoDB, Data Analysis/Visualization, Git, Docker, Linux, and more!";
+                    } else if (userText.toLowerCase().includes('projects')) {
+                         botResponse = "Some featured projects include ViziAssist (obstacle detection), SkillSet Sherpa (career guidance chatbot), CanMan (canteen system), One View (event management), and an Automated Door Lock. Check the projects section for details!";
+                     } else if (userText.toLowerCase().includes('contact')) {
+                          botResponse = "You can reach Ketaki at dabadeketakil@gmail.com or connect on LinkedIn. See the 'Get In Touch' section.";
+                     }
+                    // Display the bot's response in the chat window
+                    addMessage(botResponse, 'bot');
+                }, 500); // 500ms delay
+                // --- End Placeholder ---
+
+            }
+         } else {
+             // Log an error if input or messages area is missing
+             console.error("Chat input or messages element not found!");
+         }
+    };
+
+    // --- Attach Event Listeners ---
+
+    // Add a click listener to the sidebar chat trigger button
+    // Use a check to make sure the element exists before adding listener
+    if (chatTrigger) {
+        chatTrigger.addEventListener('click', toggleChatWindow);
+    } else {
+         console.error("Sidebar chat trigger element not found!"); // Debugging
+     }
+
+    // Add a click listener to the close button inside the chat window
+    if (chatCloseButton) {
+        chatCloseButton.addEventListener('click', toggleChatWindow);
+    } else {
+         console.error("Chat close button element not found!"); // Debugging
+     }
+
+    // Add a click listener to the send button
+    if (chatSendButton) {
+        chatSendButton.addEventListener('click', handleSendMessage);
+    } else {
+         console.error("Chat send button element not found!"); // Debugging
+     }
+
+    // Add a keypress listener to the input field to allow sending with 'Enter' key
+    if (chatInput) {
+        chatInput.addEventListener('keypress', (event) => {
+            // Check if the key pressed was 'Enter'
+            if (event.key === 'Enter') {
+                // Prevent the default 'Enter' behavior (like form submission)
+                event.preventDefault();
+                // Call the same function as clicking the send button
+                handleSendMessage();
+            }
+        });
+    } else {
+         console.error("Chat input element not found!"); // Debugging
+     }
+    // --- End Chatbot UI Logic ---
             
         });
     </script>
