@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketaki Dabade - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Define CSS variables (Spotify theme) */
+        :root {
+            --spotify-black: #121212; --spotify-dark-gray: #181818;
+            --spotify-gray: #282828; --spotify-light-gray: #b3b3b3;
+            --spotify-green: #1DB954; --spotify-white: #FFFFFF;
+            --content-spacing: 24px; --font-family: 'Gotham', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* Reset and Body */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); background-color: var(--spotify-black); color: var(--spotify-white); line-height: 1.6; }
+
+        /* Layout */
+        .container { display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 240px; background-color: var(--spotify-black); padding: 24px 12px; display: flex; flex-direction: column; border-right: 1px solid #282828; }
+        .main-content { flex: 1; background: linear-gradient(to bottom, #1a1a1a, var(--spotify-black) 20%); overflow-y: auto; padding: 24px; scroll-behavior: smooth; }
+
+        /* Sidebar Content */
+        .logo { padding: 0 12px; margin-bottom: 18px; }
+        .logo h1 { font-size: 24px; font-weight: 700; color: var(--spotify-white); }
+        .nav-menu { list-style: none; padding: 0 12px; }
+        .nav-item { margin-bottom: 16px; }
+        .nav-link { display: flex; align-items: center; color: var(--spotify-light-gray); text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 0; transition: color 0.2s ease; }
+        .nav-link:hover, .nav-link.active { color: var(--spotify-white); }
+        .nav-link.active { font-weight: 700; }
+        .nav-link i { margin-right: 16px; font-size: 18px; width: 20px; text-align: center; }
+
+        /* Skills Section (Removed from Sidebar) */
+        /* Styles for new skills section below */
+
+        /* Main Content General */
+        .header { display: flex; align-items: center; margin-bottom: 24px; position: relative; }
+        .profile-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-right: 24px; box-shadow: 0 4px 60px rgba(0,0,0,.5); }
+        .profile-info { display: flex; flex-direction: column; }
+        .profile-tag { font-size: 14px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; color: var(--spotify-light-gray); }
+        .profile-name { font-size: 72px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+        .profile-bio { font-size: 16px; color: var(--spotify-light-gray); max-width: 800px; margin-bottom: 16px; }
+        .actions { display: flex; align-items: center; margin-bottom: 24px; }
+        .btn { padding: 12px 32px; border-radius: 500px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; text-decoration: none; text-align: center; border: none; }
+        .btn-primary { background-color: var(--spotify-green); color: var(--spotify-black); margin-right: 16px; }
+        .btn-primary:hover { transform: scale(1.05); background-color: #1ed760; }
+        .btn-outline { background-color: transparent; color: var(--spotify-white); border: 1px solid var(--spotify-light-gray); }
+        .btn-outline:hover { transform: scale(1.05); border-color: var(--spotify-white); }
+        .section-title { font-size: 24px; font-weight: 700; margin: 32px 0 20px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(29, 185, 84, 0.3); }
+
+         /* --- Education Section Styling --- */
+         #education { padding-bottom: 16px; }
+         #education .section-title { margin-top: 0; }
+         .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+         .education-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 24px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
+         .education-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
+         .institution { font-size: 18px; font-weight: 700; color: var(--spotify-white); margin-bottom: 4px; }
+         .degree { font-size: 16px; font-weight: 600; color: var(--spotify-light-gray); margin-bottom: 8px; }
+         .education-details { font-size: 14px; color: var(--spotify-light-gray); }
+         .education-details span { color: var(--spotify-white); font-weight: 600; }
+
+
+        /* --- Projects Section --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+        .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px; border: 1px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out, border-color 0.3s ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
+        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 280px; border-color: var(--spotify-green); }
+        .project-image { width: 100%; aspect-ratio: 1; border-radius: 4px; object-fit: cover; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,.4); }
+        .project-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; text-align: center; }
+        .project-description, .project-links { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.3s ease-out, max-height 0.4s ease-out, margin-top 0.3s ease-out; margin-top: 0; }
+        .project-description { font-size: 13px; color: var(--spotify-light-gray); line-height: 1.5; }
+        .project-links { font-size: 11px; color: var(--spotify-light-gray); }
+        .project-card:hover .project-description, .project-card:hover .project-links { opacity: 1; max-height: 200px; margin-top: 8px; }
+        .project-links a { color: var(--spotify-green); text-decoration: none; margin-left: 5px; transition: color 0.2s ease; }
+        .project-links a:hover { text-decoration: underline; color: var(--spotify-green); }
+
+        /* Experience */
+        .experience-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 19px; margin-bottom: 16px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
+        .experience-card:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
+        .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; }
+        .experience-company { font-size: 18px; font-weight: 700; margin-right: 10px; }
+        .experience-duration { font-size: 14px; color: var(--spotify-light-gray); flex-shrink: 0; white-space: nowrap; }
+        .experience-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--spotify-white); clear: both; padding-top: 5px; }
+        .experience-description-list { font-size: 14px; color: var(--spotify-light-gray); list-style: disc; padding-left: 20px; margin-top: 0px; }
+        .experience-description-list li { margin-bottom: 8px; }
+
+         /* Certifications */
+         .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+         .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px 15px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; position: relative; }
+         .certification-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); z-index: 5; border-color: var(--spotify-green); }
+         .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--spotify-white); }
+         .certification-issuer { font-size: 13px; color: var(--spotify-light-gray); margin-bottom: 4px; }
+         .certification-date { font-size: 11px; color: var(--spotify-light-gray); margin-top: auto; }
+         .certification-card a { color: var(--spotify-green); text-decoration: none; }
+         .certification-card a:hover { text-decoration: underline; }
+
+         /* --- New Skills Section Styling --- */
+         .skills-category-title { font-size: 18px; font-weight: 600; color: var(--spotify-light-gray); margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid var(--spotify-gray); padding-bottom: 6px; }
+         .skills-tag-list { list-style-type: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+         .skill-tag { background-color: var(--spotify-gray); border-radius: 5px; padding: 8px 14px; display: flex; align-items: center; font-size: 14px; color: var(--spotify-light-gray); box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+         .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 3px 6px rgba(0,0,0,0.3); background-color: #333; color: var(--spotify-white); }
+         .skill-tag i, .skill-tag img { margin-right: 8px; font-size: 16px; width: 18px; text-align: center; color: var(--spotify-green); }
+         .skill-tag img { height: 16px; width: auto; }
+
+        /* Contact Section */
+        #contact { padding-top: 30px; padding-bottom: 30px; }
+        #contact .section-title { text-align: left; margin-bottom: 16px; }
+         .contact-info { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 23px; max-width: 600px; margin: 0 auto; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
+         .contact-info:hover { background-color: var(--spotify-gray); transform: scale(1.02); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); z-index: 5; border-color: var(--spotify-green); }
+        .contact-item { display: flex; align-items: center; margin-bottom: 16px; flex-direction: row; width: auto; }
+        .contact-item i { font-size: 20px; margin-right: 16px; margin-bottom: 0; color: var(--spotify-green); width: 25px; text-align: center; }
+        .contact-text { font-size: 16px; text-align: left; }
+        .contact-text a { color: var(--spotify-white); text-decoration: none; transition: color 0.2s ease; }
+        .contact-text a:hover { color: var(--spotify-green); text-decoration: underline; }
+        .social-links { display: flex; gap: 16px; margin-top: 24px; justify-content: flex-start; }
+        .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
+        .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
+
+        /* --- Sidebar Chat Trigger - More Attractive --- */
+        .sidebar-chat-trigger {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px; /* Slightly adjusted padding */
+            margin: 15px 0 5px 0;
+            /* Subtle gradient background */
+            background: linear-gradient(to bottom, #303030, var(--spotify-gray)); /* Darker gradient */
+            border-radius: 8px; /* Slightly more rounded */
+            color: var(--spotify-light-gray);
+            font-size: 15px;
+            font-weight: 700; /* Bolder font weight */
+            cursor: pointer;
+            border: 1px solid transparent; /* Prepare for potential border on hover */
+            flex-shrink: 0;
+            position: relative; /* Needed for potential pseudo-elements later if desired */
+            overflow: hidden; /* Hide potential overflow from animations */
+            /* Updated transition for background, color, transform, box-shadow, border */
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slightly adjusted base shadow */
+        }
+
+        .sidebar-chat-trigger:hover {
+            background: var(--spotify-green); /* Change background TO Spotify Green */
+            color: var(--spotify-black);     /* Change text TO Black for contrast on green */
+            transform: scale(1.05) translateY(-2px); /* Scale up AND lift slightly */
+            /* A more pronounced shadow when lifted */
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+            border-color: var(--spotify-green); /* Make border match background */
+        }
+
+        /* Style the icon within the trigger */
+        .sidebar-chat-trigger i {
+            margin-right: 14px;
+            font-size: 20px;
+            color: var(--spotify-green); /* Icon is green initially */
+            transition: color 0.3s ease, transform 0.2s ease; /* Smooth color and transform transition */
+            z-index: 1; /* Ensure icon stays above background */
+        }
+
+        /* Style the icon on trigger hover */
+        .sidebar-chat-trigger:hover i {
+            color: var(--spotify-black); /* Change icon TO Black to match text */
+            transform: scale(1.1);     /* Slightly enlarge icon */
+        }
+
+        /* Style the text span within the trigger */
+        .sidebar-chat-trigger span {
+            z-index: 1; /* Ensure text stays above background */
+            transition: color 0.3s ease; /* Ensure text color transitions smoothly */
+        }
+
+        /* --- Chatbot Window Styles (Re-added & Position Adjusted) --- */
+        .chat-window {
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Position in bottom left */
+            left: 20px;   /* Position in bottom left */
+            width: 350px; max-width: 90vw; height: 450px; max-height: calc(100vh - 40px); /* Adjust max height */
+            background-color: var(--spotify-dark-gray); border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            display: flex; flex-direction: column; overflow: hidden; z-index: 999;
+            border: 1px solid var(--spotify-gray);
+            /* Initial hidden state for transition */
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            pointer-events: none; /* Not interactive when hidden */
+            visibility: hidden;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+        }
+        .chat-window.active { /* State when chat is open */
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto; /* Interactive when open */
+            visibility: visible;
+        }
+        .chat-header { background-color: var(--spotify-gray); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--spotify-black); }
+        .chat-header h3 { color: var(--spotify-white); font-size: 16px; font-weight: 600; margin: 0; }
+        .chat-close { background: none; border: none; color: var(--spotify-light-gray); font-size: 24px; cursor: pointer; line-height: 1; }
+        .chat-close:hover { color: var(--spotify-white); }
+        .chat-messages { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 8px 12px; border-radius: 15px; max-width: 80%; font-size: 14px; line-height: 1.4; word-wrap: break-word; }
+        .user-message { background-color: var(--spotify-green); color: var(--spotify-black); border-bottom-right-radius: 5px; align-self: flex-end; }
+        .bot-message { background-color: var(--spotify-gray); color: var(--spotify-white); border-bottom-left-radius: 5px; align-self: flex-start; }
+        .chat-input-area { display: flex; padding: 10px; border-top: 1px solid var(--spotify-black); background-color: var(--spotify-gray); }
+        .chat-input { flex-grow: 1; border: none; padding: 10px; border-radius: 20px; background-color: var(--spotify-dark-gray); color: var(--spotify-white); font-size: 14px; margin-right: 10px; outline: none; }
+        .chat-input::placeholder { color: var(--spotify-light-gray); }
+        .chat-send { background-color: var(--spotify-green); color: var(--spotify-white); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 16px; display: flex; justify-content: center; align-items: center; cursor: pointer; flex-shrink: 0; transition: background-color 0.2s ease; }
+        .chat-send:hover { background-color: #1ed760; }
+
+        /* --- Entrance Animation --- */
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; height: auto; overflow: visible; }
+            .sidebar { width: 100%; padding: 10px 12px;; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; flex-direction: row; justify-content: space-between; align-items: center; height: auto; /* Adjust sidebar for mobile */ }
+            .sidebar-top { flex-grow: 0; display: flex; align-items: center; } /* Adjust top part */
+            .logo { margin-bottom: 0; margin-right: 15px;}
+            .nav-menu { display: none; } /* Hide nav menu on mobile */
+            .sidebar {
+                padding: 10px 12px;
+            }
+        
+            .sidebar-chat-trigger {
+                margin: 0;
+                padding: 12px 14px; /* Adjust mobile padding */
+                font-weight: 600; /* Slightly less bold on mobile */
+                background: var(--spotify-gray); /* Simpler background for mobile maybe? Or keep gradient */
+                box-shadow: none;
+                border-radius: 6px; /* Match overall mobile style maybe */
+            }
+        
+            /* Mobile hover/active state - less dramatic */
+            .sidebar-chat-trigger:hover, /* Primarily for devices that support hover */
+            .sidebar-chat-trigger:active { /* For touch feedback */
+                 background: #3a3a3a; /* Darker gray, not green maybe */
+                 color: var(--spotify-white);
+                 transform: scale(1.03); /* Smaller scale effect */
+                 box-shadow: none;
+             }
+        
+            .sidebar-chat-trigger span {
+                display: none;
+            }
+        
+            .sidebar-chat-trigger i {
+                margin-right: 0;
+                font-size: 22px;
+                color: var(--spotify-green); /* Keep icon green initially */
+            }
+        
+            .sidebar-chat-trigger:hover i,
+            .sidebar-chat-trigger:active i {
+                 color: var(--spotify-white); /* Match text color on active/hover */
+                 transform: scale(1.05); /* Smaller icon scale */
+             }
+
+            .main-content { padding: 16px; overflow-y: visible; }
+            .header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-photo { width: 150px; height: 150px; margin-right: 0; margin-bottom: 24px; }
+            .profile-name { font-size: 48px; } .profile-bio { text-align: center; }
+            .profile-info { align-items: center; }
+            .actions { flex-direction: column; align-items: center; gap: 16px; }
+            .btn-primary { margin-right: 0; }
+            .projects-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+            .project-card { min-height: 200px; } .project-card:hover { min-height: 260px; }
+            .education-grid { grid-template-columns: 1fr; }
+            .experience-header { flex-direction: column; align-items: flex-start; }
+            .experience-duration { margin-left: 0; margin-top: 4px; }
+            .certifications-grid { grid-template-columns: 1fr; }
+            .certification-card { padding: 12px 15px; }
+            .skills-tag-list { justify-content: center; }
+            .contact-info { margin-left: 0; margin-right: 0; max-width: none; }
+             /* Adjust chat window position slightly for mobile */
+             .chat-window { bottom: 15px; left: 15px; width: calc(100vw - 30px); }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-name { font-size: 36px; } .profile-photo { width: 120px; height: 120px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-card { min-height: 180px; } .project-card:hover { min-height: 240px; }
+            .chat-window { height: 65vh; max-height: 450px;} /* More height on small screens */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-top">
+                 <div class="logo"><h1>Portfolio</h1></div>
+                 <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
+            </div>
+             <div id="sidebar-chat-trigger" class="sidebar-chat-trigger">
+                 <i class="fas fa-comment-dots"></i>
+                 <span>Chat About Me</span>
+             </div>
+        </div>
+
+        <div class="main-content">
+            <section id="home">
+                 <div class="header">
+                     <img src="images/myphoto.png" alt="Ketaki Dabade Photo" class="profile-photo">
+                     <div class="profile-info">
+                         <span class="profile-tag">Computer Science Engineer</span>
+                         <h1 class="profile-name">Ketaki Dabade</h1>
+                         <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.</p>
+                     </div>
+                 </div>
+                 <div class="actions">
+                     <a href="#contact" class="btn btn-primary">Contact Me</a>
+                     <a href="Ketaki_Dabade_Resume.pdf" class="btn btn-outline" id="resume-btn" download>Download Resume</a>
+                 </div>
+            </section>
+
+             <section id="education">
+                 <h2 class="section-title">Education</h2>
+                 <div class="education-grid">
+                    <div class="education-card">
+                        <h3 class="institution">Columbia University</h3>
+                        <h4 class="degree">Master of Science in Computer Science</h4>
+                        <p class="education-details">
+                            Expected: August 2025 - December 2026
+                        </p>
+                    </div>
+                     <div class="education-card">
+                         <h3 class="institution">Dr. Vishwanath Karad MIT-WPU, Pune, India</h3>
+                         <h4 class="degree">Bachelor of Technology in Computer Science and Engineering</h4>
+                         <p class="education-details">
+                             July 2021 - July 2025 <br>
+                             CGPA: <span>9</span>
+                         </p>
+                     </div>
+                 </div>
+             </section>
+
+            <section id="projects">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="images/eeg_bci.png" alt="EEG-Powered BCI Project" class="project-image">
+                        <h3 class="project-title">EEG-Powered Brain-Computer Interface for 3D Hand Gesture Control</h3>
+                        <p class="project-description">Developed an EEG-powered Brain-Computer Interface (BCI) model to translate neural signals of hand movements into control mechanisms for a 3D hand model simulation. Utilized an Emotiv EPOC X 14-channel EEG headset for data recording. Achieved a cross-validation accuracy of 97.63% using the K-Nearest Neighbors (KNN) classifier for motor imagery gesture classification. Integrated the classified EEG data with Blender for movement simulation, establishing a proof-of-concept for BCI technologies in enhancing user interaction with digital environments.</p>
+                        <div class="project-links">
+                            <span>Technologies: EEG, BCI, KNN, Blender, Emotiv EPOC X</span>
+                            </div>
+                    </div>
+                    <div class="project-card"><img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"><h3 class="project-title">ViziAssist</h3><p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p><div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div></div>
+                    <div class="project-card"><img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"><h3 class="project-title">SkillSet Sherpa</h3><p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p><div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div></div>
+                    <div class="project-card"><img src="images/canman.jpg" alt="CanMan Project" class="project-image"><h3 class="project-title">CanMan</h3><p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p><div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div></div>
+                    <div class="project-card"><img src="images/oneview.jpg" alt="One View Project" class="project-image"><h3 class="project-title">One View</h3><p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p><div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div></div>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2 class="section-title">Work Experience & Research</h2>
+                <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Dec 2024</span></div>
+                    <h4 class="experience-title">Deep Learning Engineer Intern</h4>
+                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Creating real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) for smart skid systems.</li><li>Building internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div>
+                    <h4 class="experience-title">Data Analyst Intern</h4>
+                    <ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul>
+                </div>
+                 <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div>
+                    <h4 class="experience-title">Research Trainee</h4>
+                    <ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul>
+                </div>
+            </section>
+
+             <section id="certifications">
+                 <h2 class="section-title">Courses & Certifications</h2>
+                 <div class="certifications-grid">
+                      <div class="certification-card"><h3 class="certification-title">Google Project Management Professional Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">November 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Machine Learning Specialization</h3><p class="certification-issuer">DeepLearning.AI / Stanford Online</p><p class="certification-date">July 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Accenture North America Data Analytics and Visualization Job Simulation</h3><p class="certification-issuer">Forage</p><p class="certification-date">March 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Introduction to Al in the Data Center</h3><p class="certification-issuer">NVIDIA Deep Learning Institute</p><p class="certification-date">February 2024</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Google Data Analytics Professional Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">December 2023</p></div>
+                      <div class="certification-card"><h3 class="certification-title">Mastering Data Structures & Algorithms (C/C++)</h3><p class="certification-issuer">Udemy</p><p class="certification-date">September 2023</p></div>
+                      <div class="certification-card"><h3 class="certification-title">The Git and Github Bootcamp</h3><p class="certification-issuer">Udemy</p><p class="certification-date">February 2024</p></div>
+                 </div>
+             </section>
+
+              <section id="skills">
+                 <h2 class="section-title">Skills</h2>
+                 <div class="fade-in-section">
+                     <h3 class="skills-category-title">Programming Languages</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fab fa-python"></i> Python</li><li class="skill-tag"><i class="fas fa-file-code"></i> C / C++</li><li class="skill-tag"><i class="fas fa-database"></i> SQL</li><li class="skill-tag"><i class="fab fa-r-project"></i> R</li></ul>
+                     <h3 class="skills-category-title">Web Development</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fab fa-html5"></i> HTML</li><li class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</li><li class="skill-tag"><i class="fab fa-python"></i> Flask</li></ul>
+                     <h3 class="skills-category-title">AI & ML</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fas fa-brain"></i> PyTorch</li><li class="skill-tag"><i class="fas fa-brain"></i> TensorFlow</li><li class="skill-tag"><i class="fas fa-eye"></i> Computer Vision</li><li class="skill-tag"><i class="fas fa-microchip"></i> CUDA</li><li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> DeepStream</li><li class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</li><li class="skill-tag"><i class="fas fa-chart-bar"></i> Data Analysis</li><li class="skill-tag"><i class="fas fa-chart-pie"></i> Data Visualization</li></ul>
+                     <h3 class="skills-category-title">Tools & Platforms</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fab fa-git-alt"></i> Git</li><li class="skill-tag"><i class="fab fa-docker"></i> Docker</li><li class="skill-tag"><i class="fab fa-linux"></i> Linux</li><li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> Triton Inference Server</li></ul>
+                     <h3 class="skills-category-title">CS Fundamentals</h3>
+                     <ul class="skills-tag-list"><li class="skill-tag"><i class="fas fa-network-wired"></i> Computer Networks</li><li class="skill-tag"><i class="fas fa-cogs"></i> Operating Systems</li><li class="skill-tag"><i class="fas fa-stream"></i> Data Structures & Algorithms</li></ul>
+                 </div>
+             </section>
+
+            <section id="contact">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-info">
+                    <div class="contact-item"><i class="far fa-envelope"></i><span class="contact-text"><a href="mailto:kvd2112@columbia.edu">kvd2112@columbia.edu</a></span></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span class="contact-text">+91 7057646706</span></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span class="contact-text">New York, USA</span></div>
+                    <div class="social-links">
+                        <a href="https://github.com/ketakiii3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog"><i class="fab fa-wordpress"></i></a>
+                    </div>
+                 </div>
+            </section>
+
+            <div id="chat-window" class="chat-window">  <div class="chat-header">
+                <h3>Chat About Me</h3>
+                <button id="chat-close-button" class="chat-close" aria-label="Close chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot-message">Hi there! Ask me anything about Ketaki's portfolio.</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
+                <button id="chat-send-button" class="chat-send" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            </div>
+
+            
+        
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Navigation Logic ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.main-content section');
+            const mainContent = document.querySelector('.main-content');
+            const updateActiveNav = () => { let currentSectionId = 'home'; let scrollPosition = mainContent.scrollTop; sections.forEach(section => { const sectionTop = section.offsetTop - 100; if (scrollPosition >= sectionTop) { currentSectionId = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); } }); };
+            mainContent.addEventListener('scroll', updateActiveNav); updateActiveNav();
+            navLinks.forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const targetId = this.getAttribute('href'); const targetSection = document.querySelector(targetId); if (targetSection) { mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' }); } navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
+
+            // --- Project Card Click Logic ---
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => { card.addEventListener('click', function(event) { const title = this.querySelector('.project-title').textContent; console.log('Project card clicked:', title); const linkElement = this.querySelector('.project-links a'); if (linkElement && linkElement.href && !linkElement.contains(event.target)) { if (linkElement.target === '_blank') { window.open(linkElement.href, '_blank', 'noopener,noreferrer'); } else { window.location.href = linkElement.href; } } }); });
+
+            // --- Resume Button Logic ---
+            const resumeBtn = document.getElementById('resume-btn'); if (resumeBtn) { resumeBtn.addEventListener('click', function(e) { console.log('Download Resume button clicked.'); }); }
+
+            // --- Intersection Observer for Entrance Animations ---
+            const animatedElements = document.querySelectorAll('.fade-in-section');
+            if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 }); animatedElements.forEach(el => observer.observe(el)); } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
+            
+            // --- Chatbot UI Logic ---
+
+    // Select the button in the sidebar that triggers the chat window
+    const chatTrigger = document.getElementById('sidebar-chat-trigger');
+    // Select the main chat window container
+    const chatWindow = document.getElementById('chat-window');
+    // Select the button inside the chat window to close it
+    const chatCloseButton = document.getElementById('chat-close-button');
+    // Select the div where messages will be displayed
+    const chatMessages = document.getElementById('chat-messages');
+    // Select the text input field where the user types
+    const chatInput = document.getElementById('chat-input');
+    // Select the button to send the user's message
+    const chatSendButton = document.getElementById('chat-send-button');
+
+    // --- Function to toggle the chat window's visibility ---
+    const toggleChatWindow = () => {
+        // Check if chatWindow element was found successfully
+        if (chatWindow) {
+             // Add or remove the 'active' class to the chat window element
+             // The CSS uses this class (.chat-window.active) to make it visible
+            chatWindow.classList.toggle('active');
+            // If the chat window now has the 'active' class (meaning it's open)
+            if (chatWindow.classList.contains('active')) {
+                // Check if the chatInput element was found
+                if (chatInput) {
+                    // Automatically focus the input field so the user can start typing
+                    chatInput.focus();
+                }
+            }
+        } else {
+            // Log an error if the chat window element wasn't found (for debugging)
+            console.error("Chat window element not found!");
+        }
+    };
+
+    // --- Function to add a message to the chat display ---
+    // text: The message content (string)
+    // sender: 'user' or 'bot' to determine styling
+    const addMessage = (text, sender) => {
+        if (chatMessages) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            // Simple sanitization: replace < and > to prevent basic HTML injection
+            const sanitizedText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            messageElement.innerHTML = sanitizedText; // Use innerHTML if you might want basic formatting later (like links), but be careful!
+            // OR use textContent for plain text always: messageElement.textContent = text;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return messageElement; // Return the element
+        } else {
+            console.error("Chat messages container not found!");
+            return null;
+        }
+    };
+
+    // --- Function to handle sending a message ---
+    // --- Function to handle sending a message ---
+const handleSendMessage = () => {
+    // Check if both chatInput and chatMessages elements exist
+    if (chatInput && chatMessages) {
+        // Get the text entered by the user, trimming whitespace
+        const userText = chatInput.value.trim();
+        // If the user actually typed something (not just spaces)
+        if (userText) {
+            // Display the user's message immediately
+            addMessage(userText, 'user');
+            // Clear the input field after sending
+            chatInput.value = '';
+
+            // --- Simulate Bot Thinking Delay ---
+            setTimeout(() => {
+                // --- Bot Response Logic (Expanded If/Else) ---
+
+                // Default response if no specific keywords match
+                let botResponse = "That's interesting! Ask me about Ketaki's skills, projects, education, experience, or how to get in touch.";
+
+                // Convert user input to lowercase for case-insensitive matching
+                const lowerUserText = userText.toLowerCase();
+
+                // --- Keyword Matching Logic ---
+
+                // Greetings
+                if (lowerUserText.includes('hello') || lowerUserText.includes('hi') || lowerUserText.includes('hey')) {
+                    botResponse = "Hello there! How can I help you with Ketaki's portfolio? You can ask about skills, projects, education, experience, etc.";
+                }
+                // Skills & Technologies
+                else if (lowerUserText.includes('skill') || lowerUserText.includes('technology') || lowerUserText.includes('programming') || lowerUserText.includes('language')) { // Added more keywords
+                    botResponse = "Ketaki lists skills like Python, C/C++, JS, SQL, R, Flask, PyTorch, TensorFlow, Computer Vision, CUDA, DeepStream, MongoDB, Data Analysis/Viz, Git, Docker, Linux, and more. Check the 'Skills' section for a categorized view!";
+                }
+                // Specific Projects (Place specific checks BEFORE general 'project' check)
+                else if (lowerUserText.includes('viziassist')) {
+                    botResponse = "ViziAssist is an ADAS (Advanced Driver-Assistance System) project for road obstacle detection using YOLOv7 on an NVIDIA Jetson Nano. It was a top 100 entry in KPIT Sparkle 2022.";
+                } else if (lowerUserText.includes('skillset') || lowerUserText.includes('sherpa')) {
+                    botResponse = "SkillSet Sherpa is a career guidance chatbot using an LLM and OCR (EasyOCR) for transcript analysis, integrating the Holland Test. A paper about it was published (DOI link in the project description).";
+                } else if (lowerUserText.includes('canman')) {
+                    botResponse = "CanMan is a full-stack canteen management system with recommendations and an NLP chatbot, built with Flask, MongoDB, NLTK, D3.js. It won 2nd place at HACKMITWPU 2024.";
+                } else if (lowerUserText.includes('one view') || lowerUserText.includes('oneview')) {
+                     botResponse = "One View is a web-based event management app featuring image capture/preview and facial data clustering using DBSCAN, built with Flask and MongoDB.";
+                 } else if (lowerUserText.includes('door lock') || lowerUserText.includes('fingerprint')) {
+                      botResponse = "That's an automated door lock system using an Arduino and an R307 fingerprint sensor for secure access, focusing on optimized fingerprint processing.";
+                  }
+                // General Project Query
+                else if (lowerUserText.includes('project')) {
+                    botResponse = "Ketaki has worked on several projects like ViziAssist, SkillSet Sherpa, CanMan, One View, and an Automated Door Lock. You can find them in the 'Featured Projects' section. Ask about a specific one for more details!";
+                }
+                // Education (MIT-WPU, Columbia, CGPA)
+                else if (lowerUserText.includes('education') || lowerUserText.includes('degree') || lowerUserText.includes('university') || lowerUserText.includes('college') || lowerUserText.includes('gpa') || lowerUserText.includes('mit-wpu') || lowerUserText.includes('columbia')) {
+                    botResponse = "Ketaki is pursuing a B.Tech in CSE (9 CGPA) from Dr. Vishwanath Karad MIT-WPU, Pune (Expected Graduation: July 2025), and expects to start an M.S. in CS at Columbia University in August 2025. See the 'Education' section for details.";
+                }
+                // Specific Experience (Place specific checks BEFORE general 'experience' check)
+                else if (lowerUserText.includes('ai4m')) {
+                    botResponse = "At AI4M Technology (July-Dec 2024), Ketaki worked as a Deep Learning Engineer Intern focusing on real-time defect detection using DeepStream/YOLO and creating factory simulations with NVIDIA tools like Modulus and Omniverse.";
+                } else if (lowerUserText.includes('vila emach') || lowerUserText.includes('vila')) {
+                     botResponse = "As a Data Analyst Intern at VILA Emach Wirken (June-Dec 2022), Ketaki streamlined reporting (Excel, SQL, Python), built customer clustering models, and developed interactive Grafana dashboards improving operational visibility.";
+                 } else if (lowerUserText.includes('nitttr') || lowerUserText.includes('siemens')) {
+                      botResponse = "As a Research Trainee at NITTTR-Siemens CoE, Bhopal (Feb-Mar 2024), Ketaki led a team developing an ML system (using ensemble models) analyzing the correlation between music preference and mental health, achieving 93.19% accuracy.";
+                  }
+                // General Experience / Work Query
+                 else if (lowerUserText.includes('experience') || lowerUserText.includes('work') || lowerUserText.includes('internship') || lowerUserText.includes('job') || lowerUserText.includes('research')) {
+                    botResponse = "Ketaki has interned as a Deep Learning Engineer at AI4M Technology and as a Data Analyst at VILA Emach Wirken, plus research trainee experience at NITTTR-Siemens CoE. Check the 'Work Experience & Research' section for responsibilities and dates.";
+                }
+                // Certifications / Courses
+                else if (lowerUserText.includes('certification') || lowerUserText.includes('course') || lowerUserText.includes('google project management') || lowerUserText.includes('deeplearning.ai') || lowerUserText.includes('google data analytics') || lowerUserText.includes('nvidia')) {
+                    botResponse = "Ketaki holds certifications including Google Project Management, DeepLearning.AI ML Specialization, Google Data Analytics, NVIDIA AI Intro, and others in DSA and Git/Github. See the 'Courses & Certifications' section for the full list.";
+                }
+                // Resume
+                else if (lowerUserText.includes('resume') || lowerUserText.includes('cv')) {
+                     botResponse = "You can download Ketaki's resume using the 'Download Resume' button located under the main introduction!";
+                 }
+                // Contact Info
+                 else if (lowerUserText.includes('contact') || lowerUserText.includes('email') || lowerUserText.includes('phone') || lowerUserText.includes('github') || lowerUserText.includes('linkedin') || lowerUserText.includes('connect')) {
+                    botResponse = "You can reach Ketaki at dabadeketakil@gmail.com or connect via GitHub (ketakiii3) and LinkedIn (ketaki-d-07a21a275). Check the 'Get In Touch' section at the bottom for details and links.";
+                }
+                 // Basic Politeness
+                 else if (lowerUserText.includes('thank') || lowerUserText.includes('thanks') || lowerUserText.includes('appreciate')) {
+                    botResponse = "You're welcome! Feel free to ask if anything else comes to mind.";
+                } else if (lowerUserText.includes('bye') || lowerUserText.includes('goodbye')) {
+                     botResponse = "Goodbye! Have a great day.";
+                 }
+
+                // Display the determined bot's response
+                addMessage(botResponse, 'bot');
+
+            }, 500); // 500ms delay
+
+        } // End if(userText)
+    } else {
+        // Log an error if input or messages area is missing
+        console.error("Chat input or messages element not found!");
+    }
+};
+    // --- Attach Event Listeners ---
+
+    // Add a click listener to the sidebar chat trigger button
+    // Use a check to make sure the element exists before adding listener
+    if (chatTrigger) {
+        chatTrigger.addEventListener('click', toggleChatWindow);
+    } else {
+         console.error("Sidebar chat trigger element not found!"); // Debugging
+     }
+
+    // Add a click listener to the close button inside the chat window
+    if (chatCloseButton) {
+        chatCloseButton.addEventListener('click', toggleChatWindow);
+    } else {
+         console.error("Chat close button element not found!"); // Debugging
+     }
+
+    // Add a click listener to the send button
+    if (chatSendButton) {
+        chatSendButton.addEventListener('click', handleSendMessage);
+    } else {
+         console.error("Chat send button element not found!"); // Debugging
+     }
+
+    // Add a keypress listener to the input field to allow sending with 'Enter' key
+    if (chatInput) {
+        chatInput.addEventListener('keypress', (event) => {
+            // Check if the key pressed was 'Enter'
+            if (event.key === 'Enter') {
+                // Prevent the default 'Enter' behavior (like form submission)
+                event.preventDefault();
+                // Call the same function as clicking the send button
+                handleSendMessage();
+            }
+        });
+    } else {
+         console.error("Chat input element not found!"); // Debugging
+     }
+    // --- End Chatbot UI Logic ---
+            
+        });
+    </script>
+</body>
+</html>
