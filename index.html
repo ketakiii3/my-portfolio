@@ -20,28 +20,18 @@
 
         /* Layout */
         .container { display: flex; height: 100vh; overflow: hidden; }
-        .sidebar { width: 240px; background-color: var(--spotify-black); padding: 24px 12px; display: flex; flex-direction: column; border-right: 1px solid #282828; overflow-y: auto; }
+        .sidebar { width: 240px; background-color: var(--spotify-black); padding: 24px 12px; display: flex; flex-direction: column; border-right: 1px solid #282828; }
         .main-content { flex: 1; background: linear-gradient(to bottom, #1a1a1a, var(--spotify-black) 20%); overflow-y: auto; padding: 24px; scroll-behavior: smooth; }
 
         /* Sidebar Content */
         .logo { padding: 0 12px; margin-bottom: 18px; }
         .logo h1 { font-size: 24px; font-weight: 700; color: var(--spotify-white); }
-        .nav-menu { list-style: none; padding: 0 12px; flex-shrink: 0;}
+        .nav-menu { list-style: none; padding: 0 12px; }
         .nav-item { margin-bottom: 16px; }
         .nav-link { display: flex; align-items: center; color: var(--spotify-light-gray); text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 0; transition: color 0.2s ease; }
         .nav-link:hover, .nav-link.active { color: var(--spotify-white); }
         .nav-link.active { font-weight: 700; }
         .nav-link i { margin-right: 16px; font-size: 18px; width: 20px; text-align: center; }
-        
-        /* --- Sidebar Skills Section --- */
-        .sidebar-skills { padding: 20px 12px 10px 12px; margin-top: 10px; border-top: 1px solid var(--spotify-gray); flex-shrink: 0; }
-        .sidebar-skills-title { font-size: 16px; font-weight: 700; color: var(--spotify-white); margin-bottom: 16px; }
-        .skills-category-title-sidebar { font-size: 13px; font-weight: 600; color: var(--spotify-light-gray); margin-top: 15px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .skills-tag-list-sidebar { list-style-type: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-        .skill-tag-sidebar { background-color: var(--spotify-gray); border-radius: 4px; padding: 5px 10px; display: flex; align-items: center; font-size: 12px; color: var(--spotify-light-gray); transition: background-color 0.2s ease, color 0.2s ease; }
-        .skill-tag-sidebar:hover { background-color: #333; color: var(--spotify-white); }
-        .skill-tag-sidebar i, .skill-tag-sidebar img { margin-right: 6px; font-size: 14px; width: 14px; text-align: center; color: var(--spotify-green); }
-        .skill-tag-sidebar img { height: 14px; width: auto; }
 
         /* Main Content General */
         .header { display: flex; align-items: center; margin-bottom: 24px; position: relative; }
@@ -68,16 +58,18 @@
          .degree { font-size: 16px; font-weight: 600; color: var(--spotify-light-gray); margin-bottom: 8px; }
          .education-details { font-size: 14px; color: var(--spotify-light-gray); }
          .education-details span { color: var(--spotify-white); font-weight: 600; }
+         .coursework { margin-top: 8px; font-size: 13px; color: var(--spotify-light-gray); font-style: italic; }
+
 
         /* --- Projects Section --- */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
         .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px; border: 1px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out, border-color 0.3s ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
-        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 280px; border-color: var(--spotify-green); }
+        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 300px; border-color: var(--spotify-green); }
         .project-image { width: 100%; aspect-ratio: 1; border-radius: 4px; object-fit: cover; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,.4); }
         .project-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; text-align: center; }
         .project-description, .project-links { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.3s ease-out, max-height 0.4s ease-out, margin-top 0.3s ease-out; margin-top: 0; }
         .project-description { font-size: 13px; color: var(--spotify-light-gray); line-height: 1.5; }
-        .project-links { font-size: 11px; color: var(--spotify-light-gray); }
+        .project-links { font-size: 11px; color: var(--spotify-light-gray); margin-top: 8px;}
         .project-card:hover .project-description, .project-card:hover .project-links { opacity: 1; max-height: 200px; margin-top: 8px; }
         .project-links a { color: var(--spotify-green); text-decoration: none; margin-left: 5px; transition: color 0.2s ease; }
         .project-links a:hover { text-decoration: underline; color: var(--spotify-green); }
@@ -99,9 +91,15 @@
          .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--spotify-white); }
          .certification-issuer { font-size: 13px; color: var(--spotify-light-gray); margin-bottom: 4px; }
          .certification-date { font-size: 11px; color: var(--spotify-light-gray); margin-top: auto; }
-         .certification-card a { color: var(--spotify-green); text-decoration: none; }
-         .certification-card a:hover { text-decoration: underline; }
-        
+
+         /* --- Skills Section Styling --- */
+         .skills-category-title { font-size: 18px; font-weight: 600; color: var(--spotify-light-gray); margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid var(--spotify-gray); padding-bottom: 6px; }
+         .skills-tag-list { list-style-type: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+         .skill-tag { background-color: var(--spotify-gray); border-radius: 5px; padding: 8px 14px; display: flex; align-items: center; font-size: 14px; color: var(--spotify-light-gray); box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+         .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 3px 6px rgba(0,0,0,0.3); background-color: #333; color: var(--spotify-white); }
+         .skill-tag i, .skill-tag img { margin-right: 8px; font-size: 16px; width: 18px; text-align: center; color: var(--spotify-green); }
+         .skill-tag img { height: 16px; width: auto; }
+
         /* Contact Section */
         #contact { padding-top: 30px; padding-bottom: 30px; }
         #contact .section-title { text-align: left; margin-bottom: 16px; }
@@ -115,7 +113,32 @@
         .social-links { display: flex; gap: 16px; margin-top: 24px; justify-content: flex-start; }
         .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
         .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
-        
+
+        /* --- Footer Styling --- */
+        .footer { padding: 20px; text-align: center; color: var(--spotify-light-gray); font-size: 12px; }
+
+        /* --- Chatbot Trigger Prompt --- */
+        .chat-prompt-trigger { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 6px 12px; background-color: rgba(40, 40, 40, 0.6); color: var(--spotify-light-gray); border-radius: 20px; font-size: 14px; cursor: pointer; border: 1px solid var(--spotify-gray); transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease; position: relative; }
+        .chat-prompt-trigger:hover { background-color: var(--spotify-gray); color: var(--spotify-white); transform: scale(1.05); }
+        .chat-prompt-trigger i { color: var(--spotify-green); }
+
+        /* --- Chatbot Window Styles --- */
+        .chat-window { position: fixed; bottom: 20px; right: 20px; width: 350px; max-width: 90vw; height: 450px; max-height: 70vh; background-color: var(--spotify-dark-gray); border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; overflow: hidden; z-index: 999; border: 1px solid var(--spotify-gray); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; visibility: hidden; transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out; }
+        .chat-window.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; visibility: visible; }
+        .chat-header { background-color: var(--spotify-gray); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--spotify-black); }
+        .chat-header h3 { color: var(--spotify-white); font-size: 16px; font-weight: 600; margin: 0; }
+        .chat-close { background: none; border: none; color: var(--spotify-light-gray); font-size: 24px; cursor: pointer; line-height: 1; }
+        .chat-close:hover { color: var(--spotify-white); }
+        .chat-messages { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 8px 12px; border-radius: 15px; max-width: 80%; font-size: 14px; line-height: 1.4; word-wrap: break-word; }
+        .user-message { background-color: var(--spotify-green); color: var(--spotify-black); border-bottom-right-radius: 5px; align-self: flex-end; }
+        .bot-message { background-color: var(--spotify-gray); color: var(--spotify-white); border-bottom-left-radius: 5px; align-self: flex-start; }
+        .chat-input-area { display: flex; padding: 10px; border-top: 1px solid var(--spotify-black); background-color: var(--spotify-gray); }
+        .chat-input { flex-grow: 1; border: none; padding: 10px; border-radius: 20px; background-color: var(--spotify-dark-gray); color: var(--spotify-white); font-size: 14px; margin-right: 10px; outline: none; }
+        .chat-input::placeholder { color: var(--spotify-light-gray); }
+        .chat-send { background-color: var(--spotify-green); color: var(--spotify-white); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 16px; display: flex; justify-content: center; align-items: center; cursor: pointer; flex-shrink: 0; transition: background-color 0.2s ease; }
+        .chat-send:hover { background-color: #1ed760; }
+
         /* --- Entrance Animation --- */
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
@@ -123,12 +146,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .container { flex-direction: column; height: auto; overflow: visible; }
-            .sidebar { width: 100%; padding: 10px 12px;; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; flex-direction: row; justify-content: space-between; align-items: center; height: auto; /* Adjust sidebar for mobile */ }
-            .logo { margin-bottom: 0; margin-right: 15px;}
-            .nav-menu { display: none; } /* Hide nav menu on mobile */
-            .sidebar-skills { display: none; } /* Hide skills on mobile */
-            .sidebar { padding: 10px 12px; }
-
+            .sidebar { width: 100%; padding: 16px; border-right: none; border-bottom: 1px solid #282828; max-height: none; overflow-y: visible; }
             .main-content { padding: 16px; overflow-y: visible; }
             .header { flex-direction: column; align-items: center; text-align: center; }
             .profile-photo { width: 150px; height: 150px; margin-right: 0; margin-bottom: 24px; }
@@ -142,13 +160,15 @@
             .experience-header { flex-direction: column; align-items: flex-start; }
             .experience-duration { margin-left: 0; margin-top: 4px; }
             .certifications-grid { grid-template-columns: 1fr; }
+            .certification-card { padding: 12px 15px; }
+             .skills-tag-list { justify-content: center; }
             .contact-info { margin-left: 0; margin-right: 0; max-width: none; }
         }
-        
         @media (max-width: 480px) {
             .profile-name { font-size: 36px; } .profile-photo { width: 120px; height: 120px; }
             .projects-grid { grid-template-columns: 1fr; }
             .project-card { min-height: 180px; } .project-card:hover { min-height: 240px; }
+            .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 15px; height: 60vh; max-height: 400px;}
         }
 
     </style>
@@ -156,43 +176,8 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <div> <div class="logo"><h1>Portfolio</h1></div>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li>
-                    <li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
-                    <li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-                <div class="sidebar-skills">
-                    <h3 class="sidebar-skills-title">Skills</h3>
-                    
-                    <h4 class="skills-category-title-sidebar">Programming</h4>
-                    <ul class="skills-tag-list-sidebar">
-                        <li class="skill-tag-sidebar"><i class="fab fa-python"></i> Python</li>
-                        <li class="skill-tag-sidebar"><i class="fas fa-file-code"></i> C/C++</li>
-                        <li class="skill-tag-sidebar"><i class="fas fa-database"></i> SQL</li>
-                        <li class="skill-tag-sidebar"><i class="fab fa-r-project"></i> R</li>
-                    </ul>
-                    
-                    <h4 class="skills-category-title-sidebar">AI & ML</h4>
-                    <ul class="skills-tag-list-sidebar">
-                        <li class="skill-tag-sidebar"><i class="fas fa-brain"></i> PyTorch</li>
-                        <li class="skill-tag-sidebar"><i class="fas fa-brain"></i> TensorFlow</li>
-                        <li class="skill-tag-sidebar"><i class="fas fa-eye"></i> Comp. Vision</li>
-                        <li class="skill-tag-sidebar"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> DeepStream</li>
-                    </ul>
-
-                    <h4 class="skills-category-title-sidebar">Tools & Platforms</h4>
-                     <ul class="skills-tag-list-sidebar">
-                        <li class="skill-tag-sidebar"><i class="fab fa-git-alt"></i> Git</li>
-                        <li class="skill-tag-sidebar"><i class="fab fa-docker"></i> Docker</li>
-                        <li class="skill-tag-sidebar"><i class="fab fa-linux"></i> Linux</li>
-                        <li class="skill-tag-sidebar"><img src="images/nvidia-logo.svg" alt="NVIDIA icon"> Triton</li>
-                    </ul>
-                </div>
-            </div>
+             <div class="logo"><h1>Portfolio</h1></div>
+             <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
         </div>
 
         <div class="main-content">
@@ -202,7 +187,10 @@
                      <div class="profile-info">
                          <span class="profile-tag">Computer Science Engineer</span>
                          <h1 class="profile-name">Ketaki Dabade</h1>
-                         <p class="profile-bio">Aspiring Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills. Currently exploring real-time simulations and automation.</p>
+                         <p class="profile-bio">Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills.</p>
+                         <p id="chat-prompt-trigger" class="chat-prompt-trigger">
+                             <i class="fas fa-comment-dots"></i> Hello 👋, it's me as a chatbot. Feel free to ask anything about my profile!
+                         </p>
                      </div>
                  </div>
                  <div class="actions">
@@ -218,15 +206,21 @@
                         <h3 class="institution">Columbia University</h3>
                         <h4 class="degree">Master of Science in Computer Science</h4>
                         <p class="education-details">
-                            Expected: August 2025 - December 2026
+                            New York, NY | Aug 2025 – Dec 2026
+                        </p>
+                        <p class="coursework">
+                            Relevant Coursework: Analysis of Algorithms, Neural Networks & Deep Learning, Natural Language Processing
                         </p>
                     </div>
                      <div class="education-card">
-                         <h3 class="institution">Dr. Vishwanath Karad MIT-WPU, Pune, India</h3>
+                         <h3 class="institution">Dr. Vishwanath Karad MIT-WPU</h3>
                          <h4 class="degree">Bachelor of Technology in Computer Science and Engineering</h4>
                          <p class="education-details">
-                             July 2021 - July 2025 <br>
-                             CGPA: <span>8.87</span>
+                             Pune, India | Jul 2021 – Jul 2025 <br>
+                             CGPA: <span>3.74 / 4.0</span>
+                         </p>
+                         <p class="coursework">
+                             Relevant Coursework: High Performance Computing, Advanced Data Structures, Operating Systems
                          </p>
                      </div>
                  </div>
@@ -237,35 +231,91 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <img src="images/eeg_bci.png" alt="EEG-Powered BCI Project" class="project-image">
-                        <h3 class="project-title">EEG-Powered Brain-Computer Interface for 3D Hand Gesture Control</h3>
-                        <p class="project-description">Developed an EEG-powered Brain-Computer Interface (BCI) model to translate neural signals of hand movements into control mechanisms for a 3D hand model simulation. Utilized an Emotiv EPOC X 14-channel EEG headset for data recording. Achieved a cross-validation accuracy of 97.63% using the K-Nearest Neighbors (KNN) classifier for motor imagery gesture classification. Integrated the classified EEG data with Blender for movement simulation, establishing a proof-of-concept for BCI technologies in enhancing user interaction with digital environments.</p>
+                        <h3 class="project-title">EEG Brain-Computer Interface</h3>
+                        <p class="project-description">Engineered BCI achieving 97.63% accuracy utilizing KNN to translate neural signals into 3D hand gesture control through Blender software and final output shown using Unity integration. Gathered data from participants ranging from ages 20 to 22 using the Emotiv EPOC X Headset.</p>
                         <div class="project-links">
-                            <span>Technologies: EEG, BCI, KNN, Blender, Emotiv EPOC X</span>
+                            <span>Technologies: Python, KNN, Emotiv EPOC X, Blender</span>
                             </div>
                     </div>
-                    <div class="project-card"><img src="images/viziassist.png" alt="ViziAssist Project" class="project-image"><h3 class="project-title">ViziAssist</h3><p class="project-description">Road-obstacle detection system (ADAS) using NVIDIA Jetson Nano & Yolov7. Presented paper, top 100 in KPIT Sparkle 2022, SIH 2024 college qualifier.</p><div class="project-links"><span>Technologies: YOLOv7, Jetson Nano</span></div></div>
-                    <div class="project-card"><img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image"><h3 class="project-title">SkillSet Sherpa</h3><p class="project-description">Career guidance chatbot using LLM, OCR (EasyOCR) for transcript analysis, Holland Test integration, and Python Flask backend. Paper published.</p><div class="project-links"><span>Technologies: LLM, EasyOCR, Flask</span><a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a></div></div>
-                    <div class="project-card"><img src="images/canman.jpg" alt="CanMan Project" class="project-image"><h3 class="project-title">CanMan</h3><p class="project-description">Full-stack canteen management system with recommendation, NLP chatbot, and vendor management. Awarded 2nd place at HACKMITWPU 2024.</p><div class="project-links"><span>Technologies: Flask, MongoDB, NLTK, D3.js</span></div></div>
-                    <div class="project-card"><img src="images/oneview.jpg" alt="One View Project" class="project-image"><h3 class="project-title">One View</h3><p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p><div class="project-links"><span>Technologies: Flask, MongoDB, DBSCAN</span></div></div>
+                    <div class="project-card">
+                        <img src="images/viziassist.png" alt="ViziAssist Project" class="project-image">
+                        <h3 class="project-title">ViziAssist ADAS</h3>
+                        <p class="project-description">Directed team of 4 members to construct road-obstacle detection system achieving 0.681 mAP. Secured top 20 team ranking at national level KPIT Hackathon 2022. Published in Springer CCIS.</p>
+                        <div class="project-links">
+                            <span>Technologies: NVIDIA Jetson, YOLOv7, RPi Camera</span>
+                            <a href="https://doi.org/10.1007/978-3-031-93688-3" target="_blank" rel="noopener noreferrer">DOI</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image">
+                        <h3 class="project-title">SkillSet Sherpa</h3>
+                        <p class="project-description">Architected career guidance platform with Flask APIs integrating GPT-3 LLM, RIASEC aptitude assessment, and EasyOCR with a 0.552 accuracy chosen after comprehensive model testing. Published in Springer LNNS.</p>
+                        <div class="project-links">
+                            <span>Technologies: LLMs, Flask, EasyOCR</span>
+                            <a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/canman.jpg" alt="CanMan Project" class="project-image">
+                        <h3 class="project-title">CanMan</h3>
+                        <p class="project-description">Coordinated team of 5 developers to design full-stack canteen management system with NLP chatbot. Won 2nd place at HACKMITWPU 2024.</p>
+                        <div class="project-links">
+                            <span>Technologies: HTML, CSS, Flask, MongoDB, D3.js</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/oneview.jpg" alt="One View Project" class="project-image">
+                        <h3 class="project-title">One View</h3>
+                        <p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p>
+                        <div class="project-links">
+                            <span>Technologies: Flask, MongoDB, DBSCAN</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image">
+                        <h3 class="project-title">Automated Door Lock</h3>
+                        <p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p>
+                        <div class="project-links">
+                            <span>Technologies: Arduino, R307 Sensor</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="experience">
                 <h2 class="section-title">Work Experience & Research</h2>
+                 <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">Complex Resilient Intelligent Systems Lab, Columbia University</h3><span class="experience-duration">Sept 2025 – Present</span></div>
+                    <h4 class="experience-title">Research Assistant</h4>
+                    <ul class="experience-description-list">
+                        <li>Developing hierarchical Sparse Autoencoder (SAE) framework to decompose LLM internal representations.</li>
+                        <li>Implementing PyTorch training pipelines and analyzing feature activation patterns across transformer layers to identify interpretable circuits in GPT-2 and Qwen3 models.</li>
+                    </ul>
+                </div>
                 <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Dec 2024</span></div>
                     <h4 class="experience-title">Deep Learning Engineer Intern</h4>
-                    <ul class="experience-description-list"><li>Leveraged DeepStream SDK (YOLOv7/v8) for real-time defect detection on NVIDIA Jetson, deployed on Triton.</li><li>Was involved in learning how real-time factory simulations (PINN, NVIDIA Modulus, Omniverse) work for smart skid systems.</li><li>Built an internal project using Google Workspace/Looker Studio for progress optimization and FDS automation.</li></ul>
+                    <ul class="experience-description-list">
+                        <li>Engineered end-to-end real-time defect detection system using YOLOv7/YOLOv8 object detection models deployed via NVIDIA DeepStream SDK on Jetson GPU hardware.</li>
+                        <li>Designed RESTful APIs for model inference endpoints and implemented automated CI/CD pipeline with Jenkins that reduced detection latency by 25%.</li>
+                        <li>Architected scalable multi-threaded Python backend service with TensorRT model optimization achieving 3x inference speedup and 85% code coverage.</li>
+                        <li>Gained hands-on training in creating real-time factory simulations using PINN, NVIDIA Modulus, and Omniverse.</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div>
+                    <h4 class="experience-title">Research Assistant</h4>
+                    <ul class="experience-description-list">
+                        <li>Spearheaded ensemble ML models analyzing music-mental health correlations, achieving 93.19% accuracy through Random Forest and Gradient Boosting algorithms.</li>
+                    </ul>
                 </div>
                 <div class="experience-card">
                     <div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div>
                     <h4 class="experience-title">Data Analyst Intern</h4>
-                    <ul class="experience-description-list"><li>Streamlined reporting (Excel, SQL, Python), developed customer clustering models, visualized using Grafana.</li><li>Developed interactive Grafana dashboards tracking pump KPIs, improving operational visibility by 30%.</li></ul>
-                </div>
-                 <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div>
-                    <h4 class="experience-title">Research Trainee</h4>
-                    <ul class="experience-description-list"><li>Led team developing ML system (ensemble models) analyzing music preference & mental health correlation (93.19% accuracy).</li><li>Utilized classifiers (RandomForest, GradientBoosting, etc.) and evaluated using precision, recall, F1-score.</li></ul>
+                    <ul class="experience-description-list">
+                        <li>Streamlined reporting processes using Excel, SQL and Python and developed clustering models analyzing customer purchasing behavior.</li>
+                        <li>Developed interactive Grafana dashboards tracking KPIs for pump efficiency rates and MTBF, improving operational visibility by 30%.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -282,21 +332,71 @@
                  </div>
              </section>
 
+              <section id="skills">
+                 <h2 class="section-title">Skills</h2>
+                 <div class="fade-in-section">
+                     <h3 class="skills-category-title">Languages</h3>
+                     <ul class="skills-tag-list">
+                         <li class="skill-tag"><i class="fab fa-python"></i> Python</li>
+                         <li class="skill-tag"><i class="fas fa-file-code"></i> C/C++</li>
+                         <li class="skill-tag"><i class="fab fa-r-project"></i> R</li>
+                         <li class="skill-tag"><i class="fas fa-database"></i> SQL</li>
+                     </ul>
+
+                     <h3 class="skills-category-title">Software Development</h3>
+                     <ul class="skills-tag-list">
+                         <li class="skill-tag"><i class="fas fa-server"></i> REST APIs</li>
+                         <li class="skill-tag"><i class="fab fa-python"></i> Flask</li>
+                         <li class="skill-tag"><i class="fab fa-git-alt"></i> Git</li>
+                         <li class="skill-tag"><i class="fab fa-linux"></i> Linux</li>
+                         <li class="skill-tag"><i class="fab fa-docker"></i> Docker</li>
+                         <li class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</li>
+                         <li class="skill-tag"><i class="fas fa-sync"></i> CI/CD</li>
+                         <li class="skill-tag"><i class="fab fa-unity"></i> Unity Engine</li>
+                     </ul>
+
+                     <h3 class="skills-category-title">ML/AI Frameworks</h3>
+                     <ul class="skills-tag-list">
+                         <li class="skill-tag"><i class="fas fa-brain"></i> PyTorch</li>
+                         <li class="skill-tag"><i class="fas fa-brain"></i> TensorFlow</li>
+                         <li class="skill-tag"><i class="fas fa-smile"></i> HuggingFace</li>
+                         <li class="skill-tag"><i class="fas fa-layer-group"></i> Keras</li>
+                         <li class="skill-tag"><i class="fas fa-eye"></i> OpenCV</li>
+                         <li class="skill-tag"><i class="fas fa-calculator"></i> Scikit-learn</li>
+                         <li class="skill-tag"><i class="fas fa-link"></i> LangChain</li>
+                         <li class="skill-tag"><i class="fas fa-language"></i> NLTK</li>
+                         <li class="skill-tag"><i class="fas fa-stream"></i> Streamlit</li>
+                     </ul>
+
+                     <h3 class="skills-category-title">Tools</h3>
+                     <ul class="skills-tag-list">
+                         <li class="skill-tag"><i class="fab fa-microsoft"></i> Azure</li>
+                         <li class="skill-tag"><i class="fas fa-chart-line"></i> Grafana</li>
+                         <li class="skill-tag"><i class="fas fa-database"></i> Apache Hadoop</li>
+                         <li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA"> NVIDIA DeepStream</li>
+                         <li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA"> NVIDIA Triton</li>
+                         <li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA"> TensorRT</li>
+                     </ul>
+                 </div>
+             </section>
+
             <section id="contact">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-info">
                     <div class="contact-item"><i class="far fa-envelope"></i><span class="contact-text"><a href="mailto:kvd2112@columbia.edu">kvd2112@columbia.edu</a></span></div>
-                    <div class="contact-item"><i class="fas fa-phone"></i><span class="contact-text">+91 7057646706</span></div>
-                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span class="contact-text">New York, USA</span></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span class="contact-text">(651) 384-8787</span></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span class="contact-text">New York, NY</span></div>
                     <div class="social-links">
                         <a href="https://github.com/ketakiii3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/ketaki-d-07a21a275/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://linkedin.com/in/ketaki-dabade-3k6v3d" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog"><i class="fab fa-wordpress"></i></a>
                     </div>
                  </div>
             </section>
-        </div>
-    </div>
+
+            <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
+     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Navigation Logic ---
@@ -317,6 +417,75 @@
             // --- Intersection Observer for Entrance Animations ---
             const animatedElements = document.querySelectorAll('.fade-in-section');
             if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 }); animatedElements.forEach(el => observer.observe(el)); } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
+
+            // --- Chatbot UI Logic ---
+            const chatPromptTrigger = document.getElementById('chat-prompt-trigger'); const chatWindow = document.getElementById('chat-window'); const chatCloseButton = document.getElementById('chat-close-button'); const chatMessages = document.getElementById('chat-messages'); const chatInput = document.getElementById('chat-input'); const chatSendButton = document.getElementById('chat-send-button');
+            
+            // Re-create the chatbot HTML structure dynamically since it was not in the main body
+            if (!document.getElementById('chat-window')) {
+                const chatHTML = `
+                <div id="chat-window" class="chat-window">
+                    <div class="chat-header">
+                        <h3>Chat About Me</h3>
+                        <button id="chat-close-button" class="chat-close" aria-label="Close chat">&times;</button>
+                    </div>
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="message bot-message">Hi! I'm an AI assistant. Ask me anything about Ketaki's skills, projects, or experience!</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
+                        <button id="chat-send-button" class="chat-send" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>`;
+                document.querySelector('.container').insertAdjacentHTML('beforeend', chatHTML);
+            }
+
+            // Re-select elements after injection
+            const chatWindowEl = document.getElementById('chat-window');
+            const chatCloseBtn = document.getElementById('chat-close-button');
+            const chatMsgs = document.getElementById('chat-messages');
+            const chatInp = document.getElementById('chat-input');
+            const chatSendBtn = document.getElementById('chat-send-button');
+            const triggerBtn = document.getElementById('chat-prompt-trigger');
+
+            const toggleChat = () => { chatWindowEl.classList.toggle('active'); if (chatWindowEl.classList.contains('active')) chatInp.focus(); };
+            
+            // Simple bot logic
+            const botReply = (text) => {
+                const lowerText = text.toLowerCase();
+                let reply = "That's interesting! You can check the 'Projects' or 'Experience' sections for more details.";
+                
+                if (lowerText.includes('hello') || lowerText.includes('hi')) reply = "Hello! How can I help you today?";
+                else if (lowerText.includes('contact') || lowerText.includes('email')) reply = "You can contact Ketaki at kvd2112@columbia.edu or (651) 384-8787.";
+                else if (lowerText.includes('skill') || lowerText.includes('python')) reply = "Ketaki is proficient in Python, C/C++, R, and SQL, along with frameworks like PyTorch and TensorFlow.";
+                else if (lowerText.includes('project') || lowerText.includes('bci')) reply = "Her featured projects include an EEG Brain-Computer Interface, ViziAssist ADAS, and SkillSet Sherpa.";
+                else if (lowerText.includes('columbia') || lowerText.includes('education')) reply = "She is currently pursuing an M.S. in Computer Science at Columbia University (2025-2026).";
+
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'message bot-message';
+                msgDiv.textContent = reply;
+                chatMsgs.appendChild(msgDiv);
+                chatMsgs.scrollTop = chatMsgs.scrollHeight;
+            };
+
+            const sendMsg = () => {
+                const text = chatInp.value.trim();
+                if (!text) return;
+                
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'message user-message';
+                msgDiv.textContent = text;
+                chatMsgs.appendChild(msgDiv);
+                chatInp.value = '';
+                chatMsgs.scrollTop = chatMsgs.scrollHeight;
+                
+                setTimeout(() => botReply(text), 600);
+            };
+
+            if (triggerBtn) triggerBtn.addEventListener('click', toggleChat);
+            if (chatCloseBtn) chatCloseBtn.addEventListener('click', toggleChat);
+            if (chatSendBtn) chatSendBtn.addEventListener('click', sendMsg);
+            if (chatInp) chatInp.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMsg(); });
         });
     </script>
 </body>
