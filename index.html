@@ -62,17 +62,19 @@
 
 
         /* --- Projects Section --- */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
-        .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px; border: 1px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out, border-color 0.3s ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 220px; }
-        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 300px; border-color: var(--spotify-green); }
-        .project-image { width: 100%; aspect-ratio: 1; border-radius: 4px; object-fit: cover; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,.4); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .project-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 14px; border: 1px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, min-height 0.3s ease-out, border-color 0.3s ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 280px; }
+        .project-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); z-index: 10; min-height: 380px; border-color: var(--spotify-green); }
+        .project-image { width: 100%; aspect-ratio: 1; border-radius: 4px; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a3a1a 0%, #0d1f0d 100%); font-size: 48px; }
         .project-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; text-align: center; }
+        .project-tech { font-size: 11px; color: var(--spotify-green); margin-bottom: 8px; text-align: center; }
         .project-description, .project-links { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.3s ease-out, max-height 0.4s ease-out, margin-top 0.3s ease-out; margin-top: 0; }
-        .project-description { font-size: 13px; color: var(--spotify-light-gray); line-height: 1.5; }
-        .project-links { font-size: 11px; color: var(--spotify-light-gray); margin-top: 8px;}
-        .project-card:hover .project-description, .project-card:hover .project-links { opacity: 1; max-height: 200px; margin-top: 8px; }
-        .project-links a { color: var(--spotify-green); text-decoration: none; margin-left: 5px; transition: color 0.2s ease; }
-        .project-links a:hover { text-decoration: underline; color: var(--spotify-green); }
+        .project-description { font-size: 12px; color: var(--spotify-light-gray); line-height: 1.5; }
+        .project-links { font-size: 11px; color: var(--spotify-light-gray); margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .project-card:hover .project-description, .project-card:hover .project-links { opacity: 1; max-height: 250px; margin-top: 8px; }
+        .project-links a { color: var(--spotify-green); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.2s ease; }
+        .project-links a:hover { text-decoration: underline; color: #1ed760; }
+        .project-badge { position: absolute; top: 10px; right: 10px; background: var(--spotify-green); color: var(--spotify-black); font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 10px; text-transform: uppercase; }
 
         /* Experience */
         .experience-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 19px 19px; margin-bottom: 16px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
@@ -80,16 +82,21 @@
         .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; }
         .experience-company { font-size: 18px; font-weight: 700; margin-right: 10px; }
         .experience-duration { font-size: 14px; color: var(--spotify-light-gray); flex-shrink: 0; white-space: nowrap; }
-        .experience-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--spotify-white); clear: both; padding-top: 5px; }
+        .experience-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--spotify-green); clear: both; padding-top: 5px; }
+        .experience-location { font-size: 13px; color: var(--spotify-light-gray); margin-bottom: 10px; font-style: italic; }
         .experience-description-list { font-size: 14px; color: var(--spotify-light-gray); list-style: disc; padding-left: 20px; margin-top: 0px; }
         .experience-description-list li { margin-bottom: 8px; }
+        .experience-badge { position: absolute; top: 15px; right: 15px; background: var(--spotify-green); color: var(--spotify-black); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; }
 
          /* Certifications */
-         .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-         .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 11px 15px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; position: relative; }
+         .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+         .certification-card { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 16px 20px; border: 1px solid transparent; transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; position: relative; }
          .certification-card:hover { background-color: var(--spotify-gray); transform: scale(1.03); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); z-index: 5; border-color: var(--spotify-green); }
-         .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--spotify-white); }
-         .certification-issuer { font-size: 13px; color: var(--spotify-light-gray); margin-bottom: 4px; }
+         .certification-card.gold { border-left: 3px solid #FFD700; }
+         .certification-card.silver { border-left: 3px solid #C0C0C0; }
+         .certification-card.tech { border-left: 3px solid var(--spotify-green); }
+         .certification-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--spotify-white); }
+         .certification-issuer { font-size: 13px; color: var(--spotify-green); margin-bottom: 4px; }
          .certification-date { font-size: 11px; color: var(--spotify-light-gray); margin-top: auto; }
 
          /* --- Skills Section Styling --- */
@@ -99,6 +106,7 @@
          .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 3px 6px rgba(0,0,0,0.3); background-color: #333; color: var(--spotify-white); }
          .skill-tag i, .skill-tag img { margin-right: 8px; font-size: 16px; width: 18px; text-align: center; color: var(--spotify-green); }
          .skill-tag img { height: 16px; width: auto; }
+         .skill-desc { font-size: 11px; color: var(--spotify-light-gray); margin-left: 8px; opacity: 0.7; }
 
         /* Contact Section */
         #contact { padding-top: 30px; padding-bottom: 30px; }
@@ -113,6 +121,13 @@
         .social-links { display: flex; gap: 16px; margin-top: 24px; justify-content: flex-start; }
         .social-link { width: 40px; height: 40px; border-radius: 50%; background-color: var(--spotify-gray); display: flex; align-items: center; justify-content: center; color: var(--spotify-white); text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; font-size: 18px; }
         .social-link:hover { transform: scale(1.1); background-color: #1ed760; }
+
+        /* Writers Corner */
+        .writers-corner { background-color: var(--spotify-dark-gray); border-radius: 8px; padding: 20px; margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; border-left: 3px solid var(--spotify-green); }
+        .writers-corner h4 { color: var(--spotify-white); margin-bottom: 8px; font-size: 16px; }
+        .writers-corner p { color: var(--spotify-light-gray); font-size: 14px; margin-bottom: 12px; }
+        .writers-corner a { color: var(--spotify-green); text-decoration: none; font-weight: 600; }
+        .writers-corner a:hover { text-decoration: underline; }
 
         /* --- Footer Styling --- */
         .footer { padding: 20px; text-align: center; color: var(--spotify-light-gray); font-size: 12px; }
@@ -154,8 +169,8 @@
             .profile-info { align-items: center; }
             .actions { flex-direction: column; align-items: center; gap: 16px; }
             .btn-primary { margin-right: 0; }
-            .projects-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
-            .project-card { min-height: 200px; } .project-card:hover { min-height: 260px; }
+            .projects-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+            .project-card { min-height: 240px; } .project-card:hover { min-height: 320px; }
             .education-grid { grid-template-columns: 1fr; }
             .experience-header { flex-direction: column; align-items: flex-start; }
             .experience-duration { margin-left: 0; margin-top: 4px; }
@@ -167,7 +182,7 @@
         @media (max-width: 480px) {
             .profile-name { font-size: 36px; } .profile-photo { width: 120px; height: 120px; }
             .projects-grid { grid-template-columns: 1fr; }
-            .project-card { min-height: 180px; } .project-card:hover { min-height: 240px; }
+            .project-card { min-height: 220px; } .project-card:hover { min-height: 300px; }
             .chat-window { width: calc(100vw - 30px); right: 15px; bottom: 15px; height: 60vh; max-height: 400px;}
         }
 
@@ -177,7 +192,16 @@
     <div class="container">
         <div class="sidebar">
              <div class="logo"><h1>Portfolio</h1></div>
-             <ul class="nav-menu"><li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li><li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li><li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li><li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li><li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li><li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li><li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li></ul>
+             <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li class="nav-item"><a href="#research" class="nav-link"><i class="fas fa-flask"></i> Research</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-folder"></i> Projects</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
+                <li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+             </ul>
         </div>
 
         <div class="main-content">
@@ -185,9 +209,9 @@
                  <div class="header">
                      <img src="images/myphoto.png" alt="Ketaki Dabade Photo" class="profile-photo">
                      <div class="profile-info">
-                         <span class="profile-tag">Computer Science Engineer</span>
+                         <span class="profile-tag">Machine Learning Researcher & Engineer</span>
                          <h1 class="profile-name">Ketaki Dabade</h1>
-                         <p class="profile-bio">Deep Learning Engineer with experience in Computer Vision, Data Analysis, and Full-Stack Development. Passionate about leveraging technology to create impactful solutions and continuously learning new skills.</p>
+                         <p class="profile-bio">Computer scientist and researcher exploring how machines understand and organize knowledge. Currently pursuing my M.S. in Computer Science at Columbia University, working on NLP pipelines, topic modeling, and LLM interpretability at the CRIS Laboratory. Passionate about deep learning, computer vision, and cross-lingual NLP.</p>
                          <p id="chat-prompt-trigger" class="chat-prompt-trigger">
                              <i class="fas fa-comment-dots"></i> Hello 👋, it's me as a chatbot. Feel free to ask anything about my profile!
                          </p>
@@ -211,9 +235,12 @@
                         <p class="coursework">
                             Relevant Coursework: Analysis of Algorithms, Neural Networks & Deep Learning, Natural Language Processing
                         </p>
+                        <p class="coursework" style="margin-top: 6px; font-style: normal; color: var(--spotify-green);">
+                            Currently working at CRIS Laboratory on NLP & LLM Interpretability Research
+                        </p>
                     </div>
                      <div class="education-card">
-                         <h3 class="institution">Dr. Vishwanath Karad MIT-WPU</h3>
+                         <h3 class="institution">Dr. Vishwanath Karad MIT World Peace University</h3>
                          <h4 class="degree">Bachelor of Technology in Computer Science and Engineering</h4>
                          <p class="education-details">
                              Pune, India | Jul 2021 – Jul 2025 <br>
@@ -222,174 +249,290 @@
                          <p class="coursework">
                              Relevant Coursework: High Performance Computing, Advanced Data Structures, Operating Systems
                          </p>
+                         <p class="coursework" style="margin-top: 6px; font-style: normal;">
+                             Published 2 research papers (Springer). National hackathon placements.
+                         </p>
                      </div>
                  </div>
              </section>
 
+            <!-- Research Experience Section -->
+            <section id="research">
+                <h2 class="section-title">Research Experience</h2>
+                
+                <div class="experience-card">
+                    <span class="experience-badge">Current</span>
+                    <div class="experience-header">
+                        <h3 class="experience-company">Complex Resilient Intelligent Systems (CRIS) Laboratory</h3>
+                        <span class="experience-duration">Sept 2025 – Present</span>
+                    </div>
+                    <h4 class="experience-title">Research Assistant under Professor Venkat Venkatasubramanian</h4>
+                    <p class="experience-location">Columbia University, New York, NY</p>
+                    <ul class="experience-description-list">
+                        <li><strong>Scientific Content Analysis Pipeline:</strong> Building infrastructure for understanding how knowledge is structured in STEM textbooks.</li>
+                        <li><strong>PDF Extraction:</strong> Implemented MinerU for crash-resistant PDF-to-Markdown conversion, handling complex formatting — equations, figures, tables, and multi-column layouts.</li>
+                        <li><strong>Embedding Generation:</strong> Used Qwen3-Embedding to generate 17,000+ dense vector representations of textbook passages for semantic similarity computations.</li>
+                        <li><strong>Topic Discovery:</strong> Applied BERTopic with HDBSCAN clustering to discover 493 semantically coherent topics across 102 textbook chapters. Validated coherence with 0.9791 mean cosine similarity.</li>
+                        <li><strong>Knowledge Mapping:</strong> Leveraged Gemma for human-readable topic labeling and built hierarchical clustering to map prerequisite relationships.</li>
+                        <li><strong>Impact:</strong> This work lays the foundation for Sparse Autoencoder (SAE) training on structured knowledge, contributing to LLM interpretability research.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-company">AI and ML Lab of NITTTR - Siemens Centre of Excellence</h3>
+                        <span class="experience-duration">Feb 2024 – Mar 2024</span>
+                    </div>
+                    <h4 class="experience-title">Research Assistant</h4>
+                    <p class="experience-location">Bhopal, India</p>
+                    <ul class="experience-description-list">
+                        <li><strong>Music-Mental Health Correlation Analysis:</strong> Investigated quantifiable relationships between music listening habits and mental health outcomes.</li>
+                        <li>Extracted meaningful features from music consumption patterns of 1,000+ participants — genre preferences, listening duration, tempo preferences.</li>
+                        <li>Built ensemble ML models (Random Forest, Gradient Boosting) achieving 93.19% accuracy in predicting mental health indicators from music behavior.</li>
+                        <li>Identified statistically significant correlations between specific genre preferences and anxiety/depression scores.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Work Experience Section -->
+            <section id="experience">
+                <h2 class="section-title">Work Experience</h2>
+                
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-company">AI4M Technology Private Limited</h3>
+                        <span class="experience-duration">July 2024 – Dec 2024</span>
+                    </div>
+                    <h4 class="experience-title">Deep Learning Engineer Intern</h4>
+                    <p class="experience-location">Pune, India</p>
+                    <ul class="experience-description-list">
+                        <li><strong>Challenge:</strong> Build a defect detection system processing 1000+ frames/sec on edge hardware with limited compute.</li>
+                        <li>Trained and optimized YOLOv7/YOLOv8 models for manufacturing defect detection — scratches, dents, misalignments, color inconsistencies.</li>
+                        <li>Deployed on NVIDIA Jetson GPU using DeepStream SDK. Implemented TensorRT optimization (FP16/INT8 quantization) achieving <strong>3x inference speedup</strong>.</li>
+                        <li>Designed RESTful APIs using Flask for model inference. Built multi-threaded Python backend with Docker containerization.</li>
+                        <li>Established CI/CD pipeline with Jenkins. Achieved 85% code coverage with comprehensive unit tests.</li>
+                        <li><strong>Result:</strong> Reduced detection latency by 25% across 3 production lines. System now runs in production.</li>
+                        <li>Gained hands-on training in PINN, NVIDIA Modulus, and Omniverse for factory simulations.</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-company">ViLA EmachWirken Private Limited</h3>
+                        <span class="experience-duration">June 2022 – Dec 2022</span>
+                    </div>
+                    <h4 class="experience-title">Data Analyst Intern</h4>
+                    <p class="experience-location">Pune, India</p>
+                    <ul class="experience-description-list">
+                        <li><strong>Customer Segmentation:</strong> Built K-Means clustering models identifying 5 distinct customer personas that informed marketing strategies.</li>
+                        <li>Designed interactive Grafana dashboards tracking 15+ KPIs — revenue trends, customer acquisition costs, churn rates, operational efficiency.</li>
+                        <li>Conducted exploratory analysis on 100K+ transaction records using Python (Pandas, NumPy) and SQL.</li>
+                        <li>Automated data extraction and reporting pipelines, reducing manual reporting time by 40%.</li>
+                        <li><strong>Impact:</strong> Enhanced operational visibility by 30%. Dashboards still in use today.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
             <section id="projects">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
+                    
+                    <!-- Quant Portfolio Dashboard -->
                     <div class="project-card">
-                        <img src="images/nlp-brain.png" alt="IndicBERT vs MuRIL Project" class="project-image">
-                        <h3 class="project-title">IndicBERT vs MuRIL Analysis</h3>
-                        <p class="project-description">Comparative study of IndicBERT v2 and MuRIL encoders for Hindi sentiment analysis and hate speech detection, exploring zero-shot cross-lingual transfer to Marathi and Bengali.</p>
+                        <div class="project-image">📊</div>
+                        <h3 class="project-title">Quant Portfolio Dashboard</h3>
+                        <p class="project-tech">Python, Streamlit, Plotly, SciPy, yfinance</p>
+                        <p class="project-description">Institutional-grade portfolio analytics with 15+ risk metrics (Sharpe, Sortino, VaR, CVaR, Beta, Alpha). Mean-variance optimization, Monte Carlo simulations (1,000+ scenarios), and benchmark comparisons.</p>
                         <div class="project-links">
-                            <span>Technologies: MuRIL, IndicBERT v2, Python, PyTorch</span>
+                            <a href="https://github.com/ketakiii3/Quant-Portfolio-Returns-Dashboard" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
+
+                    <!-- Cross-Lingual Hate Speech -->
                     <div class="project-card">
-                        <img src="images/eeg_bci.png" alt="EEG-Powered BCI Project" class="project-image">
-                        <h3 class="project-title">EEG Brain-Computer Interface</h3>
-                        <p class="project-description">Engineered BCI achieving 97.63% accuracy utilizing KNN to translate neural signals into 3D hand gesture control through Blender software and final output shown using Unity integration. Gathered data from participants ranging from ages 20 to 22 using the Emotiv EPOC X Headset.</p>
+                        <span class="project-badge">Research</span>
+                        <div class="project-image">🌐</div>
+                        <h3 class="project-title">Cross-Lingual NLP</h3>
+                        <p class="project-tech">PyTorch, HuggingFace, LoRA, IndicBERT, MuRIL</p>
+                        <p class="project-description">Cross-lingual transfer research: Can Hindi hate speech models detect Marathi hate speech? LoRA achieves F1 ≈ 0.80 with only 0.95% parameters while full fine-tuning fails (F1 ≈ 0.39).</p>
                         <div class="project-links">
-                            <span>Technologies: Python, KNN, Emotiv EPOC X, Blender</span>
-                            </div>
+                            <a href="https://github.com/ketakiii3/Cross-Lingual-Transfer-for-Indic-Hate-Speech-Detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
                     </div>
+
+                    <!-- ViziAssist -->
                     <div class="project-card">
-                        <img src="images/viziassist.png" alt="ViziAssist Project" class="project-image">
+                        <span class="project-badge">Published</span>
+                        <div class="project-image">🚗</div>
                         <h3 class="project-title">ViziAssist ADAS</h3>
-                        <p class="project-description">Directed team of 4 members to construct road-obstacle detection system achieving 0.681 mAP. Secured top 20 team ranking at national level KPIT Hackathon 2022. Published in Springer CCIS.</p>
+                        <p class="project-tech">NVIDIA Jetson, YOLOv7, TensorRT, OpenCV</p>
+                        <p class="project-description">Assistive driving system for visually impaired. Custom YOLOv7 achieving 0.681 mAP. TensorRT optimization for real-time inference with audio feedback. Published in Springer CCIS.</p>
                         <div class="project-links">
-                            <span>Technologies: NVIDIA Jetson, YOLOv7, RPi Camera</span>
-                            <a href="https://doi.org/10.1007/978-3-031-93688-3" target="_blank" rel="noopener noreferrer">DOI</a>
+                            <a href="https://doi.org/10.1007/978-3-031-93688-3" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> DOI</a>
+                            <a href="https://github.com/ketakiii3/ViziAssist" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
+
+                    <!-- SkillSet Sherpa -->
                     <div class="project-card">
-                        <img src="images/skillset.jpg" alt="SkillSet Sherpa Project" class="project-image">
+                        <span class="project-badge">Published</span>
+                        <div class="project-image">🧭</div>
                         <h3 class="project-title">SkillSet Sherpa</h3>
-                        <p class="project-description">Architected career guidance platform with Flask APIs integrating GPT-3 LLM, RIASEC aptitude assessment, and EasyOCR with a 0.552 accuracy chosen after comprehensive model testing. Published in Springer LNNS.</p>
+                        <p class="project-tech">Flask, GPT-3, LangChain, EasyOCR, NLTK</p>
+                        <p class="project-description">AI career counselor analyzing resumes and personality. EasyOCR text extraction, NLTK entity extraction, RIASEC assessment, GPT-3 recommendations. Published in Springer LNNS.</p>
                         <div class="project-links">
-                            <span>Technologies: LLMs, Flask, EasyOCR</span>
-                            <a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer">DOI</a>
+                            <a href="https://doi.org/10.1007/978-981-97-9523-9_23" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> DOI</a>
                         </div>
                     </div>
+
+                    <!-- CanMan -->
                     <div class="project-card">
-                        <img src="images/canman.jpg" alt="CanMan Project" class="project-image">
-                        <h3 class="project-title">CanMan</h3>
-                        <p class="project-description">Coordinated team of 5 developers to design full-stack canteen management system with NLP chatbot. Won 2nd place at HACKMITWPU 2024.</p>
+                        <span class="project-badge">2nd Place</span>
+                        <div class="project-image">🍽️</div>
+                        <h3 class="project-title">CanMan System</h3>
+                        <p class="project-tech">Flask, MongoDB, React, D3.js, NLTK</p>
+                        <p class="project-description">Full-stack canteen management with NLP chatbot for natural language ordering. Custom NLTK pipeline, D3.js analytics dashboard. Won 2nd at HACKMITWPU 2024. Led team of 5.</p>
                         <div class="project-links">
-                            <span>Technologies: HTML, CSS, Flask, MongoDB, D3.js</span>
+                            <a href="https://github.com/ketakiii3/AskCanMan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
+
+                    <!-- Pinterest Duplicate -->
                     <div class="project-card">
-                        <img src="images/oneview.jpg" alt="One View Project" class="project-image">
+                        <div class="project-image">🖼️</div>
+                        <h3 class="project-title">Pinterest Duplicate Detector</h3>
+                        <p class="project-tech">CLIP, FAISS, PyTorch, FastAPI, Streamlit</p>
+                        <p class="project-description">Content-based image retrieval using CLIP embeddings and FAISS indexing for 10K+ images. Multi-metric scoring: perceptual hashing, SSIM, neural embeddings.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/ketakiii3/pinterest-duplicate-detector" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- EEG BCI -->
+                    <div class="project-card">
+                        <div class="project-image">🧠</div>
+                        <h3 class="project-title">EEG Brain-Computer Interface</h3>
+                        <p class="project-tech">Python, Scikit-learn, Emotiv EPOC X, Unity</p>
+                        <p class="project-description">Control a virtual 3D hand using brainwaves. EEG data collection with Emotiv EPOC X, FFT/wavelet features, KNN classifier achieving 97.63% accuracy. Blender + Unity integration.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/ketakiii3/EEG-Powered-Brain-Computer-Interface-for-3D-Hand-Gesture-Control" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- One View -->
+                    <div class="project-card">
+                        <div class="project-image">📸</div>
                         <h3 class="project-title">One View</h3>
-                        <p class="project-description">Web-based event management app with image capture/preview and facial data clustering using DBSCAN.</p>
-                        <div class="project-links">
-                            <span>Technologies: Flask, MongoDB, DBSCAN</span>
-                        </div>
+                        <p class="project-tech">Flask, MongoDB, DBSCAN, OpenCV</p>
+                        <p class="project-description">Event management with intelligent photo organization. DBSCAN clustering on facial embeddings for automatic grouping. Helps organizers share photos with specific attendees.</p>
+                        <div class="project-links"></div>
                     </div>
+
+                    <!-- Door Lock -->
                     <div class="project-card">
-                        <img src="images/doorlock.jpg" alt="Door Lock Project" class="project-image">
+                        <div class="project-image">🔐</div>
                         <h3 class="project-title">Automated Door Lock</h3>
-                        <p class="project-description">Secure fingerprint-activated door lock system using Arduino, R307 sensor, and optimized fingerprint processing.</p>
-                        <div class="project-links">
-                            <span>Technologies: Arduino, R307 Sensor</span>
-                        </div>
+                        <p class="project-tech">Arduino, R307 Fingerprint Sensor, C++</p>
+                        <p class="project-description">Secure biometric door lock with R307 optical sensor, Arduino microcontroller, and optimized fingerprint matching algorithm for fast authentication.</p>
+                        <div class="project-links"></div>
                     </div>
+
                 </div>
             </section>
 
-            <section id="experience">
-                <h2 class="section-title">Work Experience & Research</h2>
-                 <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">Complex Resilient Intelligent Systems Lab, Columbia University</h3><span class="experience-duration">Sept 2025 – Present</span></div>
-                    <h4 class="experience-title">Research Assistant</h4>
-                    <ul class="experience-description-list">
-                        <li>Developing hierarchical Sparse Autoencoder (SAE) framework to decompose LLM internal representations.</li>
-                        <li>Implementing PyTorch training pipelines and analyzing feature activation patterns across transformer layers to identify interpretable circuits in GPT-2 and Qwen3 models.</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">AI4M Technology Private Limited</h3><span class="experience-duration">July 2024 - Dec 2024</span></div>
-                    <h4 class="experience-title">Deep Learning Engineer Intern</h4>
-                    <ul class="experience-description-list">
-                        <li>Engineered end-to-end real-time defect detection system using YOLOv7/YOLOv8 object detection models deployed via NVIDIA DeepStream SDK on Jetson GPU hardware.</li>
-                        <li>Designed RESTful APIs for model inference endpoints and implemented automated CI/CD pipeline with Jenkins that reduced detection latency by 25%.</li>
-                        <li>Architected scalable multi-threaded Python backend service with TensorRT model optimization achieving 3x inference speedup and 85% code coverage.</li>
-                        <li>Gained hands-on training in creating real-time factory simulations using PINN, NVIDIA Modulus, and Omniverse.</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">NITTTR - Siemens CoE, Bhopal</h3><span class="experience-duration">Feb 2024 - Mar 2024</span></div>
-                    <h4 class="experience-title">Research Assistant</h4>
-                    <ul class="experience-description-list">
-                        <li>Spearheaded ensemble ML models analyzing music-mental health correlations, achieving 93.19% accuracy through Random Forest and Gradient Boosting algorithms.</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <div class="experience-header"><h3 class="experience-company">VILA Emach Wirken Private Limited</h3><span class="experience-duration">June 2022 - Dec 2022</span></div>
-                    <h4 class="experience-title">Data Analyst Intern</h4>
-                    <ul class="experience-description-list">
-                        <li>Streamlined reporting processes using Excel, SQL and Python and developed clustering models analyzing customer purchasing behavior.</li>
-                        <li>Developed interactive Grafana dashboards tracking KPIs for pump efficiency rates and MTBF, improving operational visibility by 30%.</li>
-                    </ul>
-                </div>
-            </section>
-
-             <section id="certifications">
-                 <h2 class="section-title">Courses & Certifications</h2>
-                 <div class="certifications-grid">
-                      <div class="certification-card"><h3 class="certification-title">Google Project Management Professional Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">November 2024</p></div>
-                      <div class="certification-card"><h3 class="certification-title">Machine Learning Specialization</h3><p class="certification-issuer">DeepLearning.AI / Stanford Online</p><p class="certification-date">July 2024</p></div>
-                      <div class="certification-card"><h3 class="certification-title">Accenture North America Data Analytics and Visualization Job Simulation</h3><p class="certification-issuer">Forage</p><p class="certification-date">March 2024</p></div>
-                      <div class="certification-card"><h3 class="certification-title">Introduction to Al in the Data Center</h3><p class="certification-issuer">NVIDIA Deep Learning Institute</p><p class="certification-date">February 2024</p></div>
-                      <div class="certification-card"><h3 class="certification-title">Google Data Analytics Professional Certificate</h3><p class="certification-issuer">Google / Coursera</p><p class="certification-date">December 2023</p></div>
-                      <div class="certification-card"><h3 class="certification-title">Mastering Data Structures & Algorithms (C/C++)</h3><p class="certification-issuer">Udemy</p><p class="certification-date">September 2023</p></div>
-                      <div class="certification-card"><h3 class="certification-title">The Git and Github Bootcamp</h3><p class="certification-issuer">Udemy</p><p class="certification-date">February 2024</p></div>
-                 </div>
-             </section>
-
-              <section id="skills">
+            <!-- Skills Section -->
+            <section id="skills">
                  <h2 class="section-title">Skills</h2>
                  <div class="fade-in-section">
-                     <h3 class="skills-category-title">Languages</h3>
+                     <h3 class="skills-category-title">Programming Languages</h3>
                      <ul class="skills-tag-list">
-                         <li class="skill-tag"><i class="fab fa-python"></i> Python</li>
-                         <li class="skill-tag"><i class="fas fa-file-code"></i> C/C++</li>
-                         <li class="skill-tag"><i class="fab fa-r-project"></i> R</li>
-                         <li class="skill-tag"><i class="fas fa-database"></i> SQL</li>
-                     </ul>
-
-                     <h3 class="skills-category-title">Software Development</h3>
-                     <ul class="skills-tag-list">
-                         <li class="skill-tag"><i class="fab fa-html5"></i> HTML</li>
-                         <li class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</li>
-                         <li class="skill-tag"><i class="fas fa-server"></i> REST APIs</li>
-                         <li class="skill-tag"><i class="fab fa-python"></i> Flask</li>
-                         <li class="skill-tag"><i class="fab fa-git-alt"></i> Git</li>
-                         <li class="skill-tag"><i class="fab fa-linux"></i> Linux</li>
-                         <li class="skill-tag"><i class="fab fa-docker"></i> Docker</li>
-                         <li class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</li>
-                         <li class="skill-tag"><i class="fas fa-sync"></i> CI/CD</li>
-                         <li class="skill-tag"><i class="fab fa-unity"></i> Unity Engine</li>
+                         <li class="skill-tag"><i class="fab fa-python"></i> Python <span class="skill-desc">Primary language</span></li>
+                         <li class="skill-tag"><i class="fas fa-file-code"></i> C/C++ <span class="skill-desc">Systems & algorithms</span></li>
+                         <li class="skill-tag"><i class="fab fa-js"></i> JavaScript <span class="skill-desc">Web apps, React</span></li>
+                         <li class="skill-tag"><i class="fas fa-database"></i> SQL <span class="skill-desc">PostgreSQL, SQLite</span></li>
+                         <li class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</li>
+                         <li class="skill-tag"><i class="fab fa-r-project"></i> R <span class="skill-desc">Statistical analysis</span></li>
                      </ul>
 
                      <h3 class="skills-category-title">ML/AI Frameworks</h3>
                      <ul class="skills-tag-list">
-                         <li class="skill-tag"><i class="fas fa-brain"></i> PyTorch</li>
-                         <li class="skill-tag"><i class="fas fa-brain"></i> TensorFlow</li>
-                         <li class="skill-tag"><i class="fas fa-smile"></i> HuggingFace</li>
-                         <li class="skill-tag"><i class="fas fa-layer-group"></i> Keras</li>
-                         <li class="skill-tag"><i class="fas fa-eye"></i> OpenCV</li>
-                         <li class="skill-tag"><i class="fas fa-calculator"></i> Scikit-learn</li>
-                         <li class="skill-tag"><i class="fas fa-link"></i> LangChain</li>
-                         <li class="skill-tag"><i class="fas fa-language"></i> NLTK</li>
-                         <li class="skill-tag"><i class="fas fa-stream"></i> Streamlit</li>
+                         <li class="skill-tag"><i class="fas fa-brain"></i> PyTorch <span class="skill-desc">Deep learning research</span></li>
+                         <li class="skill-tag"><i class="fas fa-brain"></i> TensorFlow/Keras <span class="skill-desc">Production models</span></li>
+                         <li class="skill-tag"><i class="fas fa-smile"></i> HuggingFace <span class="skill-desc">Transformers, NLP</span></li>
+                         <li class="skill-tag"><i class="fas fa-calculator"></i> Scikit-learn <span class="skill-desc">Classical ML</span></li>
+                         <li class="skill-tag"><i class="fas fa-eye"></i> OpenCV <span class="skill-desc">Computer vision</span></li>
+                         <li class="skill-tag"><i class="fas fa-link"></i> LangChain <span class="skill-desc">LLM apps</span></li>
+                         <li class="skill-tag"><i class="fas fa-language"></i> NLTK/spaCy <span class="skill-desc">Text processing</span></li>
+                         <li class="skill-tag"><i class="fas fa-project-diagram"></i> BERTopic <span class="skill-desc">Topic modeling</span></li>
                      </ul>
 
-                     <h3 class="skills-category-title">Tools</h3>
+                     <h3 class="skills-category-title">Tools & Infrastructure</h3>
                      <ul class="skills-tag-list">
-                         <li class="skill-tag"><i class="fab fa-microsoft"></i> Azure</li>
-                         <li class="skill-tag"><i class="fas fa-chart-line"></i> Grafana</li>
-                         <li class="skill-tag"><i class="fas fa-database"></i> Apache Hadoop</li>
-                         <li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA"> NVIDIA DeepStream</li>
-                         <li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA"> NVIDIA Triton</li>
-                         <li class="skill-tag"><img src="images/nvidia-logo.svg" alt="NVIDIA"> TensorRT</li>
+                         <li class="skill-tag"><i class="fab fa-docker"></i> Docker <span class="skill-desc">Containerization</span></li>
+                         <li class="skill-tag"><i class="fab fa-git-alt"></i> Git <span class="skill-desc">Version control</span></li>
+                         <li class="skill-tag"><i class="fab fa-linux"></i> Linux <span class="skill-desc">Dev environment</span></li>
+                         <li class="skill-tag"><i class="fas fa-microchip"></i> NVIDIA Stack <span class="skill-desc">TensorRT, DeepStream, Jetson</span></li>
+                         <li class="skill-tag"><i class="fas fa-server"></i> REST APIs <span class="skill-desc">Flask, FastAPI</span></li>
+                         <li class="skill-tag"><i class="fas fa-database"></i> Databases <span class="skill-desc">PostgreSQL, MongoDB</span></li>
+                         <li class="skill-tag"><i class="fas fa-chart-line"></i> Visualization <span class="skill-desc">Plotly, D3.js, Grafana, Streamlit</span></li>
+                         <li class="skill-tag"><i class="fas fa-sync"></i> CI/CD <span class="skill-desc">Jenkins, GitHub Actions</span></li>
+                     </ul>
+
+                     <h3 class="skills-category-title">Techniques & Methods</h3>
+                     <ul class="skills-tag-list">
+                         <li class="skill-tag"><i class="fas fa-cogs"></i> Transformer Fine-tuning <span class="skill-desc">LoRA, PEFT, Full SFT</span></li>
+                         <li class="skill-tag"><i class="fas fa-camera"></i> Computer Vision <span class="skill-desc">YOLO, Image Embeddings</span></li>
+                         <li class="skill-tag"><i class="fas fa-comment-alt"></i> NLP <span class="skill-desc">Topic Modeling, NER, Classification</span></li>
+                         <li class="skill-tag"><i class="fas fa-chart-bar"></i> Quantitative Analysis <span class="skill-desc">Risk Metrics, Monte Carlo</span></li>
+                         <li class="skill-tag"><i class="fas fa-bolt"></i> Edge Deployment <span class="skill-desc">TensorRT, Jetson, Real-time</span></li>
                      </ul>
                  </div>
              </section>
 
+             <!-- Certifications Section -->
+             <section id="certifications">
+                 <h2 class="section-title">Courses & Certifications</h2>
+                 <div class="certifications-grid">
+                      <div class="certification-card gold">
+                          <h3 class="certification-title">Google Project Management Professional Certificate</h3>
+                          <p class="certification-issuer">Google / Coursera</p>
+                          <p class="certification-date">November 2024</p>
+                      </div>
+                      <div class="certification-card silver">
+                          <h3 class="certification-title">Machine Learning Specialization</h3>
+                          <p class="certification-issuer">DeepLearning.AI / Stanford Online</p>
+                          <p class="certification-date">July 2024</p>
+                      </div>
+                      <div class="certification-card">
+                          <h3 class="certification-title">Data Analytics and Visualization Job Simulation</h3>
+                          <p class="certification-issuer">Accenture / Forage</p>
+                          <p class="certification-date">March 2024</p>
+                      </div>
+                      <div class="certification-card tech">
+                          <h3 class="certification-title">Introduction to AI in the Data Center</h3>
+                          <p class="certification-issuer">NVIDIA Deep Learning Institute</p>
+                          <p class="certification-date">February 2024</p>
+                      </div>
+                      <div class="certification-card">
+                          <h3 class="certification-title">The Git and Github Bootcamp</h3>
+                          <p class="certification-issuer">Udemy</p>
+                          <p class="certification-date">February 2024</p>
+                      </div>
+                      <div class="certification-card gold">
+                          <h3 class="certification-title">Google Data Analytics Professional Certificate</h3>
+                          <p class="certification-issuer">Google / Coursera</p>
+                          <p class="certification-date">December 2023</p>
+                      </div>
+                      <div class="certification-card">
+                          <h3 class="certification-title">Mastering Data Structures & Algorithms (C/C++)</h3>
+                          <p class="certification-issuer">Udemy</p>
+                          <p class="certification-date">September 2023</p>
+                      </div>
+                 </div>
+             </section>
+
+            <!-- Contact Section -->
             <section id="contact">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-info">
@@ -402,6 +545,12 @@
                         <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WordPress Blog"><i class="fab fa-wordpress"></i></a>
                     </div>
                  </div>
+                 
+                 <div class="writers-corner">
+                     <h4>Beyond the Code</h4>
+                     <p>I also maintain a collection of poetry and essays exploring technology, philosophy, and human experience.</p>
+                     <a href="https://kdwriteslikethat.wordpress.com/" target="_blank" rel="noopener noreferrer">Visit my Writer's Journal →</a>
+                 </div>
             </section>
 
             <div class="footer"><p>&copy; 2025 Ketaki Dabade. All rights reserved.</p></div>
@@ -413,25 +562,74 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.main-content section');
             const mainContent = document.querySelector('.main-content');
-            const updateActiveNav = () => { let currentSectionId = 'home'; let scrollPosition = mainContent.scrollTop; sections.forEach(section => { const sectionTop = section.offsetTop - 100; if (scrollPosition >= sectionTop) { currentSectionId = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); } }); };
-            mainContent.addEventListener('scroll', updateActiveNav); updateActiveNav();
-            navLinks.forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const targetId = this.getAttribute('href'); const targetSection = document.querySelector(targetId); if (targetSection) { mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' }); } navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
+            const updateActiveNav = () => { 
+                let currentSectionId = 'home'; 
+                let scrollPosition = mainContent.scrollTop; 
+                sections.forEach(section => { 
+                    const sectionTop = section.offsetTop - 100; 
+                    if (scrollPosition >= sectionTop) { 
+                        currentSectionId = section.getAttribute('id'); 
+                    } 
+                }); 
+                navLinks.forEach(link => { 
+                    link.classList.remove('active'); 
+                    if (link.getAttribute('href') === `#${currentSectionId}`) { 
+                        link.classList.add('active'); 
+                    } 
+                }); 
+            };
+            mainContent.addEventListener('scroll', updateActiveNav); 
+            updateActiveNav();
+            navLinks.forEach(link => { 
+                link.addEventListener('click', function(e) { 
+                    e.preventDefault(); 
+                    const targetId = this.getAttribute('href'); 
+                    const targetSection = document.querySelector(targetId); 
+                    if (targetSection) { 
+                        mainContent.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' }); 
+                    } 
+                    navLinks.forEach(l => l.classList.remove('active')); 
+                    this.classList.add('active'); 
+                }); 
+            });
 
             // --- Project Card Click Logic ---
             const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => { card.addEventListener('click', function(event) { const title = this.querySelector('.project-title').textContent; console.log('Project card clicked:', title); const linkElement = this.querySelector('.project-links a'); if (linkElement && linkElement.href && !linkElement.contains(event.target)) { if (linkElement.target === '_blank') { window.open(linkElement.href, '_blank', 'noopener,noreferrer'); } else { window.location.href = linkElement.href; } } }); });
+            projectCards.forEach(card => { 
+                card.addEventListener('click', function(event) { 
+                    const linkElement = this.querySelector('.project-links a'); 
+                    if (linkElement && linkElement.href && !linkElement.contains(event.target)) { 
+                        window.open(linkElement.href, '_blank', 'noopener,noreferrer'); 
+                    } 
+                }); 
+            });
 
             // --- Resume Button Logic ---
-            const resumeBtn = document.getElementById('resume-btn'); if (resumeBtn) { resumeBtn.addEventListener('click', function(e) { console.log('Download Resume button clicked.'); }); }
+            const resumeBtn = document.getElementById('resume-btn'); 
+            if (resumeBtn) { 
+                resumeBtn.addEventListener('click', function(e) { 
+                    console.log('Download Resume button clicked.'); 
+                }); 
+            }
 
             // --- Intersection Observer for Entrance Animations ---
             const animatedElements = document.querySelectorAll('.fade-in-section');
-            if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 }); animatedElements.forEach(el => observer.observe(el)); } else { animatedElements.forEach(el => el.classList.add('is-visible')); }
+            if ("IntersectionObserver" in window) { 
+                const observer = new IntersectionObserver((entries, observer) => { 
+                    entries.forEach(entry => { 
+                        if (entry.isIntersecting) { 
+                            entry.target.classList.add('is-visible'); 
+                            observer.unobserve(entry.target); 
+                        } 
+                    }); 
+                }, { threshold: 0.1 }); 
+                animatedElements.forEach(el => observer.observe(el)); 
+            } else { 
+                animatedElements.forEach(el => el.classList.add('is-visible')); 
+            }
 
             // --- Chatbot UI Logic ---
-            const chatPromptTrigger = document.getElementById('chat-prompt-trigger'); const chatWindow = document.getElementById('chat-window'); const chatCloseButton = document.getElementById('chat-close-button'); const chatMessages = document.getElementById('chat-messages'); const chatInput = document.getElementById('chat-input'); const chatSendButton = document.getElementById('chat-send-button');
-            
-            // Re-create the chatbot HTML structure dynamically since it was not in the main body
+            // Create chatbot HTML structure dynamically
             if (!document.getElementById('chat-window')) {
                 const chatHTML = `
                 <div id="chat-window" class="chat-window">
@@ -440,7 +638,7 @@
                         <button id="chat-close-button" class="chat-close" aria-label="Close chat">&times;</button>
                     </div>
                     <div id="chat-messages" class="chat-messages">
-                        <div class="message bot-message">Hi! I'm an AI assistant. Ask me anything about Ketaki's skills, projects, or experience!</div>
+                        <div class="message bot-message">Hi! I'm an AI assistant. Ask me anything about Ketaki's skills, projects, research, or experience!</div>
                     </div>
                     <div class="chat-input-area">
                         <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
@@ -458,18 +656,52 @@
             const chatSendBtn = document.getElementById('chat-send-button');
             const triggerBtn = document.getElementById('chat-prompt-trigger');
 
-            const toggleChat = () => { chatWindowEl.classList.toggle('active'); if (chatWindowEl.classList.contains('active')) chatInp.focus(); };
+            const toggleChat = () => { 
+                chatWindowEl.classList.toggle('active'); 
+                if (chatWindowEl.classList.contains('active')) chatInp.focus(); 
+            };
             
-            // Simple bot logic
+            // Improved bot logic with more context
             const botReply = (text) => {
                 const lowerText = text.toLowerCase();
-                let reply = "That's interesting! You can check the 'Projects' or 'Experience' sections for more details.";
+                let reply = "That's a great question! You can check the sections above for more details, or ask me about specific topics like research, projects, skills, or experience.";
                 
-                if (lowerText.includes('hello') || lowerText.includes('hi')) reply = "Hello! How can I help you today?";
-                else if (lowerText.includes('contact') || lowerText.includes('email')) reply = "You can contact Ketaki at kvd2112@columbia.edu or (651) 384-8787.";
-                else if (lowerText.includes('skill') || lowerText.includes('python')) reply = "Ketaki is proficient in Python, C/C++, R, and SQL, along with frameworks like PyTorch and TensorFlow.";
-                else if (lowerText.includes('project') || lowerText.includes('bci')) reply = "Her featured projects include an EEG Brain-Computer Interface, ViziAssist ADAS, and SkillSet Sherpa.";
-                else if (lowerText.includes('columbia') || lowerText.includes('education')) reply = "She is currently pursuing an M.S. in Computer Science at Columbia University (2025-2026).";
+                if (lowerText.includes('hello') || lowerText.includes('hi') || lowerText.includes('hey')) {
+                    reply = "Hello! I'm here to help you learn about Ketaki. Feel free to ask about her research, projects, skills, or experience!";
+                }
+                else if (lowerText.includes('contact') || lowerText.includes('email') || lowerText.includes('reach')) {
+                    reply = "You can reach Ketaki at kvd2112@columbia.edu or call (651) 384-8787. She's also on LinkedIn and GitHub!";
+                }
+                else if (lowerText.includes('skill') || lowerText.includes('python') || lowerText.includes('programming')) {
+                    reply = "Ketaki is proficient in Python, C/C++, JavaScript, SQL, and R. She works extensively with PyTorch, TensorFlow, HuggingFace, and the NVIDIA stack (TensorRT, DeepStream, Jetson).";
+                }
+                else if (lowerText.includes('project') || lowerText.includes('work')) {
+                    reply = "Her featured projects include a Quant Portfolio Dashboard, Cross-Lingual Hate Speech Detection, ViziAssist ADAS (published in Springer), and an EEG Brain-Computer Interface with 97.63% accuracy!";
+                }
+                else if (lowerText.includes('columbia') || lowerText.includes('education') || lowerText.includes('degree')) {
+                    reply = "She's pursuing an M.S. in Computer Science at Columbia University (2025-2026) and completed her B.Tech from MIT-WPU with a 3.74/4.0 CGPA.";
+                }
+                else if (lowerText.includes('research') || lowerText.includes('cris') || lowerText.includes('lab')) {
+                    reply = "At Columbia's CRIS Lab under Prof. Venkatasubramanian, she's building NLP pipelines for scientific content analysis, working on topic modeling with BERTopic, and contributing to LLM interpretability research.";
+                }
+                else if (lowerText.includes('ai4m') || lowerText.includes('intern') || lowerText.includes('deep learning')) {
+                    reply = "At AI4M Technology, she built real-time defect detection using YOLOv7/v8 on NVIDIA Jetson, achieving 3x speedup with TensorRT and reducing latency by 25%.";
+                }
+                else if (lowerText.includes('nlp') || lowerText.includes('language') || lowerText.includes('bert')) {
+                    reply = "Her NLP work includes cross-lingual hate speech detection using IndicBERT and MuRIL, topic modeling with BERTopic, and LLM applications with LangChain.";
+                }
+                else if (lowerText.includes('computer vision') || lowerText.includes('yolo') || lowerText.includes('vision')) {
+                    reply = "She has extensive computer vision experience with YOLOv7/v8, OpenCV, and CLIP for image retrieval. Her ViziAssist project achieved 0.681 mAP for road obstacle detection.";
+                }
+                else if (lowerText.includes('publication') || lowerText.includes('paper') || lowerText.includes('publish')) {
+                    reply = "She has 2 publications in Springer: ViziAssist ADAS in CCIS and SkillSet Sherpa career guidance platform in LNNS.";
+                }
+                else if (lowerText.includes('hackathon') || lowerText.includes('award') || lowerText.includes('achievement')) {
+                    reply = "Notable achievements include Top 20 at KPIT Hackathon 2022 and 2nd place at HACKMITWPU 2024 with the CanMan project!";
+                }
+                else if (lowerText.includes('writing') || lowerText.includes('blog') || lowerText.includes('poetry')) {
+                    reply = "Beyond code, Ketaki maintains a writer's journal with poetry and essays at kdwriteslikethat.wordpress.com!";
+                }
 
                 const msgDiv = document.createElement('div');
                 msgDiv.className = 'message bot-message';
